@@ -8,67 +8,10 @@ import scipy.stats as stats
 
 #--------------------------------------------------------------------------------
 # Assignment 1
-def main():
-    
-    # choose the scenario
-    #scenario = 1    # all anchors are Gaussian
-    #scenario = 2    # 1 anchor is exponential, 3 are Gaussian
-    #scenario = 3    # all anchors are exponential
-    
-    # specify position of anchors
-    p_anchor = np.array([[5,5],[-5,5],[-5,-5],[5,-5]])
-    nr_anchors = np.size(p_anchor,0)
-    
-    # position of the agent for the reference mearsurement
-    p_ref = np.array([[0,0]])
-    # true position of the agent (has to be estimated)
-    p_true = np.array([[2,-4]])
-#    p_true = np.array([[2,-4])
-                       
-    plot_anchors_and_agent(nr_anchors, p_anchor, p_true, p_ref)
-    
-    # load measured data and reference measurements for the chosen scenario
-    data,reference_measurement = load_data(scenario)
-    
-    # get the number of measurements 
-    assert(np.size(data,0) == np.size(reference_measurement,0))
-    nr_samples = np.size(data,0)
 
-    #1) ML estimation of model parameters
-    
-    ### TEST: 
-    if scenario == 2:
-        plt.figure()
-        #for ii in range(0, nr_anchors):
-        Fx,x = ecdf(reference_measurement[:,0])
-        plt.plot(x,Fx)
-        plt.legend(["Measurement 1","Measurement 2","Measurement 3","Measurement 4"])
-        plt.title("Empirical Cumulative Distributions of Reference Measurements")
-        plt.show()
-    ### END TEST
+#def main():
 
-    #TODO 
-    params = parameter_estimation(reference_measurement,nr_anchors,p_anchor,p_ref)
-    
-    #2) Position estimation using least squares
-    #TODO
-    position_estimation_least_squares(data,nr_anchors,p_anchor, p_true, True)
-
-    if(scenario == 3):
-        # TODO: don't forget to plot joint-likelihood function for the first measurement
-
-        #3) Postion estimation using numerical maximum likelihood
-        #TODO
-        position_estimation_numerical_ml(data,nr_anchors,p_anchor, params, p_true)
-    
-        #4) Position estimation with prior knowledge (we roughly know where to expect the agent)
-        #TODO
-        # specify the prior distribution
-        prior_mean = p_true
-        prior_cov = np.eye(2)
-        position_estimation_bayes(data,nr_anchors,p_anchor,prior_mean,prior_cov, params, p_true)
-
-    pass
+#    pass
 
 #--------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------
@@ -79,9 +22,32 @@ def parameter_estimation(reference_measurement,nr_anchors,p_anchor,p_ref):
         nr_anchors... scalar
         p_anchor... position of anchors, nr_anchors x 2
         p_ref... reference point, 2x2 """
+
+    dist_ref = np.linalg.norm(p_ref-p_anchor[0,:])
+    reference_measurement_sort = np.sort(reference_measurement, axis=0)
+    nr_samples = np.size(reference_measurement, 0)
+    x = range(0, nr_samples)
+    
+    plt.figure()
+    plt.plot(x, dist_ref * np.ones(nr_samples))
+    plt.plot(x, reference_measurement_sort)
+    plt.legend(["True Distance","Measurement 1","Measurement 2","Measurement 3","Measurement 4"])
+    plt.xlabel("samples")
+    plt.ylabel("distance/m")
+    plt.grid()
+    plt.show()
+    
     params = np.zeros([1, nr_anchors])
-    #TODO (1) check whether a given anchor is Gaussian or exponential
-    #TODO (2) estimate the according parameter based 
+    for ii in range(0, nr_anchors):
+        dist_error = reference_measurement[:,ii] - dist_ref
+        # check whether a given anchor is Gaussian or exponential
+        if reference_measurement_sort[0,ii] >= dist_ref:
+            # exponential
+            params[0,ii] =  1/np.sum(dist_error)
+        else:
+            # Gaussian
+            params[0,ii] =  np.sum(dist_error**2)
+    
     return params
 #--------------------------------------------------------------------------------
 def position_estimation_least_squares(data,nr_anchors,p_anchor, p_true, use_exponential):
@@ -221,6 +187,64 @@ def plot_anchors_and_agent(nr_anchors, p_anchor, p_true, p_ref=None):
 
 #--------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------
-if __name__ == '__main__':
-    plt.close('all')
-    main()
+#if __name__ == '__main__':
+#    plt.close('all')
+#    main()
+
+
+
+
+
+
+
+
+
+
+
+
+plt.close('all')
+
+# choose the scenario
+#scenario = 1    # all anchors are Gaussian
+scenario = 2    # 1 anchor is exponential, 3 are Gaussian
+#scenario = 3    # all anchors are exponential
+
+# specify position of anchors
+p_anchor = np.array([[5,5],[-5,5],[-5,-5],[5,-5]])
+nr_anchors = np.size(p_anchor,0)
+
+# position of the agent for the reference mearsurement
+p_ref = np.array([[0,0]])
+# true position of the agent (has to be estimated)
+p_true = np.array([[2,-4]])
+#    p_true = np.array([[2,-4])
+                   
+plot_anchors_and_agent(nr_anchors, p_anchor, p_true, p_ref)
+
+# load measured data and reference measurements for the chosen scenario
+data,reference_measurement = load_data(scenario)
+
+# get the number of measurements 
+assert(np.size(data,0) == np.size(reference_measurement,0))
+nr_samples = np.size(data,0)
+
+#1) ML estimation of model parameters
+params = parameter_estimation(reference_measurement,nr_anchors,p_anchor,p_ref)
+
+#2) Position estimation using least squares
+#TODO
+position_estimation_least_squares(data,nr_anchors,p_anchor, p_true, True)
+
+if(scenario == 3):
+    # TODO: don't forget to plot joint-likelihood function for the first measurement
+
+    #3) Postion estimation using numerical maximum likelihood
+    #TODO
+    position_estimation_numerical_ml(data,nr_anchors,p_anchor, params, p_true)
+
+    #4) Position estimation with prior knowledge (we roughly know where to expect the agent)
+    #TODO
+    # specify the prior distribution
+    prior_mean = p_true
+    prior_cov = np.eye(2)
+    position_estimation_bayes(data,nr_anchors,p_anchor,prior_mean,prior_cov, params, p_true)
