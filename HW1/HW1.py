@@ -60,12 +60,17 @@ def position_estimation_least_squares(data,nr_anchors,p_anchor, p_true, use_expo
         use_exponential... determines if the exponential anchor in scenario 2 is used, bool"""
     nr_samples = np.size(data,0)
     
-    #TODO set parameters
-    #tol = ...  # tolerance
-    #max_iter = ...  # maximum iterations for GN
+    # set parameters
+    tol = 10**(-4)  # tolerance
+    max_iter = 100  # maximum iterations for GN
+    p_start = np.random.uniform([-5, 5])
+    
+    p_est = np.zeros([nr_samples,2])
     
     # TODO estimate position for  i in range(0, nr_samples)
-    # least_squares_GN(p_anchor,p_start, measurements_n, max_iter, tol)
+    for ii in range(0, nr_samples):
+        measurements_n = data[ii,:]
+        p_est[ii,:] = least_squares_GN(p_anchor,p_start, measurements_n, max_iter, tol)
 	# TODO calculate error measures and create plots----------------
     pass
 #--------------------------------------------------------------------------------
@@ -101,9 +106,38 @@ def least_squares_GN(p_anchor,p_start, measurements_n, max_iter, tol):
         measurements_n... distance_estimate, nr_anchors x 1
         max_iter... maximum number of iterations, scalar
         tol... tolerance value to terminate, scalar"""
-    # TODO
-    pass
     
+    p_t = p_start
+    
+    for ii in range(0, max_iter):    
+        dist_t = np.linalg.norm(p_anchor - p_t, axis=1)
+        
+        J = get_jacobian_matrix(p_anchor, p_t, dist_t)
+        
+        JJ_inv = np.linalg.inv((np.transpose(J)).dot(J))
+        JJ_inv_J = JJ_inv.dot(np.transpose(J))
+        p_next = p_t - (JJ_inv_J.dot(measurements_n - dist_t))
+        
+        est_change = np.linalg.norm(p_next - p_t)
+        if est_change < tol:
+            break
+        
+        p_t = p_next
+        
+    return p_next
+#--------------------------------------------------------------------------------
+def get_jacobian_matrix(p_anchor, p_t, dist_t):
+    """ build Jacobian Matrix for all anchors based on previous point estimation
+    Input:
+        p_anchor... position of anchors, nr_anchors x 2
+        p_curr... current position estimate, 1x2
+        dist_t... distance of anchors to current point estimate, nr_anchors x 1"""
+    
+    J = np.zeros([np.size(p_anchor,0), 2])
+    J[:,0] = (p_anchor[:,0] - p_t[0]) / dist_t
+    J[:,1] = (p_anchor[:,1] - p_t[1]) / dist_t
+        
+    return J
 #--------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------
 # Helper Functions
@@ -205,8 +239,8 @@ def plot_anchors_and_agent(nr_anchors, p_anchor, p_true, p_ref=None):
 plt.close('all')
 
 # choose the scenario
-#scenario = 1    # all anchors are Gaussian
-scenario = 2    # 1 anchor is exponential, 3 are Gaussian
+scenario = 1    # all anchors are Gaussian
+#scenario = 2    # 1 anchor is exponential, 3 are Gaussian
 #scenario = 3    # all anchors are exponential
 
 # specify position of anchors
