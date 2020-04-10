@@ -202,7 +202,7 @@ def plot_anchors_and_agent(nr_anchors, p_anchor, p_true, p_ref=None):
 
 
 
-plt.close('all')
+#plt.close('all')
 
 # choose the scenario
 #scenario = 1    # all anchors are Gaussian
