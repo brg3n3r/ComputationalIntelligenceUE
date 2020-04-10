@@ -65,13 +65,55 @@ def position_estimation_least_squares(data,nr_anchors,p_anchor, p_true, use_expo
     max_iter = 100  # maximum iterations for GN
     p_start = np.random.uniform([-5, 5])
     
-    p_est = np.zeros([nr_samples,2])
+    p_ls = np.zeros([nr_samples,2])
     
-    # TODO estimate position for  i in range(0, nr_samples)
+    if use_exponential == False:
+        data = data[:,1:4]
+        p_anchor = p_anchor[1:4,:]
+        nr_anchors = 3
+    
+    # estimate position for ii in range(0, nr_samples)
     for ii in range(0, nr_samples):
         measurements_n = data[ii,:]
-        p_est[ii,:] = least_squares_GN(p_anchor,p_start, measurements_n, max_iter, tol)
-	# TODO calculate error measures and create plots----------------
+        p_ls[ii,:] = least_squares_GN(p_anchor,p_start, measurements_n, max_iter, tol)
+        
+	# calculate error measures and create plots----------------
+    error_ls = np.linalg.norm(p_ls - p_true, axis=1)
+    var_error_ls = np.var(error_ls)
+    print(var_error_ls)
+    mu_error_ls = np.mean(error_ls)
+    print(mu_error_ls)
+    
+    mu_p_ls = np.mean(p_ls, axis = 0)
+    cov_p_ls = np.cov(p_ls, rowvar = False)
+    print(cov_p_ls)
+    
+    # Cumulative Distribution Function
+    plt.figure()
+    Fx, x = ecdf(error_ls)
+    plt.plot(x, Fx)
+    plt.plot([mu_error_ls, mu_error_ls], [0,1])
+    plt.grid()
+    plt.show()
+  
+    
+    # scatter plots
+    plt.figure()
+    plot_anchors_and_agent(nr_anchors, p_anchor, p_true)
+    plt.scatter(p_ls[:,0], p_ls[:,1], s=0.5)
+    plt.show()
+    
+    # Gauss Contour
+    plt.figure()
+    plt.axis([0, 4, -6, -2])
+    plt.plot(p_true[0, 0], p_true[0, 1], 'r*')
+    plt.text(p_true[0, 0] + 0.1, p_true[0, 1] + 0.1, r'$p_{true}$')
+    plt.xlabel("x/m")
+    plt.ylabel("y/m")
+    plt.scatter(p_ls[:,0], p_ls[:,1], s=1)
+    plot_gauss_contour(mu_p_ls, cov_p_ls, 0, 4, -6, -2)
+    plt.show
+    
     pass
 #--------------------------------------------------------------------------------
 def position_estimation_numerical_ml(data,nr_anchors,p_anchor, lambdas, p_true):
@@ -164,7 +206,7 @@ def plot_gauss_contour(mu,cov,xmin,xmax,ymin,ymax,title="Title"):
     CS = plt.contour(X, Y, Z.pdf(pos),3,colors='r')
     plt.clabel(CS, inline=1, fontsize=10)
     plt.title(title)
-    plt.show()
+    #plt.show()
     return
 
 #--------------------------------------------------------------------------------
@@ -216,7 +258,7 @@ def plot_anchors_and_agent(nr_anchors, p_anchor, p_true, p_ref=None):
         plt.text(p_ref[0, 0] + 0.2, p_ref[0, 1] + 0.2, '$p_{ref}$')
     plt.xlabel("x/m")
     plt.ylabel("y/m")
-    plt.show()
+    #plt.show()
     pass
 
 #--------------------------------------------------------------------------------
@@ -254,6 +296,7 @@ p_true = np.array([[2,-4]])
 #    p_true = np.array([[2,-4])
                    
 plot_anchors_and_agent(nr_anchors, p_anchor, p_true, p_ref)
+plt.show()
 
 # load measured data and reference measurements for the chosen scenario
 data,reference_measurement = load_data(scenario)
@@ -266,8 +309,11 @@ nr_samples = np.size(data,0)
 params = parameter_estimation(reference_measurement,nr_anchors,p_anchor,p_ref)
 
 #2) Position estimation using least squares
-#TODO
 position_estimation_least_squares(data,nr_anchors,p_anchor, p_true, True)
+if scenario == 2:
+    # exclude exponential anchor
+    position_estimation_least_squares(data,nr_anchors,p_anchor, p_true, False)
+    
 
 if(scenario == 3):
     # TODO: don't forget to plot joint-likelihood function for the first measurement
