@@ -135,8 +135,8 @@ def position_estimation_numerical_ml(data,nr_anchors,p_anchor, lambdas, p_true):
     for jj in range(0, 201):
         for ii in range(0,201):
             dist_p = np.linalg.norm(p_anchor - [x[ii],y[jj]], axis=1)
-            nonzero_likelihood = (data >= dist_p).all(axis=1)
-            likelihood_grid[nonzero_likelihood,jj,ii] = np.prod(lambdas*np.exp(-lambdas*(data[nonzero_likelihood,:]-dist_p)),axis=1)
+            nonzero_likelihood_idx = (data >= dist_p).all(axis=1)
+            likelihood_grid[nonzero_likelihood_idx,jj,ii] = np.prod(lambdas*np.exp(-lambdas*(data[nonzero_likelihood_idx,:]-dist_p)),axis=1)
             
     X, Y = np.meshgrid(x, y)
     plt.figure()
@@ -202,8 +202,85 @@ def position_estimation_bayes(data,nr_anchors,p_anchor,prior_mean,prior_cov,lamb
          prior_cov... covariance of the prior-dist, 2x2
          lambdas... estimated parameters (scenario 3), nr_anchors x 1
          p_true... true position (needed to calculate error), 2x2 """
-    # TODO
+         
+    nr_samples = np.size(data,0)
+    x = np.linspace(-5,5,201)
+    y = np.linspace(5,-5,201)    
+    likelihood_grid = np.zeros([nr_samples,201,201])
+        
+    for jj in range(0, 201):
+        for ii in range(0,201):
+            p = np.array([x[ii],y[jj]])
+            dist_p = np.linalg.norm(p_anchor - p, axis=1)
+            
+            prior = get_prior(p, prior_mean, prior_cov)
+            
+            nonzero_likelihood_idx = (data >= dist_p).all(axis=1)
+            likelihood_grid[nonzero_likelihood_idx,jj,ii] = np.prod(lambdas*np.exp(-lambdas*(data[nonzero_likelihood_idx,:]-dist_p))*prior,axis=1)
+            
+    X, Y = np.meshgrid(x, y)
+    plt.figure()
+    ax = plt.axes(projection="3d")
+    ax.plot_surface(X,Y,likelihood_grid[0,:,:],cmap = "winter")
+    plt.xlabel("x/m")
+    plt.ylabel("y/m")
+    ax.set_zlabel("joint likelihood", linespacing = 3.4)
+    # ax.zaxis._axinfo['label']['space_factor'] = 1000
+    plt.show()                
+    
+    max_idx = likelihood_grid.reshape(likelihood_grid.shape[0],-1).argmax(1)
+    max_ji = np.column_stack(np.unravel_index(max_idx, likelihood_grid[0,:,:].shape))
+    p_bayes = np.column_stack((x[max_ji[:,1]],y[max_ji[:,0]]))
+    
+    # calculate error measures and create plots----------------
+    error_bayes = np.linalg.norm(p_bayes - p_true, axis=1)
+    var_error_bayes = np.var(error_bayes)
+    print(var_error_bayes)
+    mu_error_bayes = np.mean(error_bayes)
+    print(mu_error_bayes)
+    
+    mu_p_bayes = np.mean(p_bayes, axis = 0)
+    cov_p_bayes = np.cov(p_bayes, rowvar = False)
+    print(cov_p_bayes)
+    
+    # Cumulative Distribution Function
+    plt.figure()
+    Fx, x = ecdf(error_bayes)
+    plt.plot(x, Fx)
+    plt.xlabel("error/m")
+    plt.ylabel("ecdf")
+    plt.grid()
+    plt.show()
+    
+    # scatter plots
+    plt.figure()
+    plot_anchors_and_agent(nr_anchors, p_anchor, p_true)
+    plot_gauss_contour(mu_p_bayes, cov_p_bayes, -6, 6, -6, 6)
+    plt.scatter(p_bayes[:,0], p_bayes[:,1], s=0.5)
+    plt.show()
+    
+    # Gauss Contour
+    plt.figure()
+    plt.axis([0, 4, -6, -2])
+    plt.plot(p_true[0, 0], p_true[0, 1], 'r*')
+    plt.text(p_true[0, 0] + 0.1, p_true[0, 1] + 0.1, r'$p_{true}$')
+    plt.xlabel("x/m")
+    plt.ylabel("y/m")
+    plt.scatter(p_bayes[:,0], p_bayes[:,1], s=1)
+    plot_gauss_contour(mu_p_bayes, cov_p_bayes, -6, 6, -6, 6)
+    plt.show
     pass
+#--------------------------------------------------------------------------------
+def get_prior(p, prior_mean, prior_cov):
+    """ calculate prior gaussian probability for current grid position
+    Input:
+        p... current grid position, 1x2
+        prior_mean... mean of prior distribution, 1x2
+        prior_cov... covariance of prior distribution, 2x2"""
+    
+    prior = 1/(2*np.pi*np.linalg.det(prior_cov)**0.5) * np.exp(-0.5*(((p-prior_mean).dot(prior_cov)).dot(np.transpose(p-prior_mean))))
+        
+    return prior
 #--------------------------------------------------------------------------------
 def least_squares_GN(p_anchor,p_start, measurements_n, max_iter, tol):
     """ apply Gauss Newton to find the least squares solution
