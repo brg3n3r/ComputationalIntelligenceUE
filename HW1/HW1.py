@@ -5,6 +5,7 @@ import matplotlib.cm as cm
 import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
 import scipy.stats as stats
+from mpl_toolkits import mplot3d
 
 #--------------------------------------------------------------------------------
 # Assignment 1
@@ -32,7 +33,7 @@ def parameter_estimation(reference_measurement,nr_anchors,p_anchor,p_ref):
     plt.plot(x, dist_ref * np.ones(nr_samples))
     plt.plot(x, reference_measurement_sort)
     plt.legend(["True Distance","Measurement 1","Measurement 2","Measurement 3","Measurement 4"])
-    plt.xlabel("samples")
+    plt.xlabel("sorted samples")
     plt.ylabel("distance/m")
     plt.grid()
     plt.show()
@@ -43,10 +44,10 @@ def parameter_estimation(reference_measurement,nr_anchors,p_anchor,p_ref):
         # check whether a given anchor is Gaussian or exponential
         if reference_measurement_sort[0,ii] >= dist_ref:
             # exponential
-            params[0,ii] =  1/np.sum(dist_error)
+            params[0,ii] = nr_samples / np.sum(dist_error)
         else:
             # Gaussian
-            params[0,ii] =  np.sum(dist_error**2)
+            params[0,ii] = np.sum(dist_error**2) / nr_samples
     
     return params
 #--------------------------------------------------------------------------------
@@ -72,6 +73,7 @@ def position_estimation_least_squares(data,nr_anchors,p_anchor, p_true, use_expo
         p_anchor = p_anchor[1:4,:]
         nr_anchors = 3
     
+    
     # estimate position for ii in range(0, nr_samples)
     for ii in range(0, nr_samples):
         measurements_n = data[ii,:]
@@ -92,7 +94,8 @@ def position_estimation_least_squares(data,nr_anchors,p_anchor, p_true, use_expo
     plt.figure()
     Fx, x = ecdf(error_ls)
     plt.plot(x, Fx)
-    plt.plot([mu_error_ls, mu_error_ls], [0,1])
+    plt.xlabel("error/m")
+    plt.ylabel("ecdf")
     plt.grid()
     plt.show()
   
@@ -101,9 +104,9 @@ def position_estimation_least_squares(data,nr_anchors,p_anchor, p_true, use_expo
     plt.figure()
     plot_anchors_and_agent(nr_anchors, p_anchor, p_true)
     plt.scatter(p_ls[:,0], p_ls[:,1], s=0.5)
+    plot_gauss_contour(mu_p_ls, cov_p_ls, -6, 6, -6, 6)
     plt.show()
     
-    # Gauss Contour
     plt.figure()
     plt.axis([0, 4, -6, -2])
     plt.plot(p_true[0, 0], p_true[0, 1], 'r*')
@@ -124,7 +127,69 @@ def position_estimation_numerical_ml(data,nr_anchors,p_anchor, lambdas, p_true):
         p_anchor... position of anchors, nr_anchors x 2 
         lambdas... estimated parameters (scenario 3), nr_anchors x 1
         p_true... true position (needed to calculate error), 2x2 """
-    #TODO
+    nr_samples = np.size(data,0)
+    x = np.linspace(-5,5,201)
+    y = np.linspace(5,-5,201)    
+    likelihood_grid = np.zeros([nr_samples,201,201])
+        
+    for jj in range(0, 201):
+        for ii in range(0,201):
+            dist_p = np.linalg.norm(p_anchor - [x[ii],y[jj]], axis=1)
+            nonzero_likelihood = (data >= dist_p).all(axis=1)
+            likelihood_grid[nonzero_likelihood,jj,ii] = np.prod(lambdas*np.exp(-lambdas*(data[nonzero_likelihood,:]-dist_p)),axis=1)
+            
+    X, Y = np.meshgrid(x, y)
+    plt.figure()
+    ax = plt.axes(projection="3d")
+    ax.plot_surface(X,Y,likelihood_grid[0,:,:],cmap = "winter")
+    plt.xlabel("x/m")
+    plt.ylabel("y/m")
+    ax.set_zlabel("joint likelihood", linespacing = 3.4)
+    # ax.zaxis._axinfo['label']['space_factor'] = 1000
+    plt.show()                
+    
+    max_idx = likelihood_grid.reshape(likelihood_grid.shape[0],-1).argmax(1)
+    max_ji = np.column_stack(np.unravel_index(max_idx, likelihood_grid[0,:,:].shape))
+    p_nml = np.column_stack((x[max_ji[:,1]],y[max_ji[:,0]]))
+    
+    # calculate error measures and create plots----------------
+    error_nml = np.linalg.norm(p_nml - p_true, axis=1)
+    var_error_nml = np.var(error_nml)
+    print(var_error_nml)
+    mu_error_nml = np.mean(error_nml)
+    print(mu_error_nml)
+    
+    mu_p_nml = np.mean(p_nml, axis = 0)
+    cov_p_nml = np.cov(p_nml, rowvar = False)
+    print(cov_p_nml)
+    
+    # Cumulative Distribution Function
+    plt.figure()
+    Fx, x = ecdf(error_nml)
+    plt.plot(x, Fx)
+    plt.xlabel("error/m")
+    plt.ylabel("ecdf")
+    plt.grid()
+    plt.show()
+    
+    # scatter plots
+    plt.figure()
+    plot_anchors_and_agent(nr_anchors, p_anchor, p_true)
+    plot_gauss_contour(mu_p_nml, cov_p_nml, -6, 6, -6, 6)
+    plt.scatter(p_nml[:,0], p_nml[:,1], s=0.5)
+    plt.show()
+    
+    # Gauss Contour
+    plt.figure()
+    plt.axis([0, 4, -6, -2])
+    plt.plot(p_true[0, 0], p_true[0, 1], 'r*')
+    plt.text(p_true[0, 0] + 0.1, p_true[0, 1] + 0.1, r'$p_{true}$')
+    plt.xlabel("x/m")
+    plt.ylabel("y/m")
+    plt.scatter(p_nml[:,0], p_nml[:,1], s=1)
+    plot_gauss_contour(mu_p_nml, cov_p_nml, -6, 6, -6, 6)
+    plt.show
+    
     pass
 #--------------------------------------------------------------------------------
 def position_estimation_bayes(data,nr_anchors,p_anchor,prior_mean,prior_cov,lambdas, p_true):
@@ -293,8 +358,8 @@ nr_anchors = np.size(p_anchor,0)
 p_ref = np.array([[0,0]])
 # true position of the agent (has to be estimated)
 p_true = np.array([[2,-4]])
-#    p_true = np.array([[2,-4])
-                   
+            
+plt.figure()       
 plot_anchors_and_agent(nr_anchors, p_anchor, p_true, p_ref)
 plt.show()
 
@@ -316,10 +381,7 @@ if scenario == 2:
     
 
 if(scenario == 3):
-    # TODO: don't forget to plot joint-likelihood function for the first measurement
-
     #3) Postion estimation using numerical maximum likelihood
-    #TODO
     position_estimation_numerical_ml(data,nr_anchors,p_anchor, params, p_true)
 
     #4) Position estimation with prior knowledge (we roughly know where to expect the agent)
