@@ -108,7 +108,7 @@ def position_estimation_least_squares(data,nr_anchors,p_anchor, p_true, use_expo
     # set parameters
     tol = 10**(-4)  # tolerance
     max_iter = 100  # maximum iterations for GN
-    p_start = np.random.uniform([-5, 5])
+    p_start = np.random.uniform([-5, 5]) # starting point chosen from uniform distribution
     nr_samples = np.size(data,0)
     
     # adjust for fewer anchors
