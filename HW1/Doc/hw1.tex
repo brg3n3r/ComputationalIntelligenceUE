@@ -32,7 +32,7 @@
                    \hline
                    Blöcher & Christian & 01573246 \\
                    \hline
-                   Bürgener & Max &  \\
+                   Bürgener & Max & 01531577 \\
                    \hline
                     &  &  \\
                    \hline
@@ -43,11 +43,100 @@
 
 \section{Maximum Likelihood Estimation of Model Parameters}
 
+\begin{itemize}
+    \item Analytical derivation for the Gaussian distribution:\\
+  
+	    $\begin{array}{ccc}
+	        p(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & \frac{1}{\sqrt{2\pi\sigma^2}} \cdot e^{- \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2}} \\  
+	    \end{array}$\\
+	    
+	    The data is independent identically distributed (iid), therefore the likelihood function is the sum of all individual likelihoods\\
+	    
+	    $\begin{array}{ccc}
+	        P(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & \displaystyle \prod_{n=0}^{N-1} \frac{1}{\sqrt{2\pi\sigma^2}} \cdot e^{- \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2}} \\
+
+	    \end{array}$\\
+	  
+	    To convert the product to sum we use the logarithm.\\
+	  
+	    $\begin{array}{cccl}
+	        L(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & ln \left[ \displaystyle \displaystyle \prod_{n=0}^{N-1} \frac{1}{\sqrt{2\pi\sigma^2}} \cdot e^{- \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2}} \right] & \\\\
+	        L(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & \displaystyle \sum_{n=0}^{N-1} \left[ ln(\frac{1}{\sqrt{2\pi\sigma^2}}) - \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2} \right] & \\
+	    \end{array}$\\
+	  
+	    Since we want to find the parameter $\sigma^2$, which maximizes the probability of the distance, we derive $L(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p})$ and set it to zero. \\
+	
+	    $\begin{array}{cccr}
+	        L(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & \displaystyle \sum_{n=0}^{N-1} \left[ ln(1) - ln(\sqrt{2\pi\sigma^2} - \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2} \right] & \mid \frac{\partial}{\partial\sigma^2} \\\\
+	        \frac{\partial}{\partial\sigma^2} L(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & \displaystyle \sum_{n=0}^{N-1} \left[ - \frac{1}{\sigma^2} + \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{\sigma^4} \right] & \stackrel{!}{=} 0 \\\\
+	        0 & = & \displaystyle \sum_{n=0}^{N-1} \left[ - \frac{1}{\sigma^2} + \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{\sigma^4} \right] & \\\\
+	        \frac{N}{\sigma^2} & = & \displaystyle \sum_{n=0}^{N-1} \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{\sigma^4} \\\\
+	        \sigma^2 & = & \displaystyle \sum_{n=0}^{N-1}\frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{N} 
+	    \end{array}$\\
+         	 
+	\item Analytical derivation for the Exponential distribution:\\
+	 
+	    \begin{equation*}
+	  	     p(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) = 
+	         \begin{cases}
+	             \lambda_i e^{-\lambda_i [\tilde{d}_n(a_i,\mathbf{p}) - d(a_i,p)]} & \quad \text{, }\tilde{d}_n(a_i,\mathbf{p}) \geq d(a_i,\mathbf{p}) \\
+	             0 & \quad \text{, else}
+	         \end{cases}
+	     \end{equation*}
+	    
+            	         
+	     $\begin{array}{cccl}
+	         L(\tilde{d}_n(a_i,\mathbf{p}) \mid \mathbf{p}) & = & \displaystyle \sum_{n=0}^{N-1} ln(\lambda_i) - \lambda_i [\tilde{d}_n(a_i,\mathbf{p}) - d(a_i,\mathbf{p})] & \mid \frac{\partial}{\partial\lambda_i} \\\\
+	         \frac{\partial}{\partial\lambda_i} L(\tilde{d}_n(a_i,\mathbf{p}) \mid \mathbf{p}) & = & \frac{N}{\lambda_i} - \displaystyle \sum_{n=0}^{N-1}[\tilde{d}_n(a_i,\mathbf{p}) - d(a_i,\mathbf{p})] & \stackrel{!}{=} 0 \\\\
+	         \frac{N}{\lambda_i} & = & \displaystyle \sum_{n=0}^{N-1} [\tilde{d}_n(a_i,\mathbf{p}) - d(a_i,\mathbf{p})] & \\\\
+	         \lambda_i & = & \frac{N}{\displaystyle \sum_{n=0}^{N-1} [\tilde{d}_n(a_i,\mathbf{p}) - d(a_i,p)]} & ,\tilde{d}_n(a_i,\mathbf{p}) \geq d(a_i,\mathbf{p})
+	     \end{array}$\\
+	 
+\end{itemize}
+
+
 \section{Estimation of the Position}
 \subsection{Least-Squares Estimation of the Position}
 
+\begin{itemize}
+    \item Analytical conversion of the ML estimation equation:\\
+    
+        $\begin{array}{ccccl}
+        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmax}} \displaystyle \prod_{n=0}^{N-1} p(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & &\\
+        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmax}} \;ln \left[ \displaystyle \prod_{n=0}^{N-1} p(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) \right] & &\\        
+        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmax}} \displaystyle \sum_{i=0}^{N_A - 1} ln \left( \frac{1}{\sqrt{2\pi\sigma^2}} - \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2} \right) & &\\
+        \end{array}$ \\
+        
+        The $ln$-term can be negclected since it's just a scaling factor. Furthermore $ - \underset{\mathbf{p}}{\textrm{argmax}}$ is equal to $\underset{\mathbf{p}}{\textrm{argmin}}$. \\
+        
+        $\begin{array}{ccccl}
+        
+        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmin}} \displaystyle \sum_{i=0}^{N_A-1} \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2} & \approx & \hat{\mathbf{p}}_{LS}(n)
+        	    	
+        \end{array}$
+                 	
+\end{itemize}
+
+
 
 \subsection{Gauss-Newton Algorithm for Position Estimation}
+
+\begin{itemize}
+
+	\item Analytical solution for the Jacobian matrix.\\
+	
+	    $\begin{array}{ccc}
+    
+        \left[ J(p)\right]_{i,1} & = & \frac{\partial}{\partial x} \left[ \tilde{d}_n(a_i,\mathbf{p}) - \sqrt{(x_i - x)^2 + (y_i - y)^2} \right] \\\\
+        \left[ J(p) \right]_{i,1} & = & -\frac{[(-)2(x_i-x)]}{2 \cdot\sqrt{(x_i - x)^2 + (y_i - y)^2}} \\\\
+        \left[ J(p) \right]_{i,1} & = & \frac{(x_i-x)}{\sqrt{(x_i - x)^2 + (y_i - y)^2}}\\\\\\
+        
+        
+        \left[ J(p) \right]_{i,2} & = & \frac{(y_i-y)}{\sqrt{(x_i - x)^2 + (y_i - y)^2}}\\\\\\
+
+    \end{array}$
+
+\end{itemize}
 
 \begin{table}[h]
 \centering
