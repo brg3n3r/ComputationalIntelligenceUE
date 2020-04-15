@@ -2,7 +2,7 @@
 \usepackage[a4paper,left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{latexsym,amsfonts,amsmath,amssymb,amstext,graphicx,titlesec,ae,aecompl,mathtools,tabularx, multirow, cancel, nicefrac}
+\usepackage{latexsym,amsfonts,amsmath,amssymb,amstext,graphicx,titlesec,ae,aecompl,mathtools,tabularx, multirow, cancel, nicefrac,subcaption}
 \setlength{\parindent}{0pt}
 
 
@@ -50,14 +50,14 @@
 	        p(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & \frac{1}{\sqrt{2\pi\sigma^2}} \cdot e^{- \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2}} \\  
 	    \end{array}$\\
 	    
-	    The data is independent identically distributed (iid), therefore the likelihood function is the sum of all individual likelihoods\\
+	    The data is independent identically distributed (iid), therefore the likelihood function is the product of all individual likelihoods\\
 	    
 	    $\begin{array}{ccc}
 	        P(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & \displaystyle \prod_{n=0}^{N-1} \frac{1}{\sqrt{2\pi\sigma^2}} \cdot e^{- \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2}} \\
 
 	    \end{array}$\\
 	  
-	    To convert the product to sum we use the logarithm.\\
+	    To convert the product to a sum we apply the natural logarithm.\\
 	  
 	    $\begin{array}{cccl}
 	        L(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & ln \left[ \displaystyle \displaystyle \prod_{n=0}^{N-1} \frac{1}{\sqrt{2\pi\sigma^2}} \cdot e^{- \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2}} \right] & \\\\
@@ -67,11 +67,11 @@
 	    Since we want to find the parameter $\sigma^2$, which maximizes the probability of the distance, we derive $L(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p})$ and set it to zero. \\
 	
 	    $\begin{array}{cccr}
-	        L(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & \displaystyle \sum_{n=0}^{N-1} \left[ ln(1) - ln(\sqrt{2\pi\sigma^2} - \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2} \right] & \mid \frac{\partial}{\partial\sigma^2} \\\\
+	        L(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & \displaystyle \sum_{n=0}^{N-1} \left[ ln(1) - \frac{1}{2}ln(2\pi\sigma^2) - \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2} \right] & \mid \frac{\partial}{\partial\sigma^2} \\\\
 	        \frac{\partial}{\partial\sigma^2} L(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & \displaystyle \sum_{n=0}^{N-1} \left[ - \frac{1}{\sigma^2} + \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{\sigma^4} \right] & \stackrel{!}{=} 0 \\\\
 	        0 & = & \displaystyle \sum_{n=0}^{N-1} \left[ - \frac{1}{\sigma^2} + \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{\sigma^4} \right] & \\\\
 	        \frac{N}{\sigma^2} & = & \displaystyle \sum_{n=0}^{N-1} \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{\sigma^4} \\\\
-	        \sigma^2 & = & \displaystyle \sum_{n=0}^{N-1}\frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{N} 
+	        \sigma^2 & = & \frac{\displaystyle \sum_{n=0}^{N-1}[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{N} 
 	    \end{array}$\\
          	 
 	\item Analytical derivation for the Exponential distribution:\\
@@ -89,7 +89,7 @@
 	         L(\tilde{d}_n(a_i,\mathbf{p}) \mid \mathbf{p}) & = & \displaystyle \sum_{n=0}^{N-1} ln(\lambda_i) - \lambda_i [\tilde{d}_n(a_i,\mathbf{p}) - d(a_i,\mathbf{p})] & \mid \frac{\partial}{\partial\lambda_i} \\\\
 	         \frac{\partial}{\partial\lambda_i} L(\tilde{d}_n(a_i,\mathbf{p}) \mid \mathbf{p}) & = & \frac{N}{\lambda_i} - \displaystyle \sum_{n=0}^{N-1}[\tilde{d}_n(a_i,\mathbf{p}) - d(a_i,\mathbf{p})] & \stackrel{!}{=} 0 \\\\
 	         \frac{N}{\lambda_i} & = & \displaystyle \sum_{n=0}^{N-1} [\tilde{d}_n(a_i,\mathbf{p}) - d(a_i,\mathbf{p})] & \\\\
-	         \lambda_i & = & \frac{N}{\displaystyle \sum_{n=0}^{N-1} [\tilde{d}_n(a_i,\mathbf{p}) - d(a_i,p)]} & ,\tilde{d}_n(a_i,\mathbf{p}) \geq d(a_i,\mathbf{p})
+	         \lambda_i & = & \frac{N}{\displaystyle \sum_{n=0}^{N-1} [\tilde{d}_n(a_i,\mathbf{p}) - d(a_i,\mathbf{p})]} & ,\tilde{d}_n(a_i,\mathbf{p}) \geq d(a_i,\mathbf{p})
 	     \end{array}$\\
 	 
 \end{itemize}
@@ -102,16 +102,16 @@
     \item Analytical conversion of the ML estimation equation:\\
     
         $\begin{array}{ccccl}
-        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmax}} \displaystyle \prod_{n=0}^{N-1} p(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & &\\
-        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmax}} \;ln \left[ \displaystyle \prod_{n=0}^{N-1} p(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) \right] & &\\        
-        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmax}} \displaystyle \sum_{i=0}^{N_A - 1} ln \left( \frac{1}{\sqrt{2\pi\sigma^2}} - \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2} \right) & &\\
+        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmax}} \displaystyle \prod_{i=0}^{N_A-1} p(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & &\\
+        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmax}} \;ln \left[ \displaystyle \prod_{i=0}^{N_A-1} p(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) \right] & &\\        
+        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmax}} \displaystyle \sum_{i=0}^{N_A - 1} ln \left( \frac{1}{\sqrt{2\pi\sigma_i^2}}\right) - \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma_i^2} & &\\
         \end{array}$ \\
-        
-        The $ln$-term can be negclected since it's just a scaling factor. Furthermore $ - \underset{\mathbf{p}}{\textrm{argmax}}$ is equal to $\underset{\mathbf{p}}{\textrm{argmin}}$. \\
+       
+        Because in scenario 1 we only use Gaussian models for all anchors that were calibrated with the same distance to the reference position, we can assume that $\sigma_i^2 = \sigma^2 \; \forall i$. That means the $ln$-term can be neglected since it only shifts the value of the maximum by a constant but does not affect its position. Similarly $\frac{1}{2\sigma^2}$ can be omitted, as it is also just a scaling factor. Furthermore $ \underset{\mathbf{p}}{\textrm{argmax}}\;(- \dots)$ is equivalent to $\underset{\mathbf{p}}{\textrm{argmin}}\;(\dots)$. Thus: \\
         
         $\begin{array}{ccccl}
         
-        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmin}} \displaystyle \sum_{i=0}^{N_A-1} \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2} & \approx & \hat{\mathbf{p}}_{LS}(n)
+        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmin}} \displaystyle \sum_{i=0}^{N_A-1} [\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2 & = & \hat{\mathbf{p}}_{LS}(n)
         	    	
         \end{array}$
                  	
@@ -144,24 +144,97 @@
 \cline{2-5}
                                                        & \multirow{2}{*}{Scenario 1} & \multicolumn{2}{c||}{Scenario 2}                      & \multirow{2}{*}{Scenario 3} \\ \cline{3-4}
                                                        &                             & with exponential anchor & without exponential anchor &                             \\ \hline\hline
-\multicolumn{1}{|l||}{Error mean $\mu_{e}$}          & 0.2779                      & 0.6402                  & 0.3988                     & 1.2697                      \\ \hline
-\multicolumn{1}{|l||}{Error variance $\sigma^2_{e}$} & 0.0216                      & 0.2745                  & 0.0541                     & 0.9622                      \\ \hline
+\multicolumn{1}{|l||}{Error mean $\mu_{e}$}          & 0.278                      & 0.640                  & 0.399                     & 1.265                      \\ \hline
+\multicolumn{1}{|l||}{Error variance $\sigma^2_{e}$} & 0.022                      & 0.275                  & 0.054                     & 0.939                      \\ \hline
 \end{tabular}
 \caption{.}
 \label{tab:ls_mean_var}
 \end{table}
 
 \subsection{Numerical Maximum Likelihood Estimation of the Position}
+\subsubsection{Single Measurement}
+
+\begin{itemize}
+\item The numerical maximum likelihood estimate is computed by finding the maximum of the joint likelihood of all anchors evaluated within a 2D-grid enclosed by the anchors. Because of the i.i.d.-assumption the joint likelihood can be calculated as the product of all individual exponential likelihoods:
+
+\begin{align*}
+p(\mathbf{\tilde{d}}_n(\mathbf{p})|\mathbf{p}) = 
+\begin{cases}
+\displaystyle \prod_{i=0}^{N_A-1} p(\tilde{d}_n(a_i,\mathbf{p})|\mathbf{p})\text{,}	& 	\; \text{if } \tilde{d}_n(a_i,\mathbf{p}) \geq d (a_i,\mathbf{p}) \; \forall i \\
+\; 0 	&	\; \text{else}
+\end{cases}
+\end{align*} 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{./Figures/scenario3_grid_nml.pdf}
+\caption{$p(\mathbf{\tilde{d}}_0(\mathbf{p})|\mathbf{p})$ evaluated within a 2D-grid enclosed by the anchors.}
+\label{fig:scenario3_grid_nml}
+\end{figure}
+
+\item Because of its nonlinearity the joint likelihood function of the first sample $n=0$ has two local maxima (s. figure \ref{fig:scenario3_grid_nml}). If we used a gradient ascent algorithm with a random starting position, it would stop once it reaches any of them, possibly leading to a false estimation of the position, if the found maximum is not global.\\
+
+\item The found maximum at $\mathbf{p}_{0,NML} = \left[\begin{array}{c} 2.5\\-5 \end{array}\right]$ is not at the true position. \textbf{Of Course That's Because...???}
+\end{itemize}
+
+\subsubsection{Multiple Measurements}
+
+\begin{itemize}
+\item
+
+\begin{figure}
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{./figures/scenario3_gausscont_small_nml.pdf}
+\caption{Full view of scatter plot.}
+\end{subfigure}
+
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{./figures/scenario3_gausscont_big_nml.pdf}
+\caption{Detailed view centered on $\mathbf{p_{true}}$.}
+\end{subfigure}
+\caption{Scatter plot of NML-estimated positions with Gaussian-contour.}
+\label{fig:scenario3_gausscont_nml}
+\end{figure}
 
 \begin{table}[h]
 \centering
 \begin{tabular}{l||c||c||c|}
 \cline{2-4}
                                                    & Least-Squares & Numerical Maximum Likelihood & Bayes  \\ \hline \hline
-\multicolumn{1}{|l||}{Error mean $\mu_e$}           & 0.9621        & 0.9154                       & 0.3080 \\ \hline
-\multicolumn{1}{|l||}{Error variance $\sigma^2_e$} & 1.2697        & 0.4889                       & 0.0135 \\ \hline
+\multicolumn{1}{|l||}{Error mean $\mu_e$}           & 1.265              & 0.915                       & 0.680 \\ \hline
+\multicolumn{1}{|l||}{Error variance $\sigma^2_e$} &  0.939 & 0.489                       & 0.095 \\ \hline
 \end{tabular}
-\caption{.}
+\caption{Error-mean and -variance of Least-Squares-, Numerical Maximum Likelihood- and Bayes-Estimation.}
 \label{tab:scen3_mean_var}
 \end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{./Figures/scenario3_ecdf_all.pdf}
+\caption{ECDF of Least-Squares-, Numerical Maximum Likelihood- and Bayes-Estimation.}
+\label{fig:scenario3_ecdf_all}
+\end{figure}
+
+\item
+
+\item
+
+\begin{figure}[h]
+\begin{subfigure}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{./figures/scenario3_gausscont_small_bayes.pdf}
+\caption{Full view of scatter plot.}
+\end{subfigure}
+
+\begin{subfigure}{\textwidth}
+\includegraphics[width=\textwidth]{./figures/scenario3_gausscont_big_bayes.pdf}
+\caption{Detailed view centered on $\mathbf{p_{true}}$.}
+\end{subfigure}
+\caption{Scatter plot of Bayes-estimated positions with Gaussian-contour.}
+\label{fig:scenario3_gausscont_bayes}
+\end{figure}
+
+\end{itemize}
+
 \end{document}
