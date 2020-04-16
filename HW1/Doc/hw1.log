@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.22)  14 APR 2020 19:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.22)  15 APR 2020 19:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -261,7 +261,30 @@ Package: nicefrac 1998/08/04 v0.9b Nice fractions
 
 (c:/texlive/2018/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-)) (./hw1.aux)
+))
+(c:/texlive/2018/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2018/05/01 v1.1-162 Sub-captions (AR)
+
+(c:/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
+
+(c:/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen144
+\captionmargin@=\dimen145
+\captionwidth=\dimen146
+\caption@tempdima=\dimen147
+\caption@indent=\dimen148
+\caption@parindent=\dimen149
+\caption@hangindent=\dimen150
+)
+\c@caption@flags=\count109
+\c@ContinuedFloat=\count110
+)
+\c@subfigure=\count111
+\c@subtable=\count112
+) (./hw1.aux)
 \openout1 = `hw1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
@@ -313,16 +336,16 @@ LaTeX Font Info:    ... okay on input line 9.
 
 (c:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count109
-\scratchdimen=\dimen144
+\scratchcounter=\count113
+\scratchdimen=\dimen151
 \scratchbox=\box32
-\nofMPsegments=\count110
-\nofMParguments=\count111
+\nofMPsegments=\count114
+\nofMParguments=\count115
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count112
-\MPscratchDim=\dimen145
-\MPnumerator=\count113
-\makeMPintoPDFobject=\count114
+\MPscratchCnt=\count116
+\MPscratchDim=\dimen152
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
 \everyMPtoPDFconversion=\toks28
 ) (c:/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -376,35 +399,192 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+
 (c:/texlive/2018/texmf-dist/tex/latex/base/ulasy.fd)
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd)
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd) [1
 
 {c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (34.75282pt too wide) in paragraph at lines 54--61
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 47.
+
+(c:/texlive/2018/texmf-dist/tex/latex/ae/omsaer.fd
+File: omsaer.fd 1999/12/27
+)
+LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 47.
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--52
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--76
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--94
+
+ []
+
+[1]
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--109
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
+
+ []
+
+
+Overfull \hbox (34.75282pt too wide) in paragraph at lines 143--150
  [][] 
  []
 
-[1] (./hw1.aux) ) 
+[2]
+<./Figures/scenario3_grid_nml.pdf, id=27, 462.52798pt x 344.0052pt>
+File: ./Figures/scenario3_grid_nml.pdf Graphic file (type pdf)
+<use ./Figures/scenario3_grid_nml.pdf>
+Package pdftex.def Info: ./Figures/scenario3_grid_nml.pdf  used on input line 1
+70.
+(pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
+
+ []
+
+[3 <./Figures/scenario3_grid_nml.pdf>]
+<./figures/scenario3_gausscont_small_nml.pdf, id=60, 462.52798pt x 344.0052pt>
+File: ./figures/scenario3_gausscont_small_nml.pdf Graphic file (type pdf)
+<use ./figures/scenario3_gausscont_small_nml.pdf>
+Package pdftex.def Info: ./figures/scenario3_gausscont_small_nml.pdf  used on i
+nput line 188.
+(pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
+<./figures/scenario3_gausscont_big_nml.pdf, id=61, 462.52798pt x 344.0052pt>
+File: ./figures/scenario3_gausscont_big_nml.pdf Graphic file (type pdf)
+<use ./figures/scenario3_gausscont_big_nml.pdf>
+Package pdftex.def Info: ./figures/scenario3_gausscont_big_nml.pdf  used on inp
+ut line 193.
+(pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
+
+
+LaTeX Warning: Float too large for page by 17.55756pt on input line 198.
+
+<./Figures/scenario3_ecdf_all.pdf, id=62, 462.52798pt x 344.0052pt>
+File: ./Figures/scenario3_ecdf_all.pdf Graphic file (type pdf)
+<use ./Figures/scenario3_ecdf_all.pdf>
+Package pdftex.def Info: ./Figures/scenario3_ecdf_all.pdf  used on input line 2
+14.
+(pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./figures/scenario3_gausscont_small_bayes.pdf, id=63, 462.52798pt x 344.0052pt
+>
+File: ./figures/scenario3_gausscont_small_bayes.pdf Graphic file (type pdf)
+<use ./figures/scenario3_gausscont_small_bayes.pdf>
+Package pdftex.def Info: ./figures/scenario3_gausscont_small_bayes.pdf  used on
+ input line 226.
+(pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
+<./figures/scenario3_gausscont_big_bayes.pdf, id=64, 462.52798pt x 344.0052pt>
+File: ./figures/scenario3_gausscont_big_bayes.pdf Graphic file (type pdf)
+<use ./figures/scenario3_gausscont_big_bayes.pdf>
+Package pdftex.def Info: ./figures/scenario3_gausscont_big_bayes.pdf  used on i
+nput line 231.
+(pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
+
+LaTeX Warning: Float too large for page by 17.55756pt on input line 236.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4] [5 <./Figures/scenario3_gausscont_small_nml.pdf> <./Figures/scenario3_gauss
+cont_big_nml.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Figures/scenario3_gausscont_big_nml.pdf): 
+PDF inclusion: multiple pdfs with page group included in a single page
+>] [6 <./Figures/scenario3_ecdf_all.pdf>] [7 <./Figures/scenario3_gausscont_sma
+ll_bayes.pdf> <./Figures/scenario3_gausscont_big_bayes.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Figures/scenario3_gausscont_big_bayes.pdf)
+: PDF inclusion: multiple pdfs with page group included in a single page
+>] (./hw1.aux) ) 
 Here is how much of TeX's memory you used:
- 4199 strings out of 492616
- 57538 string characters out of 6132768
- 133161 words of memory out of 5000000
- 7987 multiletter control sequences out of 15000+600000
- 27213 words of font info for 61 fonts, out of 8000000 for 9000
+ 5456 strings out of 492616
+ 80591 string characters out of 6132768
+ 163095 words of memory out of 5000000
+ 9206 multiletter control sequences out of 15000+600000
+ 36906 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,9n,28p,270b,253s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
-x10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
-c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texliv
-e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2018/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr7.pfb>
-Output written on hw1.pdf (2 pages, 77076 bytes).
+ 42i,16n,40p,588b,563s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
+10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c
+:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb><c:/texlive/
+2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb><c:/texlive/2018/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2018/texmf-dist/font
+s/type1/public/amsfonts/cm/cmbx9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmex10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
+c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive
+/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2018/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on hw1.pdf (8 pages, 498041 bytes).
 PDF statistics:
- 39 PDF objects out of 1000 (max. 8388607)
- 27 compressed objects within 1 object stream
+ 303 PDF objects out of 1000 (max. 8388607)
+ 124 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
