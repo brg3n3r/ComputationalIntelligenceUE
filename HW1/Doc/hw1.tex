@@ -185,20 +185,20 @@ p(\mathbf{\tilde{d}}_n(\mathbf{p})|\mathbf{p}) =
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth]{./Figures/scenario3_grid_nml.pdf}
+\includegraphics[width=0.9\textwidth]{./Figures/scenario3_grid_nml.pdf}
 \caption{$p(\mathbf{\tilde{d}}_0(\mathbf{p})|\mathbf{p})$ evaluated within a 2D-grid enclosed by the anchors.}
 \label{fig:scenario3_grid_nml}
 \end{figure}
 
 \item Because of its nonlinearity the joint likelihood function of the first sample $n=0$ has two local maxima (s. figure \ref{fig:scenario3_grid_nml}). If we used a gradient ascent algorithm with a random starting position, it would stop once it reaches any of them, possibly leading to a false estimation of the position, if the found maximum is not global.\\
 
-\item The found maximum at $\mathbf{p}_{0,NML} = \left[\begin{array}{c} 2.5\\-5 \end{array}\right]$ is not at the true position. \textbf{Of Course That's Because...???}
+\item The found maximum at $\mathbf{p}_{0,NML} = \left[ 2.5, -5 \right]$ is not at the true position. This is because the estimation is solely based on the noisy distance measurements $\mathbf{\tilde{d}}_0$: Within the grid the likelihood for each anchor $p(\tilde{d}_0(a_i,\mathbf{p})|\mathbf{p})$ is maximised on a circular arc with radius $\tilde{d}_0(a_i,\mathbf{p})$  and center $a_i$. The joint likelihood is nonzero within the area enclosed by both the grid borders and all arcs. Its maximum is at a point within this area as close as possible to all arcs - e.g. at the intersection of two arcs in close vicinity to the remaining ones - but because of the noisiness of the data and the restrictions of the grid, this is not necessarily the true position.
 \end{itemize}
 
 \subsubsection{Multiple Measurements}
 
 \begin{itemize}
-\item
+\item Both error mean $\mu_e$ and variance $\sigma^2_e$ of the NML estimation are much smaller than the corresponding parameters of the LS estimation (s. table \ref{tab:scen3_mean_var}). In figure \ref{fig:scenario3_ecdf_all} a lower maximum error of ca. 5.6m is visible with 90\% of all estimates having an error < 1.5m, which is an improvement over the LS errors. The cloud of position estimates displayed in the scatter-plot (s. figure \ref{fig:scenario3_gausscont_nml}) just below $\mathbf{p_{true}}$ is denser than the LS one but is truncated by the bottom grid border. There are also many outliers near the bottom and right grid borders which make the distribution seem even less Gaussian than the the LS results and cause the Gaussian-contour to be more tilted, indicating that the position estimate coordinates $x$ and $y$ are not statistically independent. 
 
 \begin{figure}
 \begin{subfigure}{\textwidth}
@@ -215,6 +215,15 @@ p(\mathbf{\tilde{d}}_n(\mathbf{p})|\mathbf{p}) =
 \label{fig:scenario3_gausscont_nml}
 \end{figure}
 
+
+\item Of course this comparison is not very fair, since we are only looking at maxima within the grid enclosed by the anchors. This prevents position estimates with larger error values - e.g. estimates below $y=-5$ as in the LS-case - which explains the smaller error parameters. But this also means that the numerical approach confined by the grid borders and its limited resolution is not truly a Maximum Likelihood Estimator, as we can not find the actual maximum of the joint likelihood for all samples.
+
+\item
+The prior knowledge used for the Bayes estimator greatly enhances the accuracy. Here the error mean $\mu_e$ is almost half as big as the LS one, the error variance $\sigma^2_e$ is cut down to almost one tenth of the LS result (s. table \ref{tab:scen3_mean_var}). Looking at figure \ref{fig:scenario3_ecdf_all} the Bayes estimator is a big improvement over the other approaches, the maximum error being only 1.2m. This is also visible in the scatter-plot (s. figure \ref{fig:scenario3_gausscont_bayes}), which shows a very dense estimate-cluster with no outliers. However it is still not centred on $\mathbf{p_{true}}$ but on about the same mean estimate as the NML estimation. The Gaussian-contour is not tilted and (because the cluster is slightly truncated by the bottom grid border) almost circular, indicating stochastically independent estimate coordinates with similar variance.
+
+
+\end{itemize}
+
 \begin{table}[h]
 \centering
 \begin{tabular}{l||c||c||c|}
@@ -229,14 +238,10 @@ p(\mathbf{\tilde{d}}_n(\mathbf{p})|\mathbf{p}) =
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth]{./Figures/scenario3_ecdf_all.pdf}
+\includegraphics[width=0.8\textwidth]{./Figures/scenario3_ecdf_all.pdf}
 \caption{ECDF of Least-Squares-, Numerical Maximum Likelihood- and Bayes-Estimation.}
 \label{fig:scenario3_ecdf_all}
 \end{figure}
-
-\item
-
-\item
 
 \begin{figure}[h]
 \begin{subfigure}{\textwidth}
@@ -252,7 +257,5 @@ p(\mathbf{\tilde{d}}_n(\mathbf{p})|\mathbf{p}) =
 \caption{Scatter plot of Bayes-estimated positions with Gaussian-contour.}
 \label{fig:scenario3_gausscont_bayes}
 \end{figure}
-
-\end{itemize}
 
 \end{document}
