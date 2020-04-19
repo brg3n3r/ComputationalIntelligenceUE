@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.22)  15 APR 2020 19:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.22)  17 APR 2020 01:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -407,164 +407,167 @@ Package caption Info: End \AtBeginDocument code.
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd) [1
 
 {c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 47.
+<./Figures/scenario2_findexponential.pdf, id=10, 462.52798pt x 344.0052pt>
+File: ./Figures/scenario2_findexponential.pdf Graphic file (type pdf)
+<use ./Figures/scenario2_findexponential.pdf>
+Package pdftex.def Info: ./Figures/scenario2_findexponential.pdf  used on input
+ line 52.
+(pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 57.
 
 (c:/texlive/2018/texmf-dist/tex/latex/ae/omsaer.fd
 File: omsaer.fd 1999/12/27
 )
 LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 47.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 57.
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 49--52
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
+Underfull \hbox (badness 10000) in paragraph at lines 67--70
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--59
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+Underfull \hbox (badness 10000) in paragraph at lines 73--77
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--66
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 80--84
+
+ []
+
+[1 <./Figures/scenario2_findexponential.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--76
+Underfull \hbox (badness 10000) in paragraph at lines 87--94
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--94
-
- []
-
-[1]
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
+Underfull \hbox (badness 10000) in paragraph at lines 106--112
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--109
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
+Underfull \hbox (badness 10000) in paragraph at lines 122--127
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
-
- []
-
-
-Overfull \hbox (34.75282pt too wide) in paragraph at lines 143--150
- [][] 
  []
 
 [2]
-<./Figures/scenario3_grid_nml.pdf, id=27, 462.52798pt x 344.0052pt>
-File: ./Figures/scenario3_grid_nml.pdf Graphic file (type pdf)
-<use ./Figures/scenario3_grid_nml.pdf>
-Package pdftex.def Info: ./Figures/scenario3_grid_nml.pdf  used on input line 1
-70.
-(pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 175--176
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
 
  []
 
-[3 <./Figures/scenario3_grid_nml.pdf>]
-<./figures/scenario3_gausscont_small_nml.pdf, id=60, 462.52798pt x 344.0052pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
+
+ []
+
+
+Overfull \hbox (34.75282pt too wide) in paragraph at lines 161--168
+ [][] 
+ []
+
+<./Figures/scenario3_grid_nml.pdf, id=62, 462.52798pt x 344.0052pt>
+File: ./Figures/scenario3_grid_nml.pdf Graphic file (type pdf)
+<use ./Figures/scenario3_grid_nml.pdf>
+Package pdftex.def Info: ./Figures/scenario3_grid_nml.pdf  used on input line 1
+88.
+(pdftex.def)             Requested size: 384.1096pt x 285.69745pt.
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+
+ []
+
+<./figures/scenario3_gausscont_small_nml.pdf, id=66, 462.52798pt x 344.0052pt>
 File: ./figures/scenario3_gausscont_small_nml.pdf Graphic file (type pdf)
 <use ./figures/scenario3_gausscont_small_nml.pdf>
 Package pdftex.def Info: ./figures/scenario3_gausscont_small_nml.pdf  used on i
-nput line 188.
+nput line 206.
 (pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
-<./figures/scenario3_gausscont_big_nml.pdf, id=61, 462.52798pt x 344.0052pt>
+<./figures/scenario3_gausscont_big_nml.pdf, id=67, 462.52798pt x 344.0052pt>
 File: ./figures/scenario3_gausscont_big_nml.pdf Graphic file (type pdf)
 <use ./figures/scenario3_gausscont_big_nml.pdf>
 Package pdftex.def Info: ./figures/scenario3_gausscont_big_nml.pdf  used on inp
-ut line 193.
+ut line 211.
 (pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
 
+LaTeX Warning: Float too large for page by 17.55756pt on input line 216.
 
-LaTeX Warning: Float too large for page by 17.55756pt on input line 198.
-
-<./Figures/scenario3_ecdf_all.pdf, id=62, 462.52798pt x 344.0052pt>
-File: ./Figures/scenario3_ecdf_all.pdf Graphic file (type pdf)
-<use ./Figures/scenario3_ecdf_all.pdf>
-Package pdftex.def Info: ./Figures/scenario3_ecdf_all.pdf  used on input line 2
-14.
-(pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./figures/scenario3_gausscont_small_bayes.pdf, id=63, 462.52798pt x 344.0052pt
->
-File: ./figures/scenario3_gausscont_small_bayes.pdf Graphic file (type pdf)
-<use ./figures/scenario3_gausscont_small_bayes.pdf>
-Package pdftex.def Info: ./figures/scenario3_gausscont_small_bayes.pdf  used on
- input line 226.
-(pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
-<./figures/scenario3_gausscont_big_bayes.pdf, id=64, 462.52798pt x 344.0052pt>
-File: ./figures/scenario3_gausscont_big_bayes.pdf Graphic file (type pdf)
-<use ./figures/scenario3_gausscont_big_bayes.pdf>
-Package pdftex.def Info: ./figures/scenario3_gausscont_big_bayes.pdf  used on i
-nput line 231.
-(pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
-
-LaTeX Warning: Float too large for page by 17.55756pt on input line 236.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4] [5 <./Figures/scenario3_gausscont_small_nml.pdf> <./Figures/scenario3_gauss
-cont_big_nml.pdf
+[4 <./Figures/scenario3_grid_nml.pdf>] [5 <./Figures/scenario3_gausscont_small_
+nml.pdf> <./Figures/scenario3_gausscont_big_nml.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Figures/scenario3_gausscont_big_nml.pdf): 
 PDF inclusion: multiple pdfs with page group included in a single page
->] [6 <./Figures/scenario3_ecdf_all.pdf>] [7 <./Figures/scenario3_gausscont_sma
-ll_bayes.pdf> <./Figures/scenario3_gausscont_big_bayes.pdf
+>]
+<./Figures/scenario3_ecdf_all.pdf, id=164, 462.52798pt x 344.0052pt>
+File: ./Figures/scenario3_ecdf_all.pdf Graphic file (type pdf)
+<use ./Figures/scenario3_ecdf_all.pdf>
+Package pdftex.def Info: ./Figures/scenario3_ecdf_all.pdf  used on input line 2
+41.
+(pdftex.def)             Requested size: 341.43437pt x 253.9562pt.
+<./figures/scenario3_gausscont_small_bayes.pdf, id=165, 462.52798pt x 344.0052p
+t>
+File: ./figures/scenario3_gausscont_small_bayes.pdf Graphic file (type pdf)
+<use ./figures/scenario3_gausscont_small_bayes.pdf>
+Package pdftex.def Info: ./figures/scenario3_gausscont_small_bayes.pdf  used on
+ input line 249.
+(pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
+<./figures/scenario3_gausscont_big_bayes.pdf, id=166, 462.52798pt x 344.0052pt>
+
+File: ./figures/scenario3_gausscont_big_bayes.pdf Graphic file (type pdf)
+<use ./figures/scenario3_gausscont_big_bayes.pdf>
+Package pdftex.def Info: ./figures/scenario3_gausscont_big_bayes.pdf  used on i
+nput line 254.
+(pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
+
+
+LaTeX Warning: Float too large for page by 17.55756pt on input line 259.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6 <./Figures/scenario3_ecdf_all.pdf>] [7 <./Figures/scenario3_gausscont_small_
+bayes.pdf> <./Figures/scenario3_gausscont_big_bayes.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Figures/scenario3_gausscont_big_bayes.pdf)
 : PDF inclusion: multiple pdfs with page group included in a single page
 >] (./hw1.aux) ) 
 Here is how much of TeX's memory you used:
- 5456 strings out of 492616
- 80591 string characters out of 6132768
- 163095 words of memory out of 5000000
- 9206 multiletter control sequences out of 15000+600000
+ 5462 strings out of 492616
+ 80850 string characters out of 6132768
+ 164103 words of memory out of 5000000
+ 9211 multiletter control sequences out of 15000+600000
  36906 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,16n,40p,588b,563s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,16n,40p,926b,561s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
 10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c
 :/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb><c:/texlive/
@@ -581,10 +584,10 @@ s/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmr9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on hw1.pdf (8 pages, 498041 bytes).
+Output written on hw1.pdf (8 pages, 522295 bytes).
 PDF statistics:
- 303 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
+ 338 PDF objects out of 1000 (max. 8388607)
+ 130 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
