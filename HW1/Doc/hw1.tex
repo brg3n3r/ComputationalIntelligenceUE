@@ -233,13 +233,37 @@
 		
 		With rising covariance values the variance around the mean value is rising. Therefore we can see a general Gaussian distribution in Figure \ref{fig:scenario2_gausscont_big_withexp}. Furthermore the position estimation is not very precise in scenario 2.
 		
+		\newpage
+		
+		\begin{figure}[hbt!]
+        \begin{floatrow}
+        \ffigbox{%
+        \includegraphics[width=.5\textwidth]{./Figures/scenario2_gausscont_big_withoutexp.pdf}
+        }{%
+        \caption{Gaussian distribution of scenario 2}%
+        \label{fig:scenario2_gausscont_big_withexp}
+		}
+		\capbtabbox{%
+  		\begin{tabular}{l|cc} 
+  		  & X & Y \\ \hline
+  		X & 0,05175 & 0,04369 \\
+  		Y & 0,04369 & 0,16122 \\ 
+ 		\end{tabular}
+		}{%
+ 		\caption{Covariance matrix}%
+		}
+		\end{floatrow}
+		\end{figure}
+		
+		With rising covariance values the variance around the mean value is rising. Therefore we can see a general Gaussian distribution in Figure \ref{fig:scenario2_gausscont_big_withexp}. Furthermore the position estimation is not very precise in scenario 2.
+		
 	    \begin{figure}[hbt!]
         \begin{floatrow}
         \ffigbox{%
-        \includegraphics[width=.5\textwidth]{./Figures/scenario3_gausscont_big_ls.pdf}
+        \includegraphics[width=.5\textwidth]{./Figures/scenario3_gausscont_small_ls.pdf}
         }{%
         \caption{Gaussian distribution of scenario 3}%
-        \label{fig:scenario3_gausscont_big_ls}
+        \label{fig:scenario3_gausscont_small_ls}
 		}
 		\capbtabbox{%
   		\begin{tabular}{l|cc} 
@@ -252,10 +276,10 @@
 		}
 		\end{floatrow}
 		\end{figure}
-		
-		\newpage
 	
         The densitiy function of scenario 3 is also computed by a general covariance matrix with higher values in all dimensions. Therefore the point estimation not precise and the variance around the mean value is very high.
+        
+        \newpage
         
         \begin{figure}[hbt!]
             \centering
@@ -264,11 +288,9 @@
             \label{fig:All_ecdf_ls}
         \end{figure}
         
-        The cumulative distribution functions of the position errors emphasize our finding that the Gauss-Newton Algorithm is optimized for Gauss distributed data sets. For every exchanged gaussian distributed anchor with an exponential distributed anchor, the results for our position estimation are getting worse in variance and error distance.
+        The cumulative distribution functions of the position errors emphasize our finding that the Gauss-Newton Algorithm is optimized for Gauss distributed data sets. For every exchanged gaussian distributed anchor with an exponential distributed anchor, the results for our position estimation are getting worse in variance and error distance.\\
 
 \end{itemize}
-
-\newpage
 
 
 \subsection{Numerical Maximum Likelihood Estimation of the Position}
