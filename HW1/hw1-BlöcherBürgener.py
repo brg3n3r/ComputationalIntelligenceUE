@@ -14,8 +14,8 @@ from mpl_toolkits import mplot3d
 def main():
     # choose the scenario
     # scenario = 1    # all anchors are Gaussian
-    # scenario = 2    # 1 anchor is exponential, 3 are Gaussian
-    scenario = 3    # all anchors are exponential
+    scenario = 2    # 1 anchor is exponential, 3 are Gaussian
+    # scenario = 3    # all anchors are exponential
 
     # specify position of anchors
     p_anchor = np.array([[5, 5], [-5, 5], [-5, -5], [5, -5]])
