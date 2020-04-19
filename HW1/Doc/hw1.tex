@@ -2,8 +2,9 @@
 \usepackage[a4paper,left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{latexsym,amsfonts,amsmath,amssymb,amstext,graphicx,titlesec,ae,aecompl,mathtools,tabularx, multirow, cancel, nicefrac,subcaption}
+\usepackage{latexsym,amsfonts,amsmath,amssymb,amstext,graphicx,titlesec,ae,aecompl,mathtools,tabularx, multirow, cancel, nicefrac,subcaption, blindtext, floatrow}
 \setlength{\parindent}{0pt}
+\newfloatcommand{capbtabbox}{table}[][\FBwidth]
 
 
 \begin{document}
@@ -154,20 +155,121 @@
 
     \end{array}$
 
-\end{itemize}
 
-\begin{table}[h]
-\centering
-\begin{tabular}{l||c||c|c||c|}
-\cline{2-5}
+    \item Mean and variance
+
+        \begin{table}[h]
+        \centering
+        \begin{tabular}{l||c||c|c||c|}
+            \cline{2-5}
                                                        & \multirow{2}{*}{Scenario 1} & \multicolumn{2}{c||}{Scenario 2}                      & \multirow{2}{*}{Scenario 3} \\ \cline{3-4}
                                                        &                             & with exponential anchor & without exponential anchor &                             \\ \hline\hline
-\multicolumn{1}{|l||}{Error mean $\mu_{e}$}          & 0.278                      & 0.640                  & 0.399                     & 1.265                      \\ \hline
-\multicolumn{1}{|l||}{Error variance $\sigma^2_{e}$} & 0.022                      & 0.275                  & 0.054                     & 0.939                      \\ \hline
-\end{tabular}
-\caption{.}
-\label{tab:ls_mean_var}
-\end{table}
+            \multicolumn{1}{|l||}{Error mean $\mu_{e}$}          & 0.278                      & 0.640                  & 0.399                     & 1.265                      \\ \hline
+            \multicolumn{1}{|l||}{Error variance $\sigma^2_{e}$} & 0.022                      & 0.275                  & 0.054                     & 0.939                      \\ \hline
+        \end{tabular}
+        \caption{.}
+        \label{tab:ls_mean_var}
+        \end{table}
+        
+    Table \ref{tab:ls_mean_var} shows that the Gaus-Newton Algorithm is optimized for Gauss distributions. Mean $\mu_{e}$ and variance $\sigma^2_{e}$ is much higher in the mixed scenario 2 and scenario 3 which consists of 4 exponential distributions.
+        
+    \newpage
+    
+    \item Multivariat Gaussian distributions\\
+      
+        %\begin{figure}[]
+        %\caption{Gaussian distributions for all scenarios}
+        
+        %\begin{subfigure}[c]{0.5\textwidth}
+        %    \centering
+         %   \includegraphics[width=\textwidth]{./Figures/scenario1_gausscont_big.pdf}
+         %   \subcaption{Gaussian distribution of scenario 1}
+          %  \label{fig:scenario1_gausscont_big}
+        %\end{subfigure}
+        
+  
+        \begin{figure}[hbt!]
+        \begin{floatrow}
+        \ffigbox{%
+        \includegraphics[width=.5\textwidth]{./Figures/scenario1_gausscont_big.pdf}
+        }{%
+        \caption{Gaussian distribution of scenario 1}%
+        \label{fig:scenario1_gausscont_big}
+		}
+		\capbtabbox{%
+  		\begin{tabular}{l|cc} 
+  		  & X & Y \\ \hline
+  		X & 0,04603 & 0,00869 \\
+  		Y & 0,00869 & 0,05823 \\ 
+ 		 \end{tabular}
+		}{%
+ 		\caption{Covariance matrix}%
+		}
+		\label{tab:scenario1_covariance}
+		\end{floatrow}
+		\end{figure}
+		
+		The Gaussian distribution is computed by the Covariance matrix which is next to Figure \ref{fig:scenario1_gausscont_big}. The distribution for scenario 1 is almost \textit{spherically shaped} due to the small difference in the main diagonal and the very low values in the secondary diagonal. 
+		
+		\begin{figure}[hbt!]
+        \begin{floatrow}
+        \ffigbox{%
+        \includegraphics[width=.5\textwidth]{./Figures/scenario2_gausscont_big_withexp.pdf}
+        }{%
+        \caption{Gaussian distribution of scenario 2}%
+        \label{fig:scenario2_gausscont_big_withexp}
+		}
+		\capbtabbox{%
+  		\begin{tabular}{l|cc} 
+  		  & X & Y \\ \hline
+  		X & 0,05783 & 0,07271 \\
+  		Y & 0,07271 & 0,29491 \\ 
+ 		\end{tabular}
+		}{%
+ 		\caption{Covariance matrix}%
+		}
+		\end{floatrow}
+		\end{figure}
+		
+		With rising covariance values the variance around the mean value is rising. Therefore we can see a general Gaussian distribution in Figure \ref{fig:scenario2_gausscont_big_withexp}. Furthermore the position estimation is not very precise in scenario 2.
+		
+	    \begin{figure}[hbt!]
+        \begin{floatrow}
+        \ffigbox{%
+        \includegraphics[width=.5\textwidth]{./Figures/scenario3_gausscont_big_ls.pdf}
+        }{%
+        \caption{Gaussian distribution of scenario 3}%
+        \label{fig:scenario3_gausscont_big_ls}
+		}
+		\capbtabbox{%
+  		\begin{tabular}{l|cc} 
+  		  & X & Y \\ \hline
+  		X & 0,73497 & 0,25884 \\
+  		Y & 0,25884 & 0,98659 \\ 
+ 		\end{tabular}
+		}{%
+ 		\caption{Covariance matrix}%
+		}
+		\end{floatrow}
+		\end{figure}
+		
+		\newpage
+	
+        The densitiy function of scenario 3 is also computed by a general covariance matrix with higher values in all dimensions. Therefore the point estimation not precise and the variance around the mean value is very high.
+        
+        \begin{figure}[hbt!]
+            \centering
+            \includegraphics[width=\textwidth]{./Figures/All_ecdf_ls.pdf}
+            \caption{Gaussian distribution of scenario 3}
+            \label{fig:All_ecdf_ls}
+        \end{figure}
+        
+        The cumulative distribution functions of the position errors emphasize our finding that the Gauss-Newton Algorithm is optimized for Gauss distributed data sets. For every exchanged gaussian distributed anchor with an exponential distributed anchor, the results for our position estimation are getting worse in variance and error distance.
+
+\end{itemize}
+
+\newpage
+
 
 \subsection{Numerical Maximum Likelihood Estimation of the Position}
 \subsubsection{Single Measurement}

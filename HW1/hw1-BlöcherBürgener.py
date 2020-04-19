@@ -28,7 +28,7 @@ def main():
 
     plt.figure()
     plot_anchors_and_agent(nr_anchors, p_anchor, p_true, p_ref)
-    plt.show(block=False)
+    plt.show()
 
     # load measured data and reference measurements for the chosen scenario
     data, reference_measurement = load_data(scenario)
@@ -87,7 +87,7 @@ def parameter_estimation(reference_measurement, nr_anchors, p_anchor, p_ref):
     plt.xlabel("samples")
     plt.ylabel("distance/m")
     plt.grid(True)
-    plt.show(block=False)
+    plt.show()
 
     # estimate parameters
     params = np.zeros([1, nr_anchors])
@@ -151,14 +151,14 @@ def position_estimation_least_squares(data, nr_anchors, p_anchor, p_true, use_ex
     plt.ylabel("Empirical Cumulative Distribution Function")
     plt.grid(True)
     # plt.legend("Least-Squares")
-    plt.show(block=False)
+    plt.show()
 
     # scatter plots
     plt.figure()
     plot_anchors_and_agent(nr_anchors, p_anchor, p_true)
     plt.scatter(p_ls[:, 0], p_ls[:, 1], s=0.5)
     plot_gauss_contour(mu_p_ls, cov_p_ls, -6, 6, -6, 6)
-    plt.show(block=False)
+    plt.show()
 
     plt.figure()
     plt.axis([0, 4, -6, -2])
@@ -168,7 +168,7 @@ def position_estimation_least_squares(data, nr_anchors, p_anchor, p_true, use_ex
     plt.ylabel("y/m")
     plt.scatter(p_ls[:, 0], p_ls[:, 1], s=1)
     plot_gauss_contour(mu_p_ls, cov_p_ls, 0, 4, -6, -2)
-    plt.show(block=False)
+    plt.show()
 
     pass
 # --------------------------------------------------------------------------------
@@ -209,7 +209,7 @@ def position_estimation_numerical_ml(data, nr_anchors, p_anchor, lambdas, p_true
     plt.ylabel("y/m")
     ax.set_zlabel("Joint Likelihood")
     ax.ticklabel_format(scilimits=(-1, 0))
-    plt.show(block=False)
+    plt.show()
 
     # find maximum/position estimate for all samples
     max_idx = likelihood_grid.reshape(likelihood_grid.shape[0], -1).argmax(1)
@@ -234,14 +234,14 @@ def position_estimation_numerical_ml(data, nr_anchors, p_anchor, lambdas, p_true
     plt.xlabel("error/m")
     plt.ylabel("Empirical Cumulative Distribution Function")
     plt.grid(True)
-    plt.show(block=False)
+    plt.show()
 
     # scatter plots
     plt.figure()
     plot_anchors_and_agent(nr_anchors, p_anchor, p_true)
     plot_gauss_contour(mu_p_nml, cov_p_nml, -6, 6, -6, 6)
     plt.scatter(p_nml[:, 0], p_nml[:, 1], s=0.5)
-    plt.show(block=False)
+    plt.show()
 
     # Gauss Contour
     plt.figure()
@@ -252,7 +252,7 @@ def position_estimation_numerical_ml(data, nr_anchors, p_anchor, lambdas, p_true
     plt.ylabel("y/m")
     plt.scatter(p_nml[:, 0], p_nml[:, 1], s=1)
     plot_gauss_contour(mu_p_nml, cov_p_nml, -6, 6, -6, 6)
-    plt.show(block=False)
+    plt.show()
 
     pass
 # --------------------------------------------------------------------------------
@@ -296,7 +296,7 @@ def position_estimation_bayes(data, nr_anchors, p_anchor, prior_mean, prior_cov,
     # plt.xlabel("x/m")
     # plt.ylabel("y/m")
     # ax.set_zlabel("Joint Likelihood")
-    # plt.show(block=False)()
+    # plt.show()()
 
     # find maximum/position estimate for all samples
     max_idx = likelihood_grid.reshape(likelihood_grid.shape[0], -1).argmax(1)
@@ -322,14 +322,14 @@ def position_estimation_bayes(data, nr_anchors, p_anchor, prior_mean, prior_cov,
     plt.ylabel("Empirical Cumulative Distribution Function")
     plt.legend(["Least-Squares", "Numerical Maximum Likelihood", "Bayes"])
     plt.grid(True)
-    plt.show(block=False)
+    plt.show()
 
     # scatter plots
     plt.figure()
     plot_anchors_and_agent(nr_anchors, p_anchor, p_true)
     plot_gauss_contour(mu_p_bayes, cov_p_bayes, -6, 6, -6, 6)
     plt.scatter(p_bayes[:, 0], p_bayes[:, 1], s=0.5)
-    plt.show(block=False)
+    plt.show()
 
     # Gauss Contour
     plt.figure()
@@ -340,7 +340,7 @@ def position_estimation_bayes(data, nr_anchors, p_anchor, prior_mean, prior_cov,
     plt.ylabel("y/m")
     plt.scatter(p_bayes[:, 0], p_bayes[:, 1], s=1)
     plot_gauss_contour(mu_p_bayes, cov_p_bayes, -6, 6, -6, 6)
-    plt.show(block=False)
+    plt.show()
 
     pass
 # --------------------------------------------------------------------------------
@@ -432,7 +432,7 @@ def plot_gauss_contour(mu, cov, xmin, xmax, ymin, ymax, title="Title"):
     CS = plt.contour(X, Y, Z.pdf(pos), 3, colors='r')
     plt.clabel(CS, inline=1, fontsize=10)
     # plt.title(title)
-    # plt.show(block=False)()
+    # plt.show()()
     return
 
 # --------------------------------------------------------------------------------
@@ -491,7 +491,7 @@ def plot_anchors_and_agent(nr_anchors, p_anchor, p_true, p_ref=None):
         plt.text(p_ref[0, 0] + 0.2, p_ref[0, 1] + 0.2, '$p_{ref}$')
     plt.xlabel("x/m")
     plt.ylabel("y/m")
-    # plt.show(block=False)
+    # plt.show()
     pass
 
 
