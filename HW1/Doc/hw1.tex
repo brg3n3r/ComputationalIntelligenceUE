@@ -227,7 +227,7 @@
         \ffigbox{%
         \includegraphics[width=.5\textwidth]{./Figures/scenario2_gausscont_big_withoutexp.pdf}
         }{%
-        \caption{Gaussian distribution of scenario 2}%
+        \caption{Scenario 2 without the exponential distributed anchor}%
         \label{fig:scenario2_gausscont_big_withexp}
 		}
 		\capbtabbox{%
@@ -241,8 +241,8 @@
 		\end{floatrow}
 		\end{figure}
 		
-		With rising covariance values the variance around the mean value is rising. Therefore we can see a general Gaussian distribution in Figure \ref{fig:scenario2_gausscont_big_withexp}. Furthermore the position estimation is not very precise in scenario 2.
-		
+        Omitting the exponential anchor the variance is still bigger than in scenario 2 although the single estimations are more even distributed around the mean value which is also very close to the real point. All in all the measurement is better witout the exponential anchor.
+        
 	    \begin{figure}[hbt!]
         \begin{floatrow}
         \ffigbox{%
