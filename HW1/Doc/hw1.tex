@@ -55,7 +55,7 @@
         \label{fig:scenario2_findexponential}
     \end{figure}
     
-    \item In figure \ref{fig:scenario2_findexponential} we can see that measurement 1 in scenario 2 is exponentially distributed. It is the only distribution which is not negative over all samples and its slope is rising exponentially for rising x-values.
+    \item In figure \ref{fig:scenario2_findexponential} we can see that in scenario 2 the distance measurements from anchor 1 is exponentially distributed. It is the only distribution which is bigger than the true distance for all samples and its slope is rising exponentially for rising x-values.
     
 \end{itemize}
 
@@ -167,15 +167,15 @@
             \multicolumn{1}{|l||}{Error mean $\mu_{e}$}          & 0.278                      & 0.640                  & 0.399                     & 1.265                      \\ \hline
             \multicolumn{1}{|l||}{Error variance $\sigma^2_{e}$} & 0.022                      & 0.275                  & 0.054                     & 0.939                      \\ \hline
         \end{tabular}
-        \caption{.}
+        \caption{Error-mean and -variance for different Scenarios.}
         \label{tab:ls_mean_var}
         \end{table}
         
-    Table \ref{tab:ls_mean_var} shows that the Gaus-Newton Algorithm is optimized for Gauss distributions. Mean $\mu_{e}$ and variance $\sigma^2_{e}$ is much higher in the mixed scenario 2 and scenario 3 which consists of 4 exponential distributions.
+    Table \ref{tab:ls_mean_var} shows that the Gaus-Newton Algorithm is optimized for Gauss distributions. Mean $\mu_{e}$ and variance $\sigma^2_{e}$ are much bigger in the mixed scenario 2 and in scenario 3 which consists of 4 exponential distributions.
         
     \newpage
     
-    \item Multivariat Gaussian distributions\\
+    \item Multivariate Gaussian distributions\\        
   
         \begin{figure}[hbt!]
         \begin{floatrow}
@@ -218,7 +218,7 @@
 		\end{floatrow}
 		\end{figure}
 		
-		With rising covariance values the variance around the mean value is rising. Therefore we can see a general Gaussian distribution in Figure \ref{fig:scenario2_gausscont_big_withexp}. Furthermore the position estimation is not very precise in scenario 2.
+		With rising covariance values the variance around the mean value is rising. Therefore we can see a general Gaussian distribution in Figure \ref{fig:scenario2_gausscont_big_withexp} with the distribution stretched out in the direction leading away from the exponentially modelled anchor. That is because the exponentially distributed distance measurements are prone to take larger values than the Gaussian ones (s. figure \ref{fig:scenario2_findexponential}). This makes the position estimation less precise.
 		
 		\newpage
 		
@@ -262,7 +262,7 @@
 		\end{floatrow}
 		\end{figure}
 	
-        The densitiy function of scenario 3 is also computed by a general covariance matrix with higher values in all dimensions. Therefore the point estimation not precise and the variance around the mean value is very high.
+        The density function of scenario 3 is also computed by a general covariance matrix with bigger values in all dimensions. Therefore the point estimation is not precise and the variance around the mean value is very high.
         
         \newpage
         
@@ -273,7 +273,7 @@
             \label{fig:All_ecdf_ls}
         \end{figure}
         
-        The cumulative distribution functions of the position errors emphasize our finding that the Gauss-Newton Algorithm is optimized for Gauss distributed data sets. For every exchanged gaussian distributed anchor with an exponential distributed anchor, the results for our position estimation are getting worse in variance and error distance.\\
+        The cumulative distribution functions of the position errors emphasize our finding that the Gauss-Newton Algorithm is optimized for Gauss-distributed data sets. That is why scenario 1 delivers the best performance with a very low maximum error. Only using the three Gaussian anchors in scenario 2 leads to a similar cumulative distribution function with a slightly bigger maximum error. Taking the exponential anchor into account the maximum error greatly increases but 90\% of all errors are still smaller than the previous maximum error. Scenario 3 has the worst performance with  larger errors overall and by far the biggest maximum error.
 
 \end{itemize}
 
