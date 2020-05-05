@@ -20,6 +20,9 @@ def cost(theta, x, y):
     :return: cost
     """
     N, n = x.shape
+    h = sig(x @ theta)
+    sum_vector = y * np.log(h) + (1-y) * np.log(1-h)
+    c = -1/N * np.sum(sum_vector)
 
     ##############
     #
@@ -37,7 +40,6 @@ def cost(theta, x, y):
     #   log(x + epsilon) with epsilon a very small number like 1e-20
     #   or 1e-10 but the gradients might not be exact anymore. 
 
-    c = 0
 
     # END TODO
     ###########
@@ -56,16 +58,8 @@ def grad(theta, x, y):
     :return: gradient
     """
     N, n = x.shape
-
-    ##############
-    #
-    # TODO
-    #
-    #   - prefer numpy vectorized operations over for loops
-
-    g = np.zeros(theta.shape)
-
-    # END TODO
-    ###########
+    h = np.array(sig(x @ theta), ndmin=2)
+    sum_matrix = np.repeat(h-y, n, axis=0) * x.T
+    g = 1/N * np.sum(sum_matrix, axis=1)
 
     return g

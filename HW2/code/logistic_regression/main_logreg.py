@@ -19,7 +19,7 @@ This is the main file that loads the data, computes the solution and plots the r
 
 def main():
     # Set parameters
-    degree = 5
+    degree = 1
     eta = 1.
     max_iter = 20
 
@@ -50,4 +50,5 @@ def main():
 
 
 if __name__ == '__main__':
+    plt.close('all')
     main()
