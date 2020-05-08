@@ -85,4 +85,5 @@ def plot_errors(i_best, degrees, mse_train, mse_val, mse_test):
                 label='Optimal degree {}'.format(degrees[i_best]))
     plt.xlabel('Degrees')
     plt.ylabel('MSE')
+    plt.grid('on')
     plt.legend()

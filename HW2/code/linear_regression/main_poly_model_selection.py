@@ -26,7 +26,7 @@ def main():
     K = 30
     files = os.getcwd()
     print(files)
-    os.chdir('C:/Users/mbuergener/Desktop/CI_Temp/CI_HW2/code/linear_regression')
+    os.chdir('C:/Users/mbuergener/Desktop/CI_Temp/CI_HW2/code/linear_regression') #!!!!!!!!!!!!!!!!!
     data_path = 'data_linreg.json'
 
     # Load the data

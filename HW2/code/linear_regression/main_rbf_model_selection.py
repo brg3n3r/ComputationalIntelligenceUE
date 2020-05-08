@@ -4,6 +4,7 @@ import json
 import matplotlib.pyplot as plt
 from plot_rbf import plot_rbf, plot_errors
 import rbf
+import os
 
 """
 Assignment: Linear and Logistic Regression
@@ -25,6 +26,7 @@ def main():
     data_path = 'data_linreg.json'
 
     # Load the data
+    os.chdir('C:/Users/mbuergener/Desktop/CI_Temp/CI_HW2/code/linear_regression') #!!!!!!!!!!!!!!!!
     f = open(data_path, 'r')
     data = json.load(f)
     for k, v in data.items():
@@ -52,15 +54,27 @@ def main():
     n_centers = np.arange(K) + 1
 
     # Compute the MSE values
-    i_best = 0
+    #i_best = 0
 
+    for i in range(K):
+        theta_list[i], mse_train[i], mse_val[i], mse_test[i] = rbf.train_and_test(data, n_centers[i])
+
+    i_best_train = np.argmin(mse_train)
+    i_best_val = np.argmin(mse_val)
+    
+    i_plots = np.array([1, 5, 10, 22]) - 1
+    i_plots = np.append(i_plots,[i_best_train, i_best_val])
+
+    for element in i_plots:
+        plot_rbf(data, n_centers[element], theta_list[element])
+        plt.show()
+    
     #
     # TODO END
     ######################
 
     # Plot the training error as a function of the degrees
-    plot_errors(i_best, n_centers, mse_train, mse_val, mse_test)
-    plot_rbf(data, n_centers[i_best], theta_list[i_best])
+    plot_errors(i_best_val, n_centers, mse_train, mse_val, mse_test)
     plt.show()
 
 

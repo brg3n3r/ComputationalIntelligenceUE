@@ -23,9 +23,8 @@ def get_centers_and_sigma(n_centers):
     :param n_centers:
     :return:
     """
-
-    centers = np.linspace(-1, 1, num = n_centers + 1, endpoint = False) 
-    centers = centers[1:]
+    
+    centers = np.linspace(-1, 1, num=n_centers)
     sigma = 2 / n_centers
 
     return centers, sigma
@@ -66,7 +65,6 @@ def design_matrix(x, centers, sigma):
         res = np.concatenate((res, new_column.T.reshape((len(x),1))), axis=1)
 
 
-    print(res)
 
     # END TODO
     ######################
@@ -97,7 +95,13 @@ def train(x, y, n_centers):
     #   - This should not be very different from the solution you provided in poly.py
     #
 
-    theta_opt = np.zeros(n_centers + 1)  # TODO: Change me
+    #theta_opt = np.zeros(n_centers + 1)  # TODO: Change me
+
+    centers, sigma = get_centers_and_sigma(n_centers)
+
+    X = design_matrix(x, centers, sigma)
+
+    theta_opt = np.linalg.pinv(X) @ y 
 
     # END TODO
     ######################
@@ -128,7 +132,13 @@ def compute_error(theta, n_centers, x, y):
     #   - This should not be very different from the solution you provided in poly.py
     #
 
-    err = -1  # TODO: Change me
+    #err = -1  # TODO: Change me
+
+    centers, sigma = get_centers_and_sigma(n_centers)
+
+    X = design_matrix(x, centers, sigma)
+
+    err = np.linalg.norm(X @ theta - y)**2 
 
     # END TODO
     ######################
@@ -155,8 +165,8 @@ def train_and_test(data, n_centers):
     return theta, err_train, err_val, err_test
 
 
-x = np.array([0, 1, 2, 3])
-n_centers = 3
+#x = np.array([0, 1, 2, 3])
+#n_centers = 3
 
-centers, sigma = get_centers_and_sigma(n_centers)
-res = design_matrix(x, centers, sigma)
+#centers, sigma = get_centers_and_sigma(n_centers)
+#res = design_matrix(x, centers, sigma)
