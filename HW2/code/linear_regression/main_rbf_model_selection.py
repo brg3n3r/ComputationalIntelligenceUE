@@ -4,7 +4,7 @@ import json
 import matplotlib.pyplot as plt
 from plot_rbf import plot_rbf, plot_errors
 import rbf
-import os
+#!!! import os
 
 """
 Assignment: Linear and Logistic Regression
@@ -26,7 +26,7 @@ def main():
     data_path = 'data_linreg.json'
 
     # Load the data
-    os.chdir('C:/Users/mbuergener/Desktop/CI_Temp/CI_HW2/code/linear_regression') #!!!!!!!!!!!!!!!!
+    #os.chdir('C:/Users/mbuergener/Desktop/CI_Temp/CI_HW2/code/linear_regression') #!!!!!!!!!!!!!!!!
     f = open(data_path, 'r')
     data = json.load(f)
     for k, v in data.items():
@@ -67,6 +67,8 @@ def main():
 
     for element in i_plots:
         plot_rbf(data, n_centers[element], theta_list[element])
+        plt.tight_layout()
+        #plt.savefig('linreg_rbf1_ncent'+str(element+1)+'.pdf',format='pdf')
         plt.show()
     
     #
@@ -74,9 +76,12 @@ def main():
     ######################
 
     # Plot the training error as a function of the degrees
+    plt.figure()
     plot_errors(i_best_val, n_centers, mse_train, mse_val, mse_test)
+    #plt.savefig("linreg_rbf4_error.pdf",format='pdf')
     plt.show()
 
 
 if __name__ == '__main__':
+    plt.close('all')
     main()

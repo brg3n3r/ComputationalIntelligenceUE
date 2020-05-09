@@ -100,7 +100,7 @@ def plot_errors(i_best, n_centers, mse_train, mse_val, mse_test):
                 label='Optimal number of centers {}'.format(n_centers[i_best]))
     plt.xlabel('Number of centers')
     plt.ylabel('MSE')
-    plt.grid('on')
+    plt.grid(True)
     plt.legend()
 
     #

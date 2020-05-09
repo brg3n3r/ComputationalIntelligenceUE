@@ -5,7 +5,7 @@ import json
 import matplotlib.pyplot as plt
 from plot_poly import plot_poly, plot_errors
 import poly
-import os
+#!!! import os
 
 """
 Assignment: Linear and Logistic Regression
@@ -24,9 +24,9 @@ TODO boxes are here and in 'poly.py'
 def main():
     # Number of possible degrees to be tested
     K = 30
-    files = os.getcwd()
-    print(files)
-    os.chdir('C:/Users/mbuergener/Desktop/CI_Temp/CI_HW2/code/linear_regression') #!!!!!!!!!!!!!!!!!
+    #files = os.getcwd()
+    #print(files)
+    #os.chdir('C:/Users/mbuergener/Desktop/CI_Temp/CI_HW2/code/linear_regression') #!!!!!!!!!!!!!!!!!
     data_path = 'data_linreg.json'
 
     # Load the data
@@ -71,7 +71,6 @@ def main():
     i_plots = np.array([1, 5, 10, 22]) - 1
     i_plots = np.append(i_plots,[i_best_train, i_best_val])
 
-    print(i_plots)
     #Plot the training error as a function of the degrees
     #plt.figure()
     #plot_errors(i_best, degrees, mse_train, mse_val, mse_test)
@@ -80,11 +79,13 @@ def main():
     
     for element in i_plots:
         plot_poly(data, degrees[element], theta_list[element])
+        plt.tight_layout()
         plt.show()
 
     #plot_errors(i_best_test, degrees, mse_train_norm, mse_val_norm, mse_test_norm)
     #plt.show()
-
+    
+    plt.figure() #!!!
     plot_errors(i_best_val, degrees, mse_train, mse_val, mse_test)
     plt.show()
 
