@@ -58,6 +58,7 @@
 %    \item In figure \ref{fig:scenario2_findexponential} we can see that in scenario 2 the distance measurements from anchor 1 is exponentially distributed. It is the only distribution which is bigger than the true distance for all samples and its slope is rising exponentially for rising x-values.
     
 %\end{itemize}
+\newpage
 
 \subsection{Linear Regression with polynomial features}
 
@@ -111,6 +112,9 @@
 \label{linreg_poly4}
 \end{figure}
 
+As can be seen in figure \ref{linreg_poly4} the training cost decreases with increasing polynomial degree $n$. That means the lowest cost on the training set can be achieved by using polynomials up to the highest degree $n=30$ (s. figure \ref{linreg_poly23}), but then the testing cost is maximised. This is due to overfitting: By finding parameters that suit the training data best, the solution becomes too specific for the validation and testing sets, leading to greater errors. Looking at figure \ref{linreg_poly23} all training data points are in the close vicinity of the polynomial but the output function barely resembles the data. The best results can be obtained with degree $n=13$, which minimises the validation cost (s. figure \ref{linreg_poly4}) and leads to a very low testing cost. Having a validation set in addition to the training set helps in finding the right degree for the linear regression process and greatly improves the quality of the solution.
+
+\newpage
 
 \subsection{(Bonus) Linear Regression with radial basis functions}
 
@@ -163,12 +167,23 @@
 \label{linreg_rbf4}
 \end{figure}
 
+The results of the Linear Regression approach with radial basis functions are similar to the ones with polynomial functions: Increasing the degree/number of kernels $l$ leads to lower training cost (s. figure \ref{linreg_rbf4}) - minimised for $l=40$ (s. figure \ref{linreg_rbf23}) - but choosing $l$ too high results in overfitting (s. figure \ref{linreg_rbf1}). The cost function of the validation set is minimised for degree $l=9$ (s. figure \ref{linreg_rbf23}), leading to a low but not quite minimised testing cost. The actual testing cost minimum is found with degree $l=10$. Improving on the results of Linear Regression with polynomial basis functions it is about $20\%$ lower than the testing cost minimum with (higher) degree $n=13$ (s. figures \ref{linreg_rbf1} and \ref{linreg_poly23}). 
+
+
+\clearpage
 
 \section{Logistic Regression}
 \subsection{Derivation of Gradient}
 
+\newpage
 
 \subsection{Logistic Regression training with gradient descent}
+
+\begin{itemize}
+\item
+
+\item
+
 
 \begin{figure}[!ht]
 \centering
@@ -196,6 +211,8 @@
 \caption{GD errors and decision boundaries for varying number of iterations, degree $l=1$ and learning rate $\eta=1$.}
 \label{logreg2}
 \end{figure}
+
+\item
 
 \begin{figure}[!ht]
 \centering
@@ -234,6 +251,8 @@
 \caption{GD errors and decision boundaries for varying learning rate $\eta$, degree $l=2$ and 200 iterations.}
 \label{logreg3}
 \end{figure}
+
+\item
 
 \begin{figure}[!ht]
 \vspace*{-53.6pt}
@@ -299,5 +318,8 @@ degree $l$ & learning rate $\eta$ & iterations & training cost & testing cost \\
 \label{logreg4_tab}
 \end{table}
 
+\item
+
+\end{itemize}
 
 \end{document}}
