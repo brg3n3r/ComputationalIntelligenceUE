@@ -19,9 +19,9 @@ This is the main file that loads the data, computes the solution and plots the r
 
 def main():
     # Set parameters
-    degree = 1
-    eta = 1.
-    max_iter = 20
+    degree = 7
+    eta = 10
+    max_iter = 1000
 
     # Load data and expand with polynomial features
     f = open('data_logreg.json', 'r')
@@ -46,6 +46,7 @@ def main():
     theta_opt, E_list = gd.gradient_descent(f, df, theta0, eta, max_iter)
 
     logreg_toolbox.plot_logreg(data, degree, theta_opt, E_list)
+    plt.tight_layout()
     plt.show()
 
 

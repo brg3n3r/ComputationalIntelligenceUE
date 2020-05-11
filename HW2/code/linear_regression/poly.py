@@ -34,7 +34,7 @@ def design_matrix(x, degree):
     X = np.ones((len(x),1)) 
 
     for index in range(degree):
-        X = np.concatenate((X, x**(index+1).T.reshape(len(x),1)), axis=1)
+        X = np.concatenate((X, (x**(index+1)).T.reshape(len(x),1)), axis=1)
 
     return X
 
@@ -129,6 +129,3 @@ def train_and_test(data, degree):
     err_test = compute_error(theta, degree, data['x_test'], data['y_test'])
 
     return theta, err_train, err_val, err_test
-
-
-#design_matrix(np.array([0,1,2,3,4]), 3)
