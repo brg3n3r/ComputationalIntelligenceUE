@@ -61,86 +61,243 @@
 
 \subsection{Linear Regression with polynomial features}
 
-\begin{itemize}
 
-    \item Analytical derivation for the Gaussian distribution:\\
-  
-	    $\begin{array}{ccc}
-	        p(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & \frac{1}{\sqrt{2\pi\sigma^2}} \cdot e^{- \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2}} \\  
-	    \end{array}$\\
-	    
-	    The data is independent identically distributed (iid), therefore the likelihood function is the product of all individual likelihoods\\
-	    
-	    $\begin{array}{ccc}
-	        P(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & \displaystyle \prod_{n=0}^{N-1} \frac{1}{\sqrt{2\pi\sigma^2}} \cdot e^{- \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2}} \\
+\begin{figure}[!ht]
+\centering
+\makebox[\textwidth]{
+\begin{subfigure}{0.65\textwidth}
+\includegraphics[width=\textwidth]{./Figures/linreg_poly1_deg1.pdf}
+\caption{$n=1$}
+\end{subfigure}
+\begin{subfigure}{0.65\textwidth}
+\includegraphics[width=\textwidth]{./Figures/linreg_poly1_deg5.pdf}
+\caption{$n=5$}
+\end{subfigure}
+}
 
-	    \end{array}$\\
-	  
-	    To convert the product to a sum we apply the natural logarithm.\\
-	  
-	    $\begin{array}{cccl}
-	        L(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & ln \left[ \displaystyle \displaystyle \prod_{n=0}^{N-1} \frac{1}{\sqrt{2\pi\sigma^2}} \cdot e^{- \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2}} \right] & \\\\
-	        L(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & \displaystyle \sum_{n=0}^{N-1} \left[ ln(\frac{1}{\sqrt{2\pi\sigma^2}}) - \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2} \right] & \\
-	    \end{array}$\\
-	  
-	    Since we want to find the parameter $\sigma^2$, which maximizes the probability of the distance, we derive $L(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p})$ and set it to zero. \\
-	
-	    $\begin{array}{cccr}
-	        L(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & \displaystyle \sum_{n=0}^{N-1} \left[ ln(1) - \frac{1}{2}ln(2\pi\sigma^2) - \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma^2} \right] & \mid \frac{\partial}{\partial\sigma^2} \\\\
-	        \frac{\partial}{\partial\sigma^2} L(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & = & \displaystyle \sum_{n=0}^{N-1} \left[ - \frac{1}{\sigma^2} + \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{\sigma^4} \right] & \stackrel{!}{=} 0 \\\\
-	        0 & = & \displaystyle \sum_{n=0}^{N-1} \left[ - \frac{1}{\sigma^2} + \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{\sigma^4} \right] & \\\\
-	        \frac{N}{\sigma^2} & = & \displaystyle \sum_{n=0}^{N-1} \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{\sigma^4} \\\\
-	        \sigma^2 & = & \frac{\displaystyle \sum_{n=0}^{N-1}[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{N} 
-	    \end{array}$\\
-         	 
-	\item Analytical derivation for the Exponential distribution:\\
-	 
-	    \begin{equation*}
-	  	     p(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) = 
-	         \begin{cases}
-	             \lambda_i e^{-\lambda_i [\tilde{d}_n(a_i,\mathbf{p}) - d(a_i,p)]} & \quad \text{, }\tilde{d}_n(a_i,\mathbf{p}) \geq d(a_i,\mathbf{p}) \\
-	             0 & \quad \text{, else}
-	         \end{cases}
-	     \end{equation*}
-	    
-            	         
-	     $\begin{array}{cccl}
-	         L(\tilde{d}_n(a_i,\mathbf{p}) \mid \mathbf{p}) & = & \displaystyle \sum_{n=0}^{N-1} ln(\lambda_i) - \lambda_i [\tilde{d}_n(a_i,\mathbf{p}) - d(a_i,\mathbf{p})] & \mid \frac{\partial}{\partial\lambda_i} \\\\
-	         \frac{\partial}{\partial\lambda_i} L(\tilde{d}_n(a_i,\mathbf{p}) \mid \mathbf{p}) & = & \frac{N}{\lambda_i} - \displaystyle \sum_{n=0}^{N-1}[\tilde{d}_n(a_i,\mathbf{p}) - d(a_i,\mathbf{p})] & \stackrel{!}{=} 0 \\\\
-	         \frac{N}{\lambda_i} & = & \displaystyle \sum_{n=0}^{N-1} [\tilde{d}_n(a_i,\mathbf{p}) - d(a_i,\mathbf{p})] & \\\\
-	         \lambda_i & = & \frac{N}{\displaystyle \sum_{n=0}^{N-1} [\tilde{d}_n(a_i,\mathbf{p}) - d(a_i,\mathbf{p})]} & ,\tilde{d}_n(a_i,\mathbf{p}) \geq d(a_i,\mathbf{p})
-	     \end{array}$\\
-	 
-\end{itemize}
+\makebox[\textwidth]{
+\begin{subfigure}{0.65\textwidth}
+\includegraphics[width=\textwidth]{./Figures/linreg_poly1_deg10.pdf}
+\caption{$n=10$}
+\end{subfigure}
+\begin{subfigure}{0.65\textwidth}
+\includegraphics[width=\textwidth]{./Figures/linreg_poly1_deg22.pdf}
+\caption{$n=22$}
+\end{subfigure}
+}
+\caption{Results of Linear Regression for varying polynomial degree $n$.}
+\label{linreg_poly1}
+\end{figure}
+
+\begin{figure}[!ht]
+\makebox[\textwidth]{
+\begin{subfigure}{0.65\textwidth}
+\includegraphics[width=\textwidth]{./Figures/linreg_poly2_besttrain.pdf}
+\caption{Training set, $n=30$}
+\end{subfigure}
+\begin{subfigure}{0.65\textwidth}
+\includegraphics[width=\textwidth]{./Figures/linreg_poly3_bestval.pdf}
+\caption{Validation set, $n=13$}
+\end{subfigure}
+}
+\caption{Results with lowest cost on training and validation set.}
+\label{linreg_poly23}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.8\textwidth]{./Figures/linreg_poly4_errors.pdf}
+\caption{Training, validation and testing costs as a function of the polynomial degree $n$.}
+\label{linreg_poly4}
+\end{figure}
+
 
 \subsection{(Bonus) Linear Regression with radial basis functions}
 
+\begin{figure}[!ht]
+\centering
+\makebox[\textwidth]{
+\begin{subfigure}{0.65\textwidth}
+\includegraphics[width=\textwidth]{./Figures/linreg_rbf1_ncent1.pdf}
+\caption{$l=1$}
+\end{subfigure}
+\begin{subfigure}{0.65\textwidth}
+\includegraphics[width=\textwidth]{./Figures/linreg_rbf1_ncent5.pdf}
+\caption{$l=5$}
+\end{subfigure}
+}
+
+\makebox[\textwidth]{
+\begin{subfigure}{0.65\textwidth}
+\includegraphics[width=\textwidth]{./Figures/linreg_rbf1_ncent10.pdf}
+\caption{$l=10$}
+\end{subfigure}
+\begin{subfigure}{0.65\textwidth}
+\includegraphics[width=\textwidth]{./Figures/linreg_rbf1_ncent22.pdf}
+\caption{$l=22$}
+\end{subfigure}
+}
+\caption{Results of Linear Regression for varying degree $l$.}
+\label{linreg_rbf1}
+\end{figure}
+
+\begin{figure}[!ht]
+\makebox[\textwidth]{
+\begin{subfigure}{0.65\textwidth}
+\includegraphics[width=\textwidth]{./Figures/linreg_rbf2_besttrain.pdf}
+\caption{Training set, $l=40$}
+\end{subfigure}
+\begin{subfigure}{0.65\textwidth}
+\includegraphics[width=\textwidth]{./Figures/linreg_rbf3_bestval.pdf}
+\caption{Validation set, $l=9$}
+\end{subfigure}
+}
+\caption{Results with lowest cost for training and validation set.}
+\label{linreg_rbf23}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.8\textwidth]{./Figures/linreg_rbf4_errors.pdf}
+\caption{Training, validation and testing costs as a function of the degree $l$.}
+\label{linreg_rbf4}
+\end{figure}
+
 
 \section{Logistic Regression}
-
 \subsection{Derivation of Gradient}
-
-\begin{itemize}
-    \item Analytical conversion of the ML estimation equation:\\
-    
-        $\begin{array}{ccccl}
-        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmax}} \displaystyle \prod_{i=0}^{N_A-1} p(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) & &\\
-        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmax}} \;ln \left[ \displaystyle \prod_{i=0}^{N_A-1} p(\tilde{d}_n(a_i,\mathbf{p})\mid\mathbf{p}) \right] & &\\        
-        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmax}} \displaystyle \sum_{i=0}^{N_A - 1} ln \left( \frac{1}{\sqrt{2\pi\sigma_i^2}}\right) - \frac{[\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2}{2\sigma_i^2} & &\\
-        \end{array}$ \\
-       
-        Because in scenario 1 we only use Gaussian models for all anchors that were calibrated with the same distance to the reference position, we can assume that $\sigma_i^2 = \sigma^2 \; \forall i$. That means the $ln$-term can be neglected since it only shifts the value of the maximum by a constant but does not affect its position. Similarly $\frac{1}{2\sigma^2}$ can be omitted, as it is also just a scaling factor. Furthermore $ \underset{\mathbf{p}}{\textrm{argmax}}\;(- \dots)$ is equivalent to $\underset{\mathbf{p}}{\textrm{argmin}}\;(\dots)$. Thus: \\
-        
-        $\begin{array}{ccccl}
-        
-        	\hat{\mathbf{p}}_{ML}(n) & = & \underset{\mathbf{p}}{\textrm{argmin}} \displaystyle \sum_{i=0}^{N_A-1} [\tilde{d}_n(a_i,\mathbf{p})-d(a_i,\mathbf{p})]^2 & = & \hat{\mathbf{p}}_{LS}(n)
-        	    	
-        \end{array}$
-                 	
-\end{itemize}
-
 
 
 \subsection{Logistic Regression training with gradient descent}
+
+\begin{figure}[!ht]
+\centering
+\makebox[\textwidth]{
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg2_iter20_error.pdf}
+\caption{Error, 20 iterations}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg2_iter20_decbound.pdf}
+\caption{Decision boundary, 20 iterations}
+\end{subfigure}
+}
+
+\makebox[\textwidth]{
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg2_iter2000_error.pdf}
+\caption{Error, 2000 iterations}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg2_iter2000_decbound.pdf}
+\caption{Decision boundary, 2000 iterations}
+\end{subfigure}
+}
+\caption{GD errors and decision boundaries for varying number of iterations, degree $l=1$ and learning rate $\eta=1$.}
+\label{logreg2}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\makebox[\textwidth]{
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg3_eta01_error.pdf}
+\caption{Error, $\eta=0.1$}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg3_eta01_decbound.pdf}
+\caption{Decision boundary, $\eta=0.1$}
+\end{subfigure}
+}
+
+\makebox[\textwidth]{
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg3_eta2_error.pdf}
+\caption{Error, $\eta=2$}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg3_eta2_decbound.pdf}
+\caption{Decision boundary, $\eta=2$}
+\end{subfigure}
+}
+
+\makebox[\textwidth]{
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg3_eta20_error.pdf}
+\caption{Error, $\eta=20$}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg3_eta20_decbound.pdf}
+\caption{Decision boundary, $\eta=20$}
+\end{subfigure}
+}
+\caption{GD errors and decision boundaries for varying learning rate $\eta$, degree $l=2$ and 200 iterations.}
+\label{logreg3}
+\end{figure}
+
+\begin{figure}[!ht]
+\vspace*{-53.6pt}
+\centering
+\makebox[\textwidth]{
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg4_deg1_opt_error.pdf}
+\caption{Error, $l=1$, $\eta=1$, 60 iterations}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg4_deg1_opt_decbound.pdf}
+\caption{Decision boundary, $l=1$, $\eta=1$, 60 iterations}
+\end{subfigure}
+}
+
+\makebox[\textwidth]{
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg4_deg2_opt_error.pdf}
+\caption{Error, $l=2$, $\eta=5$, 75 iterations}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg4_deg2_opt_decbound.pdf}
+\caption{Decision boundary, $l=2$, $\eta=5$, 75 iterations}
+\end{subfigure}
+}
+
+\makebox[\textwidth]{
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg4_deg7_opt_error.pdf}
+\caption{Error, $l=7$, $\eta=10$, 1000 iterations}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg4_deg7_opt_decbound.pdf}
+\caption{Decision boundary, $l=7$, $\eta=10$, 1000 iterations}
+\end{subfigure}
+}
+
+\makebox[\textwidth]{
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg4_deg20_opt_error.pdf}
+\caption{Error, $l=20$, $\eta=8$, 1500 iterations}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{./Figures/logreg4_deg20_opt_decbound.pdf}
+\caption{Decision boundary, $l=20$, $\eta=8$, 1500 iterations}
+\end{subfigure}
+}
+\caption{GD errors and decision boundaries for degrees $l=1,2,7,20$ and chosen parameter values.}
+\label{logreg4_fig}
+\end{figure}
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|c||c|c||c|c|}
+\hline
+degree $l$ & learning rate $\eta$ & iterations & training cost & testing cost \\ \hline \hline
+1          & 1                    & 60         & 0.470         & 0.391        \\ \hline
+2          & 5                    & 75         & 0.450         & 0.354        \\ \hline
+7          & 10                   & 1000       & 0.310         & 0.361        \\ \hline
+20         & 8                    & 1500       & 0.297         & 0.398        \\ \hline
+\end{tabular}
+\caption{Chosen values for learning rate $\eta$ and number of iterations and obtained training and testing costs for degrees $l=1,2,7,20$.}
+\label{logreg4_tab}
+\end{table}
+
 
 \end{document}}
