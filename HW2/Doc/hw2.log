@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.22)  11 MAY 2020 18:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.22)  12 MAY 2020 16:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -479,50 +479,82 @@ Package color Info: Driver file: pdftex.def on input line 147.
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd)
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd) [1
 
-{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [1]
-<./Figures/linreg_poly1_deg1.pdf, id=13, 462.52798pt x 344.0052pt>
+{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 51.
+
+(c:/texlive/2018/texmf-dist/tex/latex/ae/omsaer.fd
+File: omsaer.fd 1999/12/27
+)
+LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 51.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 51.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 51.
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+
+ []
+
+[1] [2]
+<./Figures/linreg_poly1_deg1.pdf, id=28, 462.52798pt x 344.0052pt>
 File: ./Figures/linreg_poly1_deg1.pdf Graphic file (type pdf)
 <use ./Figures/linreg_poly1_deg1.pdf>
-Package pdftex.def Info: ./Figures/linreg_poly1_deg1.pdf  used on input line 77
-.
+Package pdftex.def Info: ./Figures/linreg_poly1_deg1.pdf  used on input line 15
+5.
 (pdftex.def)             Requested size: 277.41176pt x 206.33646pt.
-<./Figures/linreg_poly1_deg5.pdf, id=14, 462.52798pt x 344.0052pt>
+<./Figures/linreg_poly1_deg5.pdf, id=29, 462.52798pt x 344.0052pt>
 File: ./Figures/linreg_poly1_deg5.pdf Graphic file (type pdf)
 <use ./Figures/linreg_poly1_deg5.pdf>
-Package pdftex.def Info: ./Figures/linreg_poly1_deg5.pdf  used on input line 77
-.
+Package pdftex.def Info: ./Figures/linreg_poly1_deg5.pdf  used on input line 15
+5.
 (pdftex.def)             Requested size: 277.41176pt x 206.33646pt.
-<./Figures/linreg_poly1_deg10.pdf, id=15, 462.52798pt x 344.0052pt>
+<./Figures/linreg_poly1_deg10.pdf, id=30, 462.52798pt x 344.0052pt>
 File: ./Figures/linreg_poly1_deg10.pdf Graphic file (type pdf)
 <use ./Figures/linreg_poly1_deg10.pdf>
-Package pdftex.def Info: ./Figures/linreg_poly1_deg10.pdf  used on input line 8
-8.
+Package pdftex.def Info: ./Figures/linreg_poly1_deg10.pdf  used on input line 1
+66.
 (pdftex.def)             Requested size: 277.41176pt x 206.33646pt.
-<./Figures/linreg_poly1_deg22.pdf, id=16, 462.52798pt x 344.0052pt>
+<./Figures/linreg_poly1_deg22.pdf, id=31, 462.52798pt x 344.0052pt>
 File: ./Figures/linreg_poly1_deg22.pdf Graphic file (type pdf)
 <use ./Figures/linreg_poly1_deg22.pdf>
-Package pdftex.def Info: ./Figures/linreg_poly1_deg22.pdf  used on input line 8
-8.
+Package pdftex.def Info: ./Figures/linreg_poly1_deg22.pdf  used on input line 1
+66.
 (pdftex.def)             Requested size: 277.41176pt x 206.33646pt.
-<./Figures/linreg_poly2_besttrain.pdf, id=17, 462.52798pt x 344.0052pt>
+<./Figures/linreg_poly2_besttrain.pdf, id=32, 462.52798pt x 344.0052pt>
 File: ./Figures/linreg_poly2_besttrain.pdf Graphic file (type pdf)
 <use ./Figures/linreg_poly2_besttrain.pdf>
 Package pdftex.def Info: ./Figures/linreg_poly2_besttrain.pdf  used on input li
-ne 103.
+ne 181.
 (pdftex.def)             Requested size: 277.41176pt x 206.33646pt.
-<./Figures/linreg_poly3_bestval.pdf, id=18, 462.52798pt x 344.0052pt>
+<./Figures/linreg_poly3_bestval.pdf, id=33, 462.52798pt x 344.0052pt>
 File: ./Figures/linreg_poly3_bestval.pdf Graphic file (type pdf)
 <use ./Figures/linreg_poly3_bestval.pdf>
 Package pdftex.def Info: ./Figures/linreg_poly3_bestval.pdf  used on input line
- 103.
+ 181.
 (pdftex.def)             Requested size: 277.41176pt x 206.33646pt.
-<./Figures/linreg_poly4_errors.pdf, id=19, 462.52798pt x 344.0052pt>
+<./Figures/linreg_poly4_errors.pdf, id=34, 462.52798pt x 344.0052pt>
 File: ./Figures/linreg_poly4_errors.pdf Graphic file (type pdf)
 <use ./Figures/linreg_poly4_errors.pdf>
 Package pdftex.def Info: ./Figures/linreg_poly4_errors.pdf  used on input line 
-110.
+188.
 (pdftex.def)             Requested size: 341.43437pt x 253.9562pt.
- [2 <./Figures/linreg_poly1_deg1.pdf> <./Figures/linreg_poly1_deg5.pdf
+ [3 <./Figures/linreg_poly1_deg1.pdf> <./Figures/linreg_poly1_deg5.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Figures/linreg_poly1_deg5.pdf): PDF inclus
 ion: multiple pdfs with page group included in a single page
@@ -535,49 +567,49 @@ sion: multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex.exe (file ./Figures/linreg_poly1_deg22.pdf): PDF inclu
 sion: multiple pdfs with page group included in a single page
 >]
-<./Figures/linreg_rbf1_ncent1.pdf, id=204, 462.52798pt x 346.89601pt>
+<./Figures/linreg_rbf1_ncent1.pdf, id=218, 462.52798pt x 346.89601pt>
 File: ./Figures/linreg_rbf1_ncent1.pdf Graphic file (type pdf)
 <use ./Figures/linreg_rbf1_ncent1.pdf>
-Package pdftex.def Info: ./Figures/linreg_rbf1_ncent1.pdf  used on input line 1
-32.
+Package pdftex.def Info: ./Figures/linreg_rbf1_ncent1.pdf  used on input line 2
+11.
 (pdftex.def)             Requested size: 277.41176pt x 208.07039pt.
-<./Figures/linreg_rbf1_ncent5.pdf, id=205, 462.52798pt x 346.89601pt>
+<./Figures/linreg_rbf1_ncent5.pdf, id=219, 462.52798pt x 346.89601pt>
 File: ./Figures/linreg_rbf1_ncent5.pdf Graphic file (type pdf)
 <use ./Figures/linreg_rbf1_ncent5.pdf>
-Package pdftex.def Info: ./Figures/linreg_rbf1_ncent5.pdf  used on input line 1
-32.
+Package pdftex.def Info: ./Figures/linreg_rbf1_ncent5.pdf  used on input line 2
+11.
 (pdftex.def)             Requested size: 277.41176pt x 208.07039pt.
-<./Figures/linreg_rbf1_ncent10.pdf, id=206, 462.52798pt x 346.89601pt>
+<./Figures/linreg_rbf1_ncent10.pdf, id=220, 462.52798pt x 346.89601pt>
 File: ./Figures/linreg_rbf1_ncent10.pdf Graphic file (type pdf)
 <use ./Figures/linreg_rbf1_ncent10.pdf>
 Package pdftex.def Info: ./Figures/linreg_rbf1_ncent10.pdf  used on input line 
-143.
+222.
 (pdftex.def)             Requested size: 277.41176pt x 208.07039pt.
-<./Figures/linreg_rbf1_ncent22.pdf, id=207, 462.52798pt x 346.89601pt>
+<./Figures/linreg_rbf1_ncent22.pdf, id=221, 462.52798pt x 346.89601pt>
 File: ./Figures/linreg_rbf1_ncent22.pdf Graphic file (type pdf)
 <use ./Figures/linreg_rbf1_ncent22.pdf>
 Package pdftex.def Info: ./Figures/linreg_rbf1_ncent22.pdf  used on input line 
-143.
+222.
 (pdftex.def)             Requested size: 277.41176pt x 208.07039pt.
-<./Figures/linreg_rbf2_besttrain.pdf, id=208, 462.52798pt x 346.89601pt>
+<./Figures/linreg_rbf2_besttrain.pdf, id=222, 462.52798pt x 346.89601pt>
 File: ./Figures/linreg_rbf2_besttrain.pdf Graphic file (type pdf)
 <use ./Figures/linreg_rbf2_besttrain.pdf>
 Package pdftex.def Info: ./Figures/linreg_rbf2_besttrain.pdf  used on input lin
-e 158.
+e 237.
 (pdftex.def)             Requested size: 277.41176pt x 208.07039pt.
-<./Figures/linreg_rbf3_bestval.pdf, id=209, 462.52798pt x 346.89601pt>
+<./Figures/linreg_rbf3_bestval.pdf, id=223, 462.52798pt x 346.89601pt>
 File: ./Figures/linreg_rbf3_bestval.pdf Graphic file (type pdf)
 <use ./Figures/linreg_rbf3_bestval.pdf>
 Package pdftex.def Info: ./Figures/linreg_rbf3_bestval.pdf  used on input line 
-158.
+237.
 (pdftex.def)             Requested size: 277.41176pt x 208.07039pt.
-<./Figures/linreg_rbf4_errors.pdf, id=210, 462.52798pt x 346.89601pt>
+<./Figures/linreg_rbf4_errors.pdf, id=224, 462.52798pt x 346.89601pt>
 File: ./Figures/linreg_rbf4_errors.pdf Graphic file (type pdf)
 <use ./Figures/linreg_rbf4_errors.pdf>
-Package pdftex.def Info: ./Figures/linreg_rbf4_errors.pdf  used on input line 1
-65.
+Package pdftex.def Info: ./Figures/linreg_rbf4_errors.pdf  used on input line 2
+44.
 (pdftex.def)             Requested size: 341.43437pt x 256.0903pt.
- [3 <./Figures/linreg_poly2_besttrain.pdf> <./Figures/linreg_poly3_bestval.pdf
+ [4 <./Figures/linreg_poly2_besttrain.pdf> <./Figures/linreg_poly3_bestval.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Figures/linreg_poly3_bestval.pdf): PDF inc
 lusion: multiple pdfs with page group included in a single page
@@ -585,7 +617,7 @@ lusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex.exe (file ./Figures/linreg_poly4_errors.pdf): PDF incl
 usion: multiple pdfs with page group included in a single page
->] [4 <./Figures/linreg_rbf1_ncent1.pdf> <./Figures/linreg_rbf1_ncent5.pdf
+>] [5 <./Figures/linreg_rbf1_ncent1.pdf> <./Figures/linreg_rbf1_ncent5.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Figures/linreg_rbf1_ncent5.pdf): PDF inclu
 sion: multiple pdfs with page group included in a single page
@@ -597,7 +629,7 @@ usion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex.exe (file ./Figures/linreg_rbf1_ncent22.pdf): PDF incl
 usion: multiple pdfs with page group included in a single page
->] [5 <./Figures/linreg_rbf2_besttrain.pdf> <./Figures/linreg_rbf3_bestval.pdf
+>] [6 <./Figures/linreg_rbf2_besttrain.pdf> <./Figures/linreg_rbf3_bestval.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Figures/linreg_rbf3_bestval.pdf): PDF incl
 usion: multiple pdfs with page group included in a single page
@@ -605,125 +637,44 @@ usion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex.exe (file ./Figures/linreg_rbf4_errors.pdf): PDF inclu
 sion: multiple pdfs with page group included in a single page
->] [6
+>]
+Overfull \hbox (11.54013pt too wide) detected at line 267
+[]
+ []
+
+[7
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 184.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 284.
 
- (c:/texlive/2018/texmf-dist/tex/latex/ae/omsaer.fd
-File: omsaer.fd 1999/12/27
+ (c:/texlive/2018/texmf-dist/tex/latex/ae/t1aett.fd
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 184.
-<./Figures/logreg2_iter20_error.pdf, id=642, 462.52798pt x 344.0052pt>
+<./Figures/logreg2_iter20_error.pdf, id=657, 462.52798pt x 344.0052pt>
 File: ./Figures/logreg2_iter20_error.pdf Graphic file (type pdf)
 <use ./Figures/logreg2_iter20_error.pdf>
 Package pdftex.def Info: ./Figures/logreg2_iter20_error.pdf  used on input line
- 199.
+ 306.
 (pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg2_iter20_decbound.pdf, id=643, 462.52798pt x 344.0052pt>
+<./Figures/logreg2_iter20_decbound.pdf, id=658, 462.52798pt x 344.0052pt>
 File: ./Figures/logreg2_iter20_decbound.pdf Graphic file (type pdf)
 <use ./Figures/logreg2_iter20_decbound.pdf>
 Package pdftex.def Info: ./Figures/logreg2_iter20_decbound.pdf  used on input l
-ine 199.
+ine 306.
 (pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg2_iter2000_error.pdf, id=644, 462.52798pt x 344.0052pt>
+<./Figures/logreg2_iter2000_error.pdf, id=659, 462.52798pt x 344.0052pt>
 File: ./Figures/logreg2_iter2000_error.pdf Graphic file (type pdf)
 <use ./Figures/logreg2_iter2000_error.pdf>
 Package pdftex.def Info: ./Figures/logreg2_iter2000_error.pdf  used on input li
-ne 210.
+ne 317.
 (pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg2_iter2000_decbound.pdf, id=645, 462.52798pt x 344.0052pt>
+<./Figures/logreg2_iter2000_decbound.pdf, id=660, 462.52798pt x 344.0052pt>
 File: ./Figures/logreg2_iter2000_decbound.pdf Graphic file (type pdf)
 <use ./Figures/logreg2_iter2000_decbound.pdf>
 Package pdftex.def Info: ./Figures/logreg2_iter2000_decbound.pdf  used on input
- line 210.
+ line 317.
 (pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg3_eta01_error.pdf, id=646, 462.52798pt x 344.0052pt>
-File: ./Figures/logreg3_eta01_error.pdf Graphic file (type pdf)
-<use ./Figures/logreg3_eta01_error.pdf>
-Package pdftex.def Info: ./Figures/logreg3_eta01_error.pdf  used on input line 
-228.
-(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg3_eta01_decbound.pdf, id=647, 462.52798pt x 344.0052pt>
-File: ./Figures/logreg3_eta01_decbound.pdf Graphic file (type pdf)
-<use ./Figures/logreg3_eta01_decbound.pdf>
-Package pdftex.def Info: ./Figures/logreg3_eta01_decbound.pdf  used on input li
-ne 228.
-(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg3_eta2_error.pdf, id=648, 462.52798pt x 344.0052pt>
-File: ./Figures/logreg3_eta2_error.pdf Graphic file (type pdf)
-<use ./Figures/logreg3_eta2_error.pdf>
-Package pdftex.def Info: ./Figures/logreg3_eta2_error.pdf  used on input line 2
-39.
-(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg3_eta2_decbound.pdf, id=649, 462.52798pt x 344.0052pt>
-File: ./Figures/logreg3_eta2_decbound.pdf Graphic file (type pdf)
-<use ./Figures/logreg3_eta2_decbound.pdf>
-Package pdftex.def Info: ./Figures/logreg3_eta2_decbound.pdf  used on input lin
-e 239.
-(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg3_eta20_error.pdf, id=650, 462.52798pt x 344.0052pt>
-File: ./Figures/logreg3_eta20_error.pdf Graphic file (type pdf)
-<use ./Figures/logreg3_eta20_error.pdf>
-Package pdftex.def Info: ./Figures/logreg3_eta20_error.pdf  used on input line 
-250.
-(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg3_eta20_decbound.pdf, id=651, 462.52798pt x 344.0052pt>
-File: ./Figures/logreg3_eta20_decbound.pdf Graphic file (type pdf)
-<use ./Figures/logreg3_eta20_decbound.pdf>
-Package pdftex.def Info: ./Figures/logreg3_eta20_decbound.pdf  used on input li
-ne 250.
-(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg4_deg1_opt_error.pdf, id=652, 462.52798pt x 344.0052pt>
-File: ./Figures/logreg4_deg1_opt_error.pdf Graphic file (type pdf)
-<use ./Figures/logreg4_deg1_opt_error.pdf>
-Package pdftex.def Info: ./Figures/logreg4_deg1_opt_error.pdf  used on input li
-ne 269.
-(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg4_deg1_opt_decbound.pdf, id=653, 462.52798pt x 344.0052pt>
-File: ./Figures/logreg4_deg1_opt_decbound.pdf Graphic file (type pdf)
-<use ./Figures/logreg4_deg1_opt_decbound.pdf>
-Package pdftex.def Info: ./Figures/logreg4_deg1_opt_decbound.pdf  used on input
- line 269.
-(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg4_deg2_opt_error.pdf, id=654, 462.52798pt x 344.0052pt>
-File: ./Figures/logreg4_deg2_opt_error.pdf Graphic file (type pdf)
-<use ./Figures/logreg4_deg2_opt_error.pdf>
-Package pdftex.def Info: ./Figures/logreg4_deg2_opt_error.pdf  used on input li
-ne 280.
-(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg4_deg2_opt_decbound.pdf, id=655, 462.52798pt x 344.0052pt>
-File: ./Figures/logreg4_deg2_opt_decbound.pdf Graphic file (type pdf)
-<use ./Figures/logreg4_deg2_opt_decbound.pdf>
-Package pdftex.def Info: ./Figures/logreg4_deg2_opt_decbound.pdf  used on input
- line 280.
-(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg4_deg7_opt_error.pdf, id=656, 462.52798pt x 344.0052pt>
-File: ./Figures/logreg4_deg7_opt_error.pdf Graphic file (type pdf)
-<use ./Figures/logreg4_deg7_opt_error.pdf>
-Package pdftex.def Info: ./Figures/logreg4_deg7_opt_error.pdf  used on input li
-ne 291.
-(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg4_deg7_opt_decbound.pdf, id=657, 462.52798pt x 344.0052pt>
-File: ./Figures/logreg4_deg7_opt_decbound.pdf Graphic file (type pdf)
-<use ./Figures/logreg4_deg7_opt_decbound.pdf>
-Package pdftex.def Info: ./Figures/logreg4_deg7_opt_decbound.pdf  used on input
- line 291.
-(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg4_deg20_opt_error.pdf, id=658, 462.52798pt x 344.0052pt>
-File: ./Figures/logreg4_deg20_opt_error.pdf Graphic file (type pdf)
-<use ./Figures/logreg4_deg20_opt_error.pdf>
-Package pdftex.def Info: ./Figures/logreg4_deg20_opt_error.pdf  used on input l
-ine 302.
-(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/logreg4_deg20_opt_decbound.pdf, id=659, 462.52798pt x 344.0052pt>
-File: ./Figures/logreg4_deg20_opt_decbound.pdf Graphic file (type pdf)
-<use ./Figures/logreg4_deg20_opt_decbound.pdf>
-Package pdftex.def Info: ./Figures/logreg4_deg20_opt_decbound.pdf  used on inpu
-t line 302.
-(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
- [7 <./Figures/logreg2_iter20_error.pdf> <./Figures/logreg2_iter20_decbound.pdf
+ [8 <./Figures/logreg2_iter20_error.pdf> <./Figures/logreg2_iter20_decbound.pdf
 
 
 pdfTeX warning: pdflatex.exe (file ./Figures/logreg2_iter20_decbound.pdf): PDF 
@@ -736,8 +687,44 @@ nclusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex.exe (file ./Figures/logreg2_iter2000_decbound.pdf): PD
 F inclusion: multiple pdfs with page group included in a single page
->] [8 <./Figures/logreg3_eta01_error.pdf> <./Figures/logreg3_eta01_decbound.pdf
-
+>]
+<./Figures/logreg3_eta01_error.pdf, id=784, 462.52798pt x 344.0052pt>
+File: ./Figures/logreg3_eta01_error.pdf Graphic file (type pdf)
+<use ./Figures/logreg3_eta01_error.pdf>
+Package pdftex.def Info: ./Figures/logreg3_eta01_error.pdf  used on input line 
+335.
+(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
+<./Figures/logreg3_eta01_decbound.pdf, id=785, 462.52798pt x 344.0052pt>
+File: ./Figures/logreg3_eta01_decbound.pdf Graphic file (type pdf)
+<use ./Figures/logreg3_eta01_decbound.pdf>
+Package pdftex.def Info: ./Figures/logreg3_eta01_decbound.pdf  used on input li
+ne 335.
+(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
+<./Figures/logreg3_eta2_error.pdf, id=786, 462.52798pt x 344.0052pt>
+File: ./Figures/logreg3_eta2_error.pdf Graphic file (type pdf)
+<use ./Figures/logreg3_eta2_error.pdf>
+Package pdftex.def Info: ./Figures/logreg3_eta2_error.pdf  used on input line 3
+46.
+(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
+<./Figures/logreg3_eta2_decbound.pdf, id=787, 462.52798pt x 344.0052pt>
+File: ./Figures/logreg3_eta2_decbound.pdf Graphic file (type pdf)
+<use ./Figures/logreg3_eta2_decbound.pdf>
+Package pdftex.def Info: ./Figures/logreg3_eta2_decbound.pdf  used on input lin
+e 346.
+(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
+<./Figures/logreg3_eta20_error.pdf, id=788, 462.52798pt x 344.0052pt>
+File: ./Figures/logreg3_eta20_error.pdf Graphic file (type pdf)
+<use ./Figures/logreg3_eta20_error.pdf>
+Package pdftex.def Info: ./Figures/logreg3_eta20_error.pdf  used on input line 
+357.
+(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
+<./Figures/logreg3_eta20_decbound.pdf, id=789, 462.52798pt x 344.0052pt>
+File: ./Figures/logreg3_eta20_decbound.pdf Graphic file (type pdf)
+<use ./Figures/logreg3_eta20_decbound.pdf>
+Package pdftex.def Info: ./Figures/logreg3_eta20_decbound.pdf  used on input li
+ne 357.
+(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
+ [9 <./Figures/logreg3_eta01_error.pdf> <./Figures/logreg3_eta01_decbound.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Figures/logreg3_eta01_decbound.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
@@ -757,8 +744,57 @@ usion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex.exe (file ./Figures/logreg3_eta20_decbound.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
->] [9 <./Figures/logreg4_deg1_opt_error.pdf> <./Figures/logreg4_deg1_opt_decbou
-nd.pdf
+>]
+<./Figures/logreg4_deg1_opt_error.pdf, id=965, 462.52798pt x 344.0052pt>
+File: ./Figures/logreg4_deg1_opt_error.pdf Graphic file (type pdf)
+<use ./Figures/logreg4_deg1_opt_error.pdf>
+Package pdftex.def Info: ./Figures/logreg4_deg1_opt_error.pdf  used on input li
+ne 376.
+(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
+<./Figures/logreg4_deg1_opt_decbound.pdf, id=966, 462.52798pt x 344.0052pt>
+File: ./Figures/logreg4_deg1_opt_decbound.pdf Graphic file (type pdf)
+<use ./Figures/logreg4_deg1_opt_decbound.pdf>
+Package pdftex.def Info: ./Figures/logreg4_deg1_opt_decbound.pdf  used on input
+ line 376.
+(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
+<./Figures/logreg4_deg2_opt_error.pdf, id=967, 462.52798pt x 344.0052pt>
+File: ./Figures/logreg4_deg2_opt_error.pdf Graphic file (type pdf)
+<use ./Figures/logreg4_deg2_opt_error.pdf>
+Package pdftex.def Info: ./Figures/logreg4_deg2_opt_error.pdf  used on input li
+ne 387.
+(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
+<./Figures/logreg4_deg2_opt_decbound.pdf, id=968, 462.52798pt x 344.0052pt>
+File: ./Figures/logreg4_deg2_opt_decbound.pdf Graphic file (type pdf)
+<use ./Figures/logreg4_deg2_opt_decbound.pdf>
+Package pdftex.def Info: ./Figures/logreg4_deg2_opt_decbound.pdf  used on input
+ line 387.
+(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
+<./Figures/logreg4_deg7_opt_error.pdf, id=969, 462.52798pt x 344.0052pt>
+File: ./Figures/logreg4_deg7_opt_error.pdf Graphic file (type pdf)
+<use ./Figures/logreg4_deg7_opt_error.pdf>
+Package pdftex.def Info: ./Figures/logreg4_deg7_opt_error.pdf  used on input li
+ne 398.
+(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
+<./Figures/logreg4_deg7_opt_decbound.pdf, id=970, 462.52798pt x 344.0052pt>
+File: ./Figures/logreg4_deg7_opt_decbound.pdf Graphic file (type pdf)
+<use ./Figures/logreg4_deg7_opt_decbound.pdf>
+Package pdftex.def Info: ./Figures/logreg4_deg7_opt_decbound.pdf  used on input
+ line 398.
+(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
+<./Figures/logreg4_deg20_opt_error.pdf, id=971, 462.52798pt x 344.0052pt>
+File: ./Figures/logreg4_deg20_opt_error.pdf Graphic file (type pdf)
+<use ./Figures/logreg4_deg20_opt_error.pdf>
+Package pdftex.def Info: ./Figures/logreg4_deg20_opt_error.pdf  used on input l
+ine 409.
+(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
+<./Figures/logreg4_deg20_opt_decbound.pdf, id=972, 462.52798pt x 344.0052pt>
+File: ./Figures/logreg4_deg20_opt_decbound.pdf Graphic file (type pdf)
+<use ./Figures/logreg4_deg20_opt_decbound.pdf>
+Package pdftex.def Info: ./Figures/logreg4_deg20_opt_decbound.pdf  used on inpu
+t line 409.
+(pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
+ [10] [11 <./Figures/logreg4_deg1_opt_error.pdf> <./Figures/logreg4_deg1_opt_de
+cbound.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Figures/logreg4_deg1_opt_decbound.pdf): PD
 F inclusion: multiple pdfs with page group included in a single page
@@ -788,25 +824,35 @@ pdfTeX warning: pdflatex.exe (file ./Figures/logreg4_deg20_opt_decbound.pdf): P
 DF inclusion: multiple pdfs with page group included in a single page
 >] (./hw2.aux) ) 
 Here is how much of TeX's memory you used:
- 6305 strings out of 492616
- 96560 string characters out of 6132768
- 178937 words of memory out of 5000000
- 10020 multiletter control sequences out of 15000+600000
- 32675 words of font info for 78 fonts, out of 8000000 for 9000
+ 6352 strings out of 492616
+ 97186 string characters out of 6132768
+ 177939 words of memory out of 5000000
+ 10053 multiletter control sequences out of 15000+600000
+ 38098 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,9n,44p,997b,597s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
-10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c
-:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive
-/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2018/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb>
-Output written on hw2.pdf (10 pages, 4983153 bytes).
+ 42i,15n,44p,997b,601s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbs
+y10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
+c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texliv
+e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2018/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2018/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.p
+fb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb><
+c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><c:/t
+exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/201
+8/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2018/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pf
+b><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on hw2.pdf (12 pages, 5103356 bytes).
 PDF statistics:
- 1221 PDF objects out of 1440 (max. 8388607)
- 215 compressed objects within 3 object streams
+ 1275 PDF objects out of 1440 (max. 8388607)
+ 255 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  161 words of extra memory for PDF output out of 10000 (max. 10000000)
 
