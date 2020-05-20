@@ -2,6 +2,7 @@ import json
 
 import numpy as np
 from sklearn.preprocessing import scale
+import matplotlib.pyplot as plt
 
 from nn_regression import ex_1_1_a, ex_1_1_b, ex_1_1_c, ex_1_1_d, ex_1_2
 
@@ -46,11 +47,11 @@ def main():
     x_train, x_test, y_train, y_test = \
         data['x_train'], data['x_test'], data['y_train'].ravel(), data['y_test'].ravel()
 
-    ## 1.1 a)
-    # ex_1_1_a(x_train, x_test, y_train, y_test)
+    # 1.1 a)
+    ex_1_1_a(x_train, x_test, y_train, y_test)
 
     # 1.1 b)
-    #ex_1_1_b(x_train, x_test, y_train, y_test)
+    ex_1_1_b(x_train, x_test, y_train, y_test)
 
     # 1.1 c)
     #ex_1_1_c(x_train, x_test, y_train, y_test)
@@ -63,4 +64,5 @@ def main():
 
 
 if __name__ == '__main__':
+    plt.close('all')
     main()

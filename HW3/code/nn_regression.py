@@ -25,7 +25,8 @@ def calculate_mse(nn, x, y):
     :return: Training MSE, Testing MSE
     """
     ## TODO
-    mse = 0
+    y_pred = nn.predict(x)
+    mse = np.linalg.norm(y_pred-y)**2
     return mse
 
 
@@ -41,6 +42,13 @@ def ex_1_1_a(x_train, x_test, y_train, y_test):
     """
 
     ## TODO
+    nh = (2,5,50)
+    for element in nh:
+        nn = MLPRegressor(hidden_layer_sizes=(element,), max_iter=5000, alpha=0, activation='logistic', solver='lbfgs')
+        nn.fit(x_train, y_train)
+        y_pred_test = nn.predict(x_test)
+        plot_learned_function(element, x_train, y_train, [], x_test, y_test, y_pred_test)
+        
     pass
 
 
@@ -56,6 +64,19 @@ def ex_1_1_b(x_train, x_test, y_train, y_test):
     """
 
     ## TODO
+    nh = 5
+    n_seed = 10
+    mse_train = np.zeros([n_seed])
+    mse_test = np.zeros([n_seed])
+    for index in range(n_seed):
+        nn = MLPRegressor(hidden_layer_sizes=(nh,), max_iter=5000, alpha=0, activation='logistic', solver='lbfgs', random_state=index)
+        nn.fit(x_train, y_train)
+        mse_train[index] = calculate_mse(nn, x_train, y_train)
+        mse_test[index] = calculate_mse(nn, x_test, y_test)
+        y_pred_test = nn.predict(x_test)
+        plot_learned_function(nh, x_train, y_train, [], x_test, y_test, y_pred_test)
+        
+        
     pass
 
 
