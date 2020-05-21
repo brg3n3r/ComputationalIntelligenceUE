@@ -27,11 +27,11 @@ def plot_mse_vs_neurons(train_mses, test_mses, n_hidden_neurons_list):
 
         plt.plot(n_hidden_neurons_list, m, 'o', linestyle='-', label=name, color=color)
         plt.fill_between(n_hidden_neurons_list, m - s, m + s, color=color, alpha=.2)
-    plt.ylim(0, 4)
+    #plt.ylim(0, 4)
 
     plt.xlabel("Number of neurons in the hidden layer")
     plt.ylabel("MSE")
-    # plt.semilogx()
+    #plt.semilogy()
     plt.legend()
     plt.show()
 

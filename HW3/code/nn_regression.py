@@ -41,7 +41,6 @@ def ex_1_1_a(x_train, x_test, y_train, y_test):
     :return:
     """
 
-    ## TODO
     nh = (2,5,50)
     for element in nh:
         nn = MLPRegressor(hidden_layer_sizes=(element,), max_iter=5000, alpha=0, activation='logistic', solver='lbfgs')
@@ -63,7 +62,6 @@ def ex_1_1_b(x_train, x_test, y_train, y_test):
     :return:
     """
 
-    ## TODO
     nh = 5
     n_seed = 10
     mse_train = np.zeros([n_seed])
@@ -73,10 +71,14 @@ def ex_1_1_b(x_train, x_test, y_train, y_test):
         nn.fit(x_train, y_train)
         mse_train[index] = calculate_mse(nn, x_train, y_train)
         mse_test[index] = calculate_mse(nn, x_test, y_test)
-        y_pred_test = nn.predict(x_test)
-        plot_learned_function(nh, x_train, y_train, [], x_test, y_test, y_pred_test)
         
-        
+    print(f'Train-MSE Minimum: {np.min(mse_train)}')
+    print(f'Train-MSE Maximum: {np.max(mse_train)}')
+    print(f'Train-MSE Mean: {np.mean(mse_train)}')
+    print(f'Train-MSE Standard Deviation: {np.std(mse_train)}')
+    print(f'Best Train-Seed: {np.argmin(mse_train)}')
+    print(f'Best Test-Seed: {np.argmin(mse_test)}')
+    
     pass
 
 
@@ -91,7 +93,33 @@ def ex_1_1_c(x_train, x_test, y_train, y_test):
     :return:
     """
 
-    ## TODO
+    nh = (1,2,4,6,8,12,20,40)
+    n_seed = 10
+    mse_train = np.zeros([len(nh),n_seed])
+    mse_test = np.zeros([len(nh),n_seed])
+    for ii,element in enumerate(nh):
+        for jj in range(n_seed):
+            nn = MLPRegressor(hidden_layer_sizes=(element,), max_iter=5000, alpha=0, activation='logistic', solver='lbfgs', random_state=jj)
+            nn.fit(x_train, y_train)
+            mse_train[ii,jj] = calculate_mse(nn, x_train, y_train)
+            mse_test[ii,jj] = calculate_mse(nn, x_test, y_test)
+        
+    plot_mse_vs_neurons(mse_train, mse_test, nh)
+    
+    best_train_nh_idx = np.mean(mse_train, axis=1).argmin()
+    best_train_nh_seed = np.argmin(mse_train[best_train_nh_idx,:])
+    nn = MLPRegressor(hidden_layer_sizes=(nh[best_train_nh_idx],), max_iter=5000, alpha=0, activation='logistic', solver='lbfgs', random_state=best_train_nh_seed)
+    nn.fit(x_train, y_train)
+    y_pred_test = nn.predict(x_test)
+    plot_learned_function(nh[best_train_nh_idx], x_train, y_train, [], x_test, y_test, y_pred_test)
+    
+    best_test_nh_idx = np.mean(mse_test, axis=1).argmin()
+    best_test_nh_seed = np.argmin(mse_test[best_test_nh_idx,:])
+    nn = MLPRegressor(hidden_layer_sizes=(nh[best_test_nh_idx],), max_iter=5000, alpha=0, activation='logistic', solver='lbfgs', random_state=best_test_nh_seed)
+    nn.fit(x_train, y_train)
+    y_pred_test = nn.predict(x_test)
+    plot_learned_function(nh[best_test_nh_idx], x_train, y_train, [], x_test, y_test, y_pred_test)
+    
     pass
 
 
