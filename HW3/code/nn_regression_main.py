@@ -19,7 +19,8 @@ def load_data():
     Loads the data from data.json
     :return: A dictionary containing keys x_train, x_test, y_train, y_test
     """
-    with open('data.json', 'r') as f:
+    with open('C:/Users/mbuergener/Desktop/Temporary/CI/HW3/code/data.json', 'r') as f:
+    #with open('data.json', 'r') as f:
         raw_data = json.load(f)
 
     data = {}
@@ -60,7 +61,7 @@ def main():
     #ex_1_1_d(x_train, x_test, y_train, y_test)
 
     ## 1.2 
-    # ex_1_2(x_train, x_test, y_train, y_test)
+    #ex_1_2(x_train, x_test, y_train, y_test)
 
 
 if __name__ == '__main__':

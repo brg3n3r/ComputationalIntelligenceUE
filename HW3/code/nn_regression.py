@@ -103,9 +103,9 @@ def ex_1_1_c(x_train, x_test, y_train, y_test):
             nn.fit(x_train, y_train)
             mse_train[ii,jj] = calculate_mse(nn, x_train, y_train)
             mse_test[ii,jj] = calculate_mse(nn, x_test, y_test)
-        
+
     plot_mse_vs_neurons(mse_train, mse_test, nh)
-    
+
     best_train_nh_idx = np.mean(mse_train, axis=1).argmin()
     best_train_nh_seed = np.argmin(mse_train[best_train_nh_idx,:])
     nn = MLPRegressor(hidden_layer_sizes=(nh[best_train_nh_idx],), max_iter=5000, alpha=0, activation='logistic', solver='lbfgs', random_state=best_train_nh_seed)
@@ -133,8 +133,19 @@ def ex_1_1_d(x_train, x_test, y_train, y_test):
     :param y_test: The testing targets
     :return:
     """
-
-    ## TODO
+    nh = (2,5,50)
+    n_iter = 5000
+    mse_train = np.zeros([len(nh),n_iter])
+    mse_test = np.zeros([len(nh),n_iter])
+    for ii,element in enumerate(nh):
+        nn = MLPRegressor(hidden_layer_sizes=(element,), max_iter=1, alpha=0, activation='logistic', solver='lbfgs', random_state=0, warm_start=True)
+        for jj in range(n_iter):
+            nn.fit(x_train, y_train)
+            mse_train[ii,jj] = calculate_mse(nn, x_train, y_train)
+            mse_test[ii,jj] = calculate_mse(nn, x_test, y_test)
+    
+    plot_mse_vs_iterations(mse_train, mse_test, n_iter, nh)
+    
     pass
 
 
@@ -147,5 +158,18 @@ def ex_1_2(x_train, x_test, y_train, y_test):
     :param y_test: The testing targets
     :return:
     """
-    ## TODO
+    alpha = (1E-6, 1E-5, 1E-4, 1E-3, 1E-2, 1E-1, 1, 10, 100)
+    nh = 5
+    n_seed = 10
+    mse_train = np.zeros([len(alpha),n_seed])
+    mse_test = np.zeros([len(alpha),n_seed])
+    for ii, element in enumerate(alpha):
+        for jj in range(n_seed):
+            nn = MLPRegressor(hidden_layer_sizes=(nh,), max_iter=5000, alpha=element, activation='logistic', solver='lbfgs', random_state=jj)
+            nn.fit(x_train, y_train)
+            mse_train[ii,jj] = calculate_mse(nn, x_train, y_train)
+            mse_test[ii,jj] = calculate_mse(nn, x_test, y_test)
+
+    plot_mse_vs_alpha(mse_train, mse_test, alpha)
+
     pass
