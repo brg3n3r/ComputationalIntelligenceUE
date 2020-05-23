@@ -24,9 +24,8 @@ def calculate_mse(nn, x, y):
     :param y: The targets
     :return: Training MSE, Testing MSE
     """
-    ## TODO
     y_pred = nn.predict(x)
-    mse = np.linalg.norm(y_pred-y)**2
+    mse = np.linalg.norm(y_pred-y)**2 / len(y)
     return mse
 
 
@@ -105,13 +104,6 @@ def ex_1_1_c(x_train, x_test, y_train, y_test):
             mse_test[ii,jj] = calculate_mse(nn, x_test, y_test)
 
     plot_mse_vs_neurons(mse_train, mse_test, nh)
-
-    best_train_nh_idx = np.mean(mse_train, axis=1).argmin()
-    best_train_nh_seed = np.argmin(mse_train[best_train_nh_idx,:])
-    nn = MLPRegressor(hidden_layer_sizes=(nh[best_train_nh_idx],), max_iter=5000, alpha=0, activation='logistic', solver='lbfgs', random_state=best_train_nh_seed)
-    nn.fit(x_train, y_train)
-    y_pred_test = nn.predict(x_test)
-    plot_learned_function(nh[best_train_nh_idx], x_train, y_train, [], x_test, y_test, y_pred_test)
     
     best_test_nh_idx = np.mean(mse_test, axis=1).argmin()
     best_test_nh_seed = np.argmin(mse_test[best_test_nh_idx,:])

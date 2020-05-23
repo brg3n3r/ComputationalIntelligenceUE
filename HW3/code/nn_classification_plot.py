@@ -23,6 +23,7 @@ def plot_image(image_matrix):
     ax.imshow(image_matrix.reshape(*IMAGE_DIM).T, cmap=plt.cm.gray)
     ax.set_xticks(())
     ax.set_yticks(())
+    plt.axis("tight")
     plt.show()
 
 

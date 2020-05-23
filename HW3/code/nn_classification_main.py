@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 from nn_classification import ex_2_1
 from nn_classification_plot import plot_image, plot_random_images
@@ -44,6 +45,7 @@ def main():
 
     ## Plot some random images
     plot_random_images(X_train)
+    
     ## End plot some random images
 
     ## 2.1
@@ -51,4 +53,5 @@ def main():
 
 
 if __name__ == '__main__':
+    plt.close("all")
     main()

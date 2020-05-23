@@ -25,5 +25,20 @@ def ex_2_1(X_train, y_train, X_test, y_test):
     :return:
     """
     
-    ## TODO
+    nh = 100
+    # n_seeds = 5
+    # train_acc = np.zeros([n_seeds])
+    # test_acc = np.zeros([n_seeds])
+    # for index in range(n_seeds):
+    #     nn = MLPClassifier(hidden_layer_sizes=(nh,), activation='tanh', max_iter=50, random_state=index)
+    #     nn.fit(X_train, y_train)
+    #     train_acc[index] = nn.score(X_train, y_train)
+    #     test_acc[index] = nn.score(X_test, y_test)
+    
+    # plot_boxplot(train_acc, test_acc)
+    # best_seed = np.argmax(test_acc)
+    # print(best_seed)
+    best_seed = 2
+        
+    
     pass
