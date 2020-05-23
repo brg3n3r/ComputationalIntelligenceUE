@@ -39,11 +39,15 @@ def load_mnist(path, kind='train'):
 
 
 def main():
-    
-    X_train, y_train = load_mnist('data', kind='train')
-    X_test, y_test = load_mnist('data', kind='t10k')
+
+    #X_train, y_train = load_mnist('data', kind='train')
+    #X_test, y_test = load_mnist('data', kind='t10k')
+
+    X_train, y_train = load_mnist('C:/Users/mbuergener/Desktop/Temporary/CI/HW3/code/data', kind='train')
+    X_test, y_test = load_mnist('C:/Users/mbuergener/Desktop/Temporary/CI/HW3/code/data', kind='t10k')
 
     ## Plot some random images
+    
     plot_random_images(X_train)
     
     ## End plot some random images

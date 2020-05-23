@@ -3,6 +3,7 @@ from sklearn.metrics import confusion_matrix, mean_squared_error
 from sklearn.neural_network.multilayer_perceptron import MLPClassifier
 from nn_classification_plot import plot_hidden_layer_weights, plot_boxplot, plot_image
 import numpy as np
+import pickle
 
 
 """
@@ -14,6 +15,7 @@ as mentioned in comments in the functions.
 Fill in all the sections containing TODOs.
 """
 
+IMAGE_DIM = (28, 28)
 
 def ex_2_1(X_train, y_train, X_test, y_test):
     """
@@ -39,6 +41,25 @@ def ex_2_1(X_train, y_train, X_test, y_test):
     # best_seed = np.argmax(test_acc)
     # print(best_seed)
     best_seed = 2
-        
+
+    #nn = MLPClassifier(hidden_layer_sizes=(nh,), activation='tanh', max_iter=50, random_state=best_seed)
+
+    #nn.fit(X_train, y_train)
+
+    #pickle.dump(nn, open('nn100.sav', 'wb'))
+    nn = pickle.load(open('C:/Users/mbuergener/Desktop/Temporary/CI/HW3/code/nn100.sav', 'rb'))  
+
+    y_test_pred = nn.predict(X_test)
+
+    print(confusion_matrix(y_test, y_test_pred))
+
+    coefs = nn.coefs_
+
+    plot_hidden_layer_weights(nn.coefs_[0])
+
+    plot_vct = X_test[y_test != y_test_pred]
+
+    for ii in range(5):
+        plot_image(plot_vct[ii].reshape(IMAGE_DIM))
+
     
-    pass
