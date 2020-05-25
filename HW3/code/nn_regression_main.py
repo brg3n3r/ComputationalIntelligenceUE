@@ -19,7 +19,6 @@ def load_data():
     Loads the data from data.json
     :return: A dictionary containing keys x_train, x_test, y_train, y_test
     """
-    #with open('C:/Users/mbuergener/Desktop/Temporary/CI/HW3/code/data.json', 'r') as f:
     with open('data.json', 'r') as f:
         raw_data = json.load(f)
 
@@ -49,16 +48,16 @@ def main():
         data['x_train'], data['x_test'], data['y_train'].ravel(), data['y_test'].ravel()
 
     # 1.1 a)
-    #ex_1_1_a(x_train, x_test, y_train, y_test)
+    ex_1_1_a(x_train, x_test, y_train, y_test)
 
     # 1.1 b)
-    #ex_1_1_b(x_train, x_test, y_train, y_test)
+    ex_1_1_b(x_train, x_test, y_train, y_test)
 
     # 1.1 c)
-    #ex_1_1_c(x_train, x_test, y_train, y_test)
+    ex_1_1_c(x_train, x_test, y_train, y_test)
 
     # 1.1 d)
-    #ex_1_1_d(x_train, x_test, y_train, y_test)
+    ex_1_1_d(x_train, x_test, y_train, y_test)
 
     ## 1.2 
     ex_1_2(x_train, x_test, y_train, y_test)
