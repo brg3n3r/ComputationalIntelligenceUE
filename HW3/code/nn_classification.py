@@ -29,24 +29,24 @@ def ex_2_1(X_train, y_train, X_test, y_test):
     :return:
     """
     
-    # nh = 100
-    # n_seeds = 5
-    # train_acc = np.zeros([n_seeds])
-    # test_acc = np.zeros([n_seeds])
-    # for index in range(n_seeds):
-    #     nn = MLPClassifier(hidden_layer_sizes=(nh,), activation='tanh', max_iter=50, random_state=index)
-    #     nn.fit(X_train, y_train)
-    #     train_acc[index] = nn.score(X_train, y_train)
-    #     test_acc[index] = nn.score(X_test, y_test)
+    nh = 100
+    n_seeds = 5
+    train_acc = np.zeros([n_seeds])
+    test_acc = np.zeros([n_seeds])
+    for index in range(n_seeds):
+        nn = MLPClassifier(hidden_layer_sizes=(nh,), activation='tanh', max_iter=50, random_state=index)
+        nn.fit(X_train, y_train)
+        train_acc[index] = nn.score(X_train, y_train)
+        test_acc[index] = nn.score(X_test, y_test)
     
-    # plot_boxplot(train_acc, test_acc)
-    # best_seed = np.argmax(test_acc) # Best Seed: 2
+    plot_boxplot(train_acc, test_acc)
+    best_seed = np.argmax(test_acc) # Best Seed: 2 -> use pickle to save/load nn instead of finding best seed every time
 
-    # nn = MLPClassifier(hidden_layer_sizes=(nh,), activation='tanh', max_iter=50, random_state=best_seed)
-    # nn.fit(X_train, y_train)
+    nn = MLPClassifier(hidden_layer_sizes=(nh,), activation='tanh', max_iter=50, random_state=best_seed)
+    nn.fit(X_train, y_train)
 
-    #pickle.dump(nn, open('nn100.sav', 'wb'))
-    nn = pickle.load(open('nn100.sav', 'rb'))  
+    # pickle.dump(nn, open('nn100.sav', 'wb'))
+    # nn = pickle.load(open('nn100.sav', 'rb'))  
 
     y_test_pred = nn.predict(X_test)
     print(confusion_matrix(y_test, y_test_pred))
