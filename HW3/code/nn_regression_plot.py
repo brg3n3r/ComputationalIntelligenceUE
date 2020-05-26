@@ -86,7 +86,6 @@ def plot_mse_vs_alpha(train_mses, test_mses, alphas):
     plt.semilogx()
     plt.xlabel("Alphas")
     plt.ylabel("MSE")
-    # plt.semilogx()
     plt.legend()
     plt.show()
 

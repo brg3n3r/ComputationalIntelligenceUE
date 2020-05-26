@@ -46,8 +46,7 @@ def ex_1_1_a(x_train, x_test, y_train, y_test):
         nn.fit(x_train, y_train)
         y_pred_test = nn.predict(x_test)
         plot_learned_function(element, x_train, y_train, [], x_test, y_test, y_pred_test)
-        
-    pass
+
 
 
 def ex_1_1_b(x_train, x_test, y_train, y_test):
@@ -77,8 +76,7 @@ def ex_1_1_b(x_train, x_test, y_train, y_test):
     print(f'Train-MSE Standard Deviation: {np.std(mse_train)}')
     print(f'Best Train-Seed: {np.argmin(mse_train)}')
     print(f'Best Test-Seed: {np.argmin(mse_test)}')
-    
-    pass
+
 
 
 def ex_1_1_c(x_train, x_test, y_train, y_test):
@@ -109,10 +107,15 @@ def ex_1_1_c(x_train, x_test, y_train, y_test):
     best_test_nh_seed = np.argmin(mse_test[best_test_nh_idx,:])
     nn = MLPRegressor(hidden_layer_sizes=(nh[best_test_nh_idx],), max_iter=5000, alpha=0, activation='logistic', solver='lbfgs', random_state=best_test_nh_seed)
     nn.fit(x_train, y_train)
-    y_pred_test = nn.predict(x_test)
-    plot_learned_function(nh[best_test_nh_idx], x_train, y_train, [], x_test, y_test, y_pred_test)
+    y_pred_best_test = nn.predict(x_test)
+    plot_learned_function(nh[best_test_nh_idx], x_train, y_train, [], x_test, y_test, y_pred_best_test)
     
-    pass
+    worst_test_nh_idx = np.mean(mse_test, axis=1).argmax()
+    worst_test_nh_seed = np.argmax(mse_test[worst_test_nh_idx,:])
+    nn = MLPRegressor(hidden_layer_sizes=(nh[worst_test_nh_idx],), max_iter=5000, alpha=0, activation='logistic', solver='lbfgs', random_state=worst_test_nh_seed)
+    nn.fit(x_train, y_train)
+    y_pred_worst_test = nn.predict(x_test)
+    plot_learned_function(nh[worst_test_nh_idx], x_train, y_train, [], x_test, y_test, y_pred_worst_test)
 
 
 def ex_1_1_d(x_train, x_test, y_train, y_test):
@@ -137,8 +140,7 @@ def ex_1_1_d(x_train, x_test, y_train, y_test):
             mse_test[ii,jj] = calculate_mse(nn, x_test, y_test)
     
     plot_mse_vs_iterations(mse_train, mse_test, n_iter, nh)
-    
-    pass
+
 
 
 def ex_1_2(x_train, x_test, y_train, y_test):
@@ -163,5 +165,3 @@ def ex_1_2(x_train, x_test, y_train, y_test):
             mse_test[ii,jj] = calculate_mse(nn, x_test, y_test)
 
     plot_mse_vs_alpha(mse_train, mse_test, alpha)
-
-    pass

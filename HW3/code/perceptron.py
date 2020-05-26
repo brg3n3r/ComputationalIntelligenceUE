@@ -41,7 +41,7 @@ class Perceptron:
                     self.w = self.w + self.learning_rate*(y_train[jj,0] - z[jj,0]) * x_train[jj,:].reshape(N,1)
                 
             if (y_train == z).all():
-                print(f"Aborted at: {ii}")
+                print(f"Aborted at iteration: {ii+1}")
                 break
         
        # self.w = self.w[:N-1]
@@ -93,12 +93,12 @@ def plot_decision_boundary(perceptron, x, y):
 
 
 def main():
-    # x, y = load_data()
-    x, y = load_non_linearly_separable_data()
+    x, y = load_data()
+    # x, y = load_non_linearly_separable_data()
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=1)
     
-    learning_rate = 0.1
-    n_iter = 100
+    learning_rate = 0.01
+    n_iter = 5
 
     # Perceptron from sklearn
     perceptron = SkPerceptron(alpha=learning_rate, max_iter=n_iter, fit_intercept=False)
