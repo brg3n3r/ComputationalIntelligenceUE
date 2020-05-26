@@ -46,7 +46,7 @@
 \subsection{Simple Regression with Neural Networks}
 \subsubsection{Learned Function}
 
-Figure \ref{1_1_a} shows "typical" (slight variations occur due to non-fixed random seeds) results of functions learned through regression with $n_h = 2,5,50$ neurons in one hidden layer. Using only 2 neurons causes underfitting and leads to a poorly approximated function for both training and test sets. With $n_h=5$ yields better results for both training and testing sets, but especially for the testing set the approximated function is not entirely accurate. Choosing $n_h=50$ leads to overfitting: the output function fits the training data almost perfectly but barely resembles the testing set.
+Figure \ref{1_1_a} shows "typical" (slight variations occur due to non-fixed random seeds) results of functions learned through regression with $n_h = 2,5,50$ neurons in one hidden layer. Using only 2 neurons causes underfitting and leads to a poorly approximated function for both training and test sets. Using $n_h=5$ yields better results for both training and testing sets, but especially for the testing set the approximated function is not entirely accurate. Choosing $n_h=50$ leads to overfitting: the output function fits the training data almost perfectly but barely resembles the testing set.
 
 \begin{figure}[!ht]
 \vspace*{-80pt}
@@ -179,52 +179,53 @@ Regularization is used to overcome overfitting: by adding the squared norm of th
         \makebox[\textwidth]{
 		\centering
 		\includegraphics[width=1.2 \textwidth]{./Figures/2_weights.pdf}
-		\caption{Weights per pixel for 10 samples}
+		\caption{Weights for 10 samples}
 		\label{weights}
 		}
 		\end{figure}
 	
-	    In figure \ref{weights} are the weights per features visualized. As for the features these are referring to one pixel of a 28 x 28 pixel conversion from each picture. The weights are scaled from important regions (white) to regions with less information (black). It makes sense and can be seen in the pictures that that the object edges are important since all picture have the black background in common and the object outlines vary a lot.
+	    In figure \ref{weights} the weights per features are visualized. As for the features these are referring to one pixel of a 28 x 28 pixel conversion from each picture. The weights are scaled from important regions (white) to regions with less information (black). It makes sense and can be seen in the pictures that that the object edges are important since all picture have the black background in common and the object outlines vary a lot.
 	  
 	\newpage    
-    \item Boxplot of classifications with different inital weight vector values
+    \item Boxplot of classifications with different initial weight vector values
     
         \begin{figure}[!ht]
 		\centering
 		\includegraphics[width=1 \textwidth]{./Figures/2_boxplot.pdf}
-		\caption{Accuracy of classifications using different inital $\mathbf{w}$}
-		\label{weights}
+		\caption{Accuracy of classifications using different initial $\mathbf{w}$}
+		\label{boxplots}
 		\end{figure}
 		
-		After choosing the optimal amount of hidden layers the boxplots visualize the accuracy of classifications which started with different weight vectors $\mathbf{w}$. The orange coloured line shows the median of our calculated numbers. The lower border of the box is enclosing the median of all numbers which are lower than our global median. The upper border is enclosing all numbers till the median of all higher numbers. The last section is showing the global minimum and maximum. Any outliers are marked with a spot.\\
-		
-	\item Missclassified items
+		After choosing the optimal amount of hidden layers the boxplots visualize the accuracy of classifications with randomly initialized weights. The orange coloured line shows the median of all calculated accuracies. The lower border of the box is the median of the lower quartile. The upper border is the median of the upper quartile. The last section is showing the global minimum and maximum. Any outliers are marked with a circle.\\
+
+    \newpage		
+	\item Some misclassified items
 	
 \begin{figure}[!ht]
 \centering
 \makebox[\textwidth]{
 \begin{subfigure}{0.5\textwidth}
 \includegraphics[width=\textwidth]{./Figures/2_misclassified_1.pdf}
-\caption{Missclassified image 1}
+\caption{Misclassified image 1}
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
 \includegraphics[width=\textwidth]{./Figures/2_misclassified_3.pdf}
-\caption{Missclassified image 2}
+\caption{Misclassified image 2}
 \end{subfigure}
 }
 
 \makebox[\textwidth]{
 \begin{subfigure}{0.5\textwidth}
 \includegraphics[width=\textwidth]{./Figures/2_misclassified_4.pdf}
-\caption{Missclassified image 3}
+\caption{Misclassified image 3}
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
 \includegraphics[width=\textwidth]{./Figures/2_misclassified_5.pdf}
-\caption{Missclassified image 4}
+\caption{Misclassified image 4}
 \end{subfigure}
 }
-\caption{Missclassified items from our test set}
-\label{linreg_poly1}
+\caption{Misclassified items from our test set}
+\label{misclassified_items}
 \end{figure}
 
 \end{itemize}
@@ -240,11 +241,11 @@ Regularization is used to overcome overfitting: by adding the squared norm of th
 	\makebox[\textwidth]{
 	\begin{subfigure}{0.45\textwidth}
 	\includegraphics[width=\textwidth]{./Figures/3_lin_eta001_iter1.pdf}
-	\caption{self implementation}
+	\caption{Perceptron}
 	\end{subfigure}
 	\begin{subfigure}{0.45\textwidth}
 	\includegraphics[width=\textwidth]{./Figures/3_lin_eta001_iter1_skl.pdf}
-	\caption{scikit-learn’s implementation}
+	\caption{SKPerceptron}
 	\end{subfigure}
 	}	
 	\caption{Classification using eta = $0,01$ and max. iterations of 2}
@@ -255,11 +256,11 @@ Regularization is used to overcome overfitting: by adding the squared norm of th
 	\makebox[\textwidth]{
 	\begin{subfigure}{0.45\textwidth}
 	\includegraphics[width=\textwidth]{./Figures/3_lin_eta001_iter5.pdf}
-	\caption{self implementation}
+	\caption{Perceptron}
 	\end{subfigure}
 	\begin{subfigure}{0.45\textwidth}
 	\includegraphics[width=\textwidth]{./Figures/3_lin_eta001_iter5_skl.pdf}
-	\caption{scikit-learn’s implementation}
+	\caption{SKPerceptron}
 	\end{subfigure}
 	}	
 	\caption{Classification using eta = $0,01$ and max. iterations of 5}
@@ -270,23 +271,47 @@ Regularization is used to overcome overfitting: by adding the squared norm of th
 	\makebox[\textwidth]{
 	\begin{subfigure}{0.45\textwidth}
 	\includegraphics[width=\textwidth]{./Figures/3_lin_eta0001_iter5.pdf}
-	\caption{self implementation}
+	\caption{Perceptron}
 	\end{subfigure}
 	\begin{subfigure}{0.45\textwidth}
 	\includegraphics[width=\textwidth]{./Figures/3_lin_eta0001_iter5_skl.pdf}
-	\caption{scikit-learn’s implementation}
+	\caption{SKPerceptron}
 	\end{subfigure}
 	}	
 	\caption{Classification using eta = $0,001$ and max. iterations of 5}
 	\label{perceptron3}
 	\end{figure}
 	
-	The classification of the dataset was similar for both implementations. Only using small eta's $< 0,001$ our code began  to misclassify the whole dataset.
+	\newpage
+	
+	The classification of the dataset is similar for both implementations. Only when using small etas $< 0,001$ our Perceptron algorithm does not converge.
+	
+	\begin{table}[!ht]
+	\parbox{.45\linewidth}{
+	\centering
+	\begin{tabular}{rc}
+	\hline
+	Training MSE: & 0,425 \\
+	Test MSE: & 0,4 \\
+	\hline
+	\end{tabular}
+	}
+	\hfill
+	\parbox{.45\linewidth}{
+	\centering
+	\begin{tabular}{rc}
+	\hline
+	Training MSE: & 0,0 \\
+	Test MSE: & 0,0 \\
+	\hline
+	\end{tabular}
+	\caption{MSEs using eta $= 0,001$ and 5 iterations Perceptron.(l.) SKPerceptron(r.)}
+	}
+	\end{table}
 	
 	\item How many training iterations does it take for the perceptron to learn to classify all training samples perfectly?\\
 	
-	Our own implementation needs in average 2 iterations to classify the linear dataset perfectly. This make sense since we're using random initial weights for just two different states.\\
-	
+	Our own implementation needs on average 2 iterations to classify the linear dataset perfectly.\\	
 	
 	\item The misclassification rate for both datasets
 	
@@ -309,7 +334,7 @@ Regularization is used to overcome overfitting: by adding the squared norm of th
 	Test MSE: & 0,5 \\
 	\hline
 	\end{tabular}
-	\caption{MSEs using eta $= 0,01$ and 5 iterations self impl.(l.) skl.impl.(r.)}
+	\caption{MSEs using eta $= 0,01$ and 5 iterations Perceptron.(l.) SKPerceptron(r.)}
 	}
 	\end{table}
 	
@@ -332,21 +357,22 @@ Regularization is used to overcome overfitting: by adding the squared norm of th
 	Test MSE: & 0,5 \\
 	\hline
 	\end{tabular}
-	\caption{MSEs using eta $= 0,1$ and 100 iterations self impl.(l.) skl.impl.(r.)}
+	\caption{MSEs using eta $= 0,1$ and 100 iterations Perceptron.(l.) SKPerceptron(r.)}
 	}
 	\end{table}
 	
-	\item Non linear seperable dataset:
+    \newpage
+	\item Non linearly separable dataset:
 	
 	\begin{figure}[!ht]
 	\makebox[\textwidth]{
 	\begin{subfigure}{0.45\textwidth}
 	\includegraphics[width=\textwidth]{./Figures/3_nonlin_eta001_iter5.pdf}
-	\caption{self implementation}
+	\caption{Perceptron}
 	\end{subfigure}
 	\begin{subfigure}{0.45\textwidth}
 	\includegraphics[width=\textwidth]{./Figures/3_nonlin_eta001_iter5_skl.pdf}
-	\caption{scikit-learn’s implementation}
+	\caption{SKPerceptron}
 	\end{subfigure}
 	}	
 	\caption{Classification using eta = $0,01$ and max. iterations of 5}
@@ -357,22 +383,22 @@ Regularization is used to overcome overfitting: by adding the squared norm of th
 	\makebox[\textwidth]{
 	\begin{subfigure}{0.45\textwidth}
 	\includegraphics[width=\textwidth]{./Figures/3_nonlin_eta01_iter100.pdf}
-	\caption{self implementation}
+	\caption{Perceptron}
 	\end{subfigure}
 	\begin{subfigure}{0.45\textwidth}
 	\includegraphics[width=\textwidth]{./Figures/3_nonlin_eta01_iter100_skl.pdf}
-	\caption{scikit-learn’s implementation}
+	\caption{SKPerceptron}
 	\end{subfigure}
 	}	
-	\caption{Classification using eta = $0,1$ and max. iterations of 100}
-	\label{perceptron2}
+	\caption{Classification using eta = $0,01$ and max. iterations of 5}
+	\label{perceptron1}
 	\end{figure}
 
     Both implementations can not classify the non linear dataset.\\
     
     \item How would you learn a non-linear decision boundary using a single perceptron?\\
     
-    We should use a non linear activation function i.e. the sigmoid function with logistic regression as we used it in our homework 2. Using a suiting degree and learning rate  the classification could be much better.
+In order to be able to classify non-linearly separable instead of the features $x$ one could use the output of a basis function $\phi(x)$, e.g. monomials as in HW2.
 	
 	
 \end{itemize}
