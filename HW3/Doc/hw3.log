@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.22)  26 MAY 2020 13:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.22)  26 MAY 2020 14:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -509,30 +509,7 @@ Package pdftex.def Info: ./Figures/1_1_a_nh_50.pdf  used on input line 65.
 
 LaTeX Warning: Float too large for page by 15.76102pt on input line 71.
 
-<./Figures/1_1_c_mse.pdf, id=13, 722.7pt x 502.99919pt>
-File: ./Figures/1_1_c_mse.pdf Graphic file (type pdf)
-<use ./Figures/1_1_c_mse.pdf>
-Package pdftex.def Info: ./Figures/1_1_c_mse.pdf  used on input line 96.
-(pdftex.def)             Requested size: 426.79135pt x 297.05092pt.
-<./Figures/1_1_c_nh_besttest.pdf, id=14, 722.7pt x 502.99919pt>
-File: ./Figures/1_1_c_nh_besttest.pdf Graphic file (type pdf)
-<use ./Figures/1_1_c_nh_besttest.pdf>
-Package pdftex.def Info: ./Figures/1_1_c_nh_besttest.pdf  used on input line 10
-4.
-(pdftex.def)             Requested size: 341.43437pt x 237.63766pt.
-<./Figures/1_1_c_nh_worsttest.pdf, id=15, 722.7pt x 502.99919pt>
-File: ./Figures/1_1_c_nh_worsttest.pdf Graphic file (type pdf)
-<use ./Figures/1_1_c_nh_worsttest.pdf>
-Package pdftex.def Info: ./Figures/1_1_c_nh_worsttest.pdf  used on input line 1
-10.
-(pdftex.def)             Requested size: 341.43437pt x 237.63766pt.
-[1]
-<./Figures/1_1_d_mse.pdf, id=21, 719.08652pt x 500.83109pt>
-File: ./Figures/1_1_d_mse.pdf Graphic file (type pdf)
-<use ./Figures/1_1_d_mse.pdf>
-Package pdftex.def Info: ./Figures/1_1_d_mse.pdf  used on input line 126.
-(pdftex.def)             Requested size: 426.79135pt x 297.26074pt.
- [2] [3 <./Figures/1_1_a_nh_2.pdf> <./Figures/1_1_a_nh_5.pdf
+[1] [2 <./Figures/1_1_a_nh_2.pdf> <./Figures/1_1_a_nh_5.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Figures/1_1_a_nh_5.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
@@ -540,87 +517,105 @@ ltiple pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex.exe (file ./Figures/1_1_a_nh_50.pdf): PDF inclusion: m
 ultiple pdfs with page group included in a single page
->] [4 <./Figures/1_1_c_mse.pdf>] [5 <./Figures/1_1_c_nh_besttest.pdf> <./Figure
-s/1_1_c_nh_worsttest.pdf
+>]
+<./Figures/1_1_c_mse.pdf, id=121, 722.7pt x 502.99919pt>
+File: ./Figures/1_1_c_mse.pdf Graphic file (type pdf)
+<use ./Figures/1_1_c_mse.pdf>
+Package pdftex.def Info: ./Figures/1_1_c_mse.pdf  used on input line 97.
+(pdftex.def)             Requested size: 426.79135pt x 297.05092pt.
+<./Figures/1_1_c_nh_besttest.pdf, id=122, 722.7pt x 502.99919pt>
+File: ./Figures/1_1_c_nh_besttest.pdf Graphic file (type pdf)
+<use ./Figures/1_1_c_nh_besttest.pdf>
+Package pdftex.def Info: ./Figures/1_1_c_nh_besttest.pdf  used on input line 10
+5.
+(pdftex.def)             Requested size: 341.43437pt x 237.63766pt.
+<./Figures/1_1_c_nh_worsttest.pdf, id=123, 722.7pt x 502.99919pt>
+File: ./Figures/1_1_c_nh_worsttest.pdf Graphic file (type pdf)
+<use ./Figures/1_1_c_nh_worsttest.pdf>
+Package pdftex.def Info: ./Figures/1_1_c_nh_worsttest.pdf  used on input line 1
+11.
+(pdftex.def)             Requested size: 341.43437pt x 237.63766pt.
+ [3
+
+ <./Figures/1_1_c_mse.pdf>] [4 <./Figures/1_1_c_nh_besttest.pdf> <./Figures/1_1
+_c_nh_worsttest.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Figures/1_1_c_nh_worsttest.pdf): PDF inclu
 sion: multiple pdfs with page group included in a single page
->] [6 <./Figures/1_1_d_mse.pdf>]
-<./Figures/1_2_mse.pdf, id=279, 722.7pt x 502.99919pt>
+>]
+<./Figures/1_1_d_mse.pdf, id=234, 719.08652pt x 500.83109pt>
+File: ./Figures/1_1_d_mse.pdf Graphic file (type pdf)
+<use ./Figures/1_1_d_mse.pdf>
+Package pdftex.def Info: ./Figures/1_1_d_mse.pdf  used on input line 129.
+(pdftex.def)             Requested size: 426.79135pt x 297.26074pt.
+ [5
+
+ <./Figures/1_1_d_mse.pdf>]
+<./Figures/1_2_mse.pdf, id=275, 722.7pt x 502.99919pt>
 File: ./Figures/1_2_mse.pdf Graphic file (type pdf)
 <use ./Figures/1_2_mse.pdf>
-Package pdftex.def Info: ./Figures/1_2_mse.pdf  used on input line 136.
+Package pdftex.def Info: ./Figures/1_2_mse.pdf  used on input line 142.
 (pdftex.def)             Requested size: 426.79135pt x 297.05092pt.
- [7
+ [6
 
  <./Figures/1_2_mse.pdf>]
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 145.
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 151.
 
 
 (c:/texlive/2018/texmf-dist/tex/latex/ae/omsaer.fd
 File: omsaer.fd 1999/12/27
 )
 LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 145.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 151.
 
-Overfull \hbox (82.17384pt too wide) in paragraph at lines 148--162
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
 
  []
 
-<./Figures/2_weights.pdf, id=326, 722.7pt x 208.8603pt>
+<./Figures/2_weights.pdf, id=325, 722.7pt x 208.8603pt>
 File: ./Figures/2_weights.pdf Graphic file (type pdf)
 <use ./Figures/2_weights.pdf>
-Package pdftex.def Info: ./Figures/2_weights.pdf  used on input line 171.
+Package pdftex.def Info: ./Figures/2_weights.pdf  used on input line 184.
 (pdftex.def)             Requested size: 512.14832pt x 148.0114pt.
-
-Overfull \hbox (85.35696pt too wide) in paragraph at lines 171--172
- [][] 
- []
-
-[8
+[7
 
  <./Figures/2_weights.pdf>]
-<./Figures/2_boxplot.pdf, id=371, 462.52798pt x 344.0052pt>
+<./Figures/2_boxplot.pdf, id=370, 462.52798pt x 344.0052pt>
 File: ./Figures/2_boxplot.pdf Graphic file (type pdf)
 <use ./Figures/2_boxplot.pdf>
-Package pdftex.def Info: ./Figures/2_boxplot.pdf  used on input line 183.
+Package pdftex.def Info: ./Figures/2_boxplot.pdf  used on input line 194.
 (pdftex.def)             Requested size: 426.79135pt x 317.44394pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
+Underfull \hbox (badness 10000) in paragraph at lines 199--200
 
  []
 
-<./Figures/2_misclassified_1.pdf, id=372, 462.52798pt x 344.0052pt>
+<./Figures/2_misclassified_1.pdf, id=371, 462.52798pt x 344.0052pt>
 File: ./Figures/2_misclassified_1.pdf Graphic file (type pdf)
 <use ./Figures/2_misclassified_1.pdf>
-Package pdftex.def Info: ./Figures/2_misclassified_1.pdf  used on input line 20
-3.
+Package pdftex.def Info: ./Figures/2_misclassified_1.pdf  used on input line 21
+4.
 (pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/2_misclassified_3.pdf, id=373, 462.52798pt x 344.0052pt>
+<./Figures/2_misclassified_3.pdf, id=372, 462.52798pt x 344.0052pt>
 File: ./Figures/2_misclassified_3.pdf Graphic file (type pdf)
 <use ./Figures/2_misclassified_3.pdf>
-Package pdftex.def Info: ./Figures/2_misclassified_3.pdf  used on input line 20
-3.
+Package pdftex.def Info: ./Figures/2_misclassified_3.pdf  used on input line 21
+4.
 (pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/2_misclassified_4.pdf, id=374, 462.52798pt x 344.0052pt>
+<./Figures/2_misclassified_4.pdf, id=373, 462.52798pt x 344.0052pt>
 File: ./Figures/2_misclassified_4.pdf Graphic file (type pdf)
 <use ./Figures/2_misclassified_4.pdf>
-Package pdftex.def Info: ./Figures/2_misclassified_4.pdf  used on input line 21
-4.
+Package pdftex.def Info: ./Figures/2_misclassified_4.pdf  used on input line 22
+5.
 (pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-<./Figures/2_misclassified_5.pdf, id=375, 462.52798pt x 344.0052pt>
+<./Figures/2_misclassified_5.pdf, id=374, 462.52798pt x 344.0052pt>
 File: ./Figures/2_misclassified_5.pdf Graphic file (type pdf)
 <use ./Figures/2_misclassified_5.pdf>
-Package pdftex.def Info: ./Figures/2_misclassified_5.pdf  used on input line 21
-4.
+Package pdftex.def Info: ./Figures/2_misclassified_5.pdf  used on input line 22
+5.
 (pdftex.def)             Requested size: 213.39568pt x 158.71672pt.
-[9 <./Figures/2_boxplot.pdf>] [10 <./Figures/2_misclassified_1.pdf> <./Figures/
-2_misclassified_3.pdf
+[8 <./Figures/2_boxplot.pdf>] [9 <./Figures/2_misclassified_1.pdf> <./Figures/2
+_misclassified_3.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Figures/2_misclassified_3.pdf): PDF inclus
 ion: multiple pdfs with page group included in a single page
@@ -633,48 +628,48 @@ ion: multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex.exe (file ./Figures/2_misclassified_5.pdf): PDF inclus
 ion: multiple pdfs with page group included in a single page
 >]
-<./Figures/3_lin_eta001_iter1.pdf, id=430, 462.52798pt x 344.0052pt>
+<./Figures/3_lin_eta001_iter1.pdf, id=429, 462.52798pt x 344.0052pt>
 File: ./Figures/3_lin_eta001_iter1.pdf Graphic file (type pdf)
 <use ./Figures/3_lin_eta001_iter1.pdf>
 Package pdftex.def Info: ./Figures/3_lin_eta001_iter1.pdf  used on input line 2
-38.
+49.
 (pdftex.def)             Requested size: 192.0548pt x 142.84348pt.
-<./Figures/3_lin_eta001_iter1_skl.pdf, id=431, 462.52798pt x 344.0052pt>
+<./Figures/3_lin_eta001_iter1_skl.pdf, id=430, 462.52798pt x 344.0052pt>
 File: ./Figures/3_lin_eta001_iter1_skl.pdf Graphic file (type pdf)
 <use ./Figures/3_lin_eta001_iter1_skl.pdf>
 Package pdftex.def Info: ./Figures/3_lin_eta001_iter1_skl.pdf  used on input li
-ne 238.
+ne 249.
 (pdftex.def)             Requested size: 192.0548pt x 142.84348pt.
-<./Figures/3_lin_eta001_iter5.pdf, id=432, 462.52798pt x 344.0052pt>
+<./Figures/3_lin_eta001_iter5.pdf, id=431, 462.52798pt x 344.0052pt>
 File: ./Figures/3_lin_eta001_iter5.pdf Graphic file (type pdf)
 <use ./Figures/3_lin_eta001_iter5.pdf>
 Package pdftex.def Info: ./Figures/3_lin_eta001_iter5.pdf  used on input line 2
-53.
+64.
 (pdftex.def)             Requested size: 192.0548pt x 142.84348pt.
-<./Figures/3_lin_eta001_iter5_skl.pdf, id=433, 462.52798pt x 344.0052pt>
+<./Figures/3_lin_eta001_iter5_skl.pdf, id=432, 462.52798pt x 344.0052pt>
 File: ./Figures/3_lin_eta001_iter5_skl.pdf Graphic file (type pdf)
 <use ./Figures/3_lin_eta001_iter5_skl.pdf>
 Package pdftex.def Info: ./Figures/3_lin_eta001_iter5_skl.pdf  used on input li
-ne 253.
+ne 264.
 (pdftex.def)             Requested size: 192.0548pt x 142.84348pt.
-<./Figures/3_lin_eta0001_iter5.pdf, id=434, 462.52798pt x 344.0052pt>
+<./Figures/3_lin_eta0001_iter5.pdf, id=433, 462.52798pt x 344.0052pt>
 File: ./Figures/3_lin_eta0001_iter5.pdf Graphic file (type pdf)
 <use ./Figures/3_lin_eta0001_iter5.pdf>
 Package pdftex.def Info: ./Figures/3_lin_eta0001_iter5.pdf  used on input line 
-268.
+279.
 (pdftex.def)             Requested size: 192.0548pt x 142.84348pt.
-<./Figures/3_lin_eta0001_iter5_skl.pdf, id=435, 462.52798pt x 344.0052pt>
+<./Figures/3_lin_eta0001_iter5_skl.pdf, id=434, 462.52798pt x 344.0052pt>
 File: ./Figures/3_lin_eta0001_iter5_skl.pdf Graphic file (type pdf)
 <use ./Figures/3_lin_eta0001_iter5_skl.pdf>
 Package pdftex.def Info: ./Figures/3_lin_eta0001_iter5_skl.pdf  used on input l
-ine 268.
+ine 279.
 (pdftex.def)             Requested size: 192.0548pt x 142.84348pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--276
+Underfull \hbox (badness 10000) in paragraph at lines 286--287
 
  []
 
-[11
+[10
 
  <./Figures/3_lin_eta001_iter1.pdf> <./Figures/3_lin_eta001_iter1_skl.pdf
 
@@ -697,45 +692,45 @@ usion: multiple pdfs with page group included in a single page
 pdfTeX warning: pdflatex.exe (file ./Figures/3_lin_eta0001_iter5_skl.pdf): PDF 
 inclusion: multiple pdfs with page group included in a single page
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 277--278
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
 
  []
 
-<./Figures/3_nonlin_eta001_iter5.pdf, id=645, 462.52798pt x 344.0052pt>
+<./Figures/3_nonlin_eta001_iter5.pdf, id=644, 462.52798pt x 344.0052pt>
 File: ./Figures/3_nonlin_eta001_iter5.pdf Graphic file (type pdf)
 <use ./Figures/3_nonlin_eta001_iter5.pdf>
 Package pdftex.def Info: ./Figures/3_nonlin_eta001_iter5.pdf  used on input lin
-e 340.
+e 351.
 (pdftex.def)             Requested size: 192.0548pt x 142.84348pt.
-<./Figures/3_nonlin_eta001_iter5_skl.pdf, id=646, 462.52798pt x 344.0052pt>
+<./Figures/3_nonlin_eta001_iter5_skl.pdf, id=645, 462.52798pt x 344.0052pt>
 File: ./Figures/3_nonlin_eta001_iter5_skl.pdf Graphic file (type pdf)
 <use ./Figures/3_nonlin_eta001_iter5_skl.pdf>
 Package pdftex.def Info: ./Figures/3_nonlin_eta001_iter5_skl.pdf  used on input
- line 340.
+ line 351.
 (pdftex.def)             Requested size: 192.0548pt x 142.84348pt.
-<./Figures/3_nonlin_eta01_iter100.pdf, id=647, 462.52798pt x 344.0052pt>
+<./Figures/3_nonlin_eta01_iter100.pdf, id=646, 462.52798pt x 344.0052pt>
 File: ./Figures/3_nonlin_eta01_iter100.pdf Graphic file (type pdf)
 <use ./Figures/3_nonlin_eta01_iter100.pdf>
 Package pdftex.def Info: ./Figures/3_nonlin_eta01_iter100.pdf  used on input li
-ne 355.
+ne 366.
 (pdftex.def)             Requested size: 192.0548pt x 142.84348pt.
-<./Figures/3_nonlin_eta01_iter100_skl.pdf, id=648, 462.52798pt x 344.0052pt>
+<./Figures/3_nonlin_eta01_iter100_skl.pdf, id=647, 462.52798pt x 344.0052pt>
 File: ./Figures/3_nonlin_eta01_iter100_skl.pdf Graphic file (type pdf)
 <use ./Figures/3_nonlin_eta01_iter100_skl.pdf>
 Package pdftex.def Info: ./Figures/3_nonlin_eta01_iter100_skl.pdf  used on inpu
-t line 355.
+t line 366.
 (pdftex.def)             Requested size: 192.0548pt x 142.84348pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--361
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--363
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
 
  []
 
-[12 <./Figures/3_nonlin_eta001_iter5.pdf> <./Figures/3_nonlin_eta001_iter5_skl.
+[11 <./Figures/3_nonlin_eta001_iter5.pdf> <./Figures/3_nonlin_eta001_iter5_skl.
 pdf
 
 pdfTeX warning: pdflatex.exe (file ./Figures/3_nonlin_eta001_iter5_skl.pdf): PD
@@ -748,7 +743,7 @@ nclusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex.exe (file ./Figures/3_nonlin_eta01_iter100_skl.pdf): P
 DF inclusion: multiple pdfs with page group included in a single page
->] [13] (./hw3.aux)
+>] [12] (./hw3.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -756,7 +751,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  6278 strings out of 492616
  94551 string characters out of 6132768
- 177025 words of memory out of 5000000
+ 176024 words of memory out of 5000000
  9999 multiletter control sequences out of 15000+600000
  33294 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -768,12 +763,14 @@ st/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2018/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmmi9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.
-pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/tex
-live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on hw3.pdf (14 pages, 610667 bytes).
+pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2018/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on hw3.pdf (13 pages, 625775 bytes).
 PDF statistics:
- 810 PDF objects out of 1000 (max. 8388607)
- 191 compressed objects within 2 object streams
+ 815 PDF objects out of 1000 (max. 8388607)
+ 195 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  121 words of extra memory for PDF output out of 10000 (max. 10000000)
 

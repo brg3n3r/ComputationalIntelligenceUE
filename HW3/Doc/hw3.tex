@@ -86,6 +86,7 @@ min & max 	& $\mu$ 	& $\sigma$ \\ \hline
 \label{1_1_b}
 \end{table}
 
+\clearpage
 
 \subsubsection{Varying the number of hidden neurons}
 
@@ -116,6 +117,8 @@ Figure \ref{1_1_c_mse} shows the mean and standard deviation of the MSEs for bot
 \label{1_1_c_bestworst}
 \end{figure}
 
+\clearpage
+
 \subsubsection{Change of MSE during the course of training}
 
 Figure \ref{1_1_d_mse} shows the MSE during the course of training for $n_h=2,5,50$. Because of the random initialization all maximum MSEs for training and testing data are at the very beginning of the update loop. As the weights get fitted on the training data all training MSEs decrease subsequently and converge at around $0.2$, $0.05$, and $0.3$ respectively. After an initial drop the testing MSEs rise to a local maximum again, which is reached the faster the smaller $n_h$. Then the testing MSEs decrease again until they converge at around $0.37$, $0.23$, and $0.5$ respectively, making $n_h=5$ the best number of hidden neurons. As the testing MSE is the largest with $n_h=50$ the risk of overfitting increases with the number of hidden neurons.\\
@@ -131,6 +134,9 @@ By using the SGD one can reduce overfitting: the random selection of the samples
 \clearpage
 \subsection{Regularized Neural Networks: Weight Decay}
 
+Figure \ref{1_2_mse} shows the variation of testing and training MSEs with varying regularization parameter $\alpha$. The smallest testing cost is achieved with $\alpha=10^{-3}$.\\
+Regularization is used to overcome overfitting: by adding the squared norm of the weights (scaled by $\alpha$) to the cost function the training set gets approximated less accurately the larger weights and the regularization parameter, leading to a lower testing MSE. However, if $\alpha$ is too large, its influence on the weight updates is too high and both training and testing costs increase again.
+
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=\textwidth]{./Figures/1_2_mse.pdf}
@@ -145,6 +151,8 @@ By using the SGD one can reduce overfitting: the random selection of the samples
 	\item The confusion matrix
 	
 	\begin{table}[!ht]
+	\makebox[\textwidth]{
+	    \centering
         \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|}
         \hline
                   & T-Shirt/top & Trousers & Pullover & Dress & Coat & Sandal & Shirt & Sneaker & Bag & Ankle boot \\ \hline
@@ -160,17 +168,20 @@ By using the SGD one can reduce overfitting: the random selection of the samples
       Ankle boot  & 1           & 0        & 0        & 0     & 0    & 9      & 0     & 3       & 0   & 960        \\ \hline
         \end{tabular}
         \caption{Confusion matrix for Fashion MNIST Classification}
-        \end{table}
+        }
+    \end{table}
        
         The rows of our confusion matrix correspond to the true classes and the columns to the predicted classes. The global accuracy for all classes is fairly good with $89,2\%$. Apparently it was difficult for the code to distinguish t-shirts/tops from shirts and coats from pullovers. Also remarkable is that all top clothes were often mistakenly recognized as shirts.\\
       
     \item Are particular regions of the images get more weights than others?
       
         \begin{figure}[!ht]
+        \makebox[\textwidth]{
 		\centering
 		\includegraphics[width=1.2 \textwidth]{./Figures/2_weights.pdf}
 		\caption{Weights per pixel for 10 samples}
 		\label{weights}
+		}
 		\end{figure}
 	
 	    In figure \ref{weights} are the weights per features visualized. As for the features these are referring to one pixel of a 28 x 28 pixel conversion from each picture. The weights are scaled from important regions (white) to regions with less information (black). It makes sense and can be seen in the pictures that that the object edges are important since all picture have the black background in common and the object outlines vary a lot.
