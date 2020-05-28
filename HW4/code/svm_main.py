@@ -18,6 +18,8 @@ def load_data(filename):
     Loads the data from data.json
     :return: A dictionary containing keys x_train, x_test, y_train, y_test
     """
+    filename = 'C:/Users/mbuergener/Desktop/Temporary/CI/HW4/code/' + filename
+
     with open(filename, 'r') as f:
         raw_data = json.load(f)
 
@@ -42,7 +44,7 @@ def ex_1():
 def ex_2():
     data = load_data('data_nl.json')
     x_train, y_train, x_test, y_test = \
-        data['X'] / 255, data['Y'].ravel(), data['XT'] / 255, data['YT'].ravel()
+        data['X'], data['Y'].ravel(), data['XT'], data['YT'].ravel()
 
     plot_data_points(x_train, y_train, x_test, y_test)
 
@@ -75,10 +77,10 @@ def ex_4():
 
 
 def main():
-    ex_1()
+    #  ex_1()
     ex_2()
-    ex_3()
-    ex_4()
+    # ex_3()
+    # ex_4()
 
 
 if __name__ == '__main__':
