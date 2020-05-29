@@ -186,6 +186,28 @@ def ex_3_a(x_train, y_train, x_test, y_test):
     ## - Note that the chance level is not .5 anymore and add the score obtained with the linear kernel as optional argument of this function (parameter baseline)
     ###########
 
+    train_scores = []
+    test_scores = []
+    train_score_lin = 0
+    test_score_lin = 0
+
+    gammas = 10**np.arange(-5, 6, dtype=np.float)    
+    print(gammas)
+
+    clf = svm.SVC(kernel='linear', decision_function_shape='ovr', C=10)
+    clf.fit(x_train,y_train)
+    train_score_lin = clf.score(x_train, y_train)        
+    test_score_lin = clf.score(x_test, y_test)
+
+    for element in gammas:
+        clf = svm.SVC(kernel='rbf', gamma=element, decision_function_shape='ovr', C=10)
+        clf.fit(x_train,y_train)
+        train_scores.append(clf.score(x_train, y_train))        
+        test_scores.append(clf.score(x_test, y_test))
+
+    plot_score_vs_gamma(train_scores, test_scores, gammas, train_score_lin, test_score_lin)
+    
+
 
 def ex_3_b(x_train, y_train, x_test, y_test):
     """
@@ -207,8 +229,15 @@ def ex_3_b(x_train, y_train, x_test, y_test):
 
     labels = range(1, 6)
 
-    sel_err = np.array([0])  # CHANGE ME! Numpy indices to select all images that are misclassified.
-    i = 0  # CHANGE ME! Should be the label number corresponding the largest classification error.
+    clf = svm.SVC(kernel='linear', decision_function_shape='ovr', C=10)
+    clf.fit(x_train,y_train)
+    y_test_pred = clf.predict(x_test)
+
+    cm = confusion_matrix(y_test, y_test_pred, labels)
+    plot_confusion_matrix(cm, labels)
+
+    i = np.argmin(np.diag(cm))
+    sel_err = np.array([y_test != y_test_pred, y_test_pred == labels[i]]).all(axis=0)
 
     # Plot with mnist plot
-    plot_mnist(x_test[sel_err], y_pred[sel_err], labels=labels[i], k_plots=10, prefix='Predicted class')
+    plot_mnist(x_test[sel_err], y_test_pred[sel_err], labels=labels[i], k_plots=10, prefix='Predicted class')

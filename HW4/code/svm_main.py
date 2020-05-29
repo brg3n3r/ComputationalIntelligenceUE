@@ -57,7 +57,7 @@ def ex_3():
     data = load_data('data_mnist.json')
     # Normalize data from [0,255] to [0,1]
     x_train, y_train, x_test, y_test = \
-        data['X'], data['Y'].ravel(), data['XT'], data['YT'].ravel()
+        data['X'] / 255, data['Y'].ravel(), data['XT'] / 255, data['YT'].ravel()
 
     plot_mnist(x_train, y_train)
 
@@ -77,11 +77,25 @@ def ex_4():
 
 
 def main():
-    #  ex_1()
-    ex_2()
-    # ex_3()
-    # ex_4()
 
+    #  ex_1()
+    #ex_2()
+    ex_3()
+    # ex_4()
 
 if __name__ == '__main__':
     main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
