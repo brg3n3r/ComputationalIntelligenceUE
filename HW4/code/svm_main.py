@@ -68,20 +68,21 @@ def ex_3():
 def ex_4():
     data = load_data('data.json')
     x, y = data['X'], data['Y'].ravel()
-    
+
     perm = np.random.permutation(x.shape[0])
     x = x[perm]
     y = y[perm]
+
     
     ex_4_a(x, y)
 
 
 def main():
 
-    #  ex_1()
-    #ex_2()
-    ex_3()
-    # ex_4()
+    # ex_1()
+    # ex_2()
+    # ex_3()
+    ex_4()
 
 if __name__ == '__main__':
     main()

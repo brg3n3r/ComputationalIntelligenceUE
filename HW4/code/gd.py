@@ -10,14 +10,23 @@ TODOs. Fill the cost function, the gradient function and gradient descent solver
 def ex_4_a(x, y):
     
     # TODO: Split x, y (take 80% of x, and corresponding y). You can simply use indexing, since the dataset is already shuffled.
-    
-    
+    N_train = int(np.size(x,axis=0)*0.8)
+    X_train = x[0:N_train]
+    y_train = y[0:N_train].reshape(N_train,1)
+    X_test = x[N_train:]
+    y_test = y[N_train:].reshape(len(y)-N_train,1)
+
+    C = 1
+
     # Define the functions of the parameter we want to optimize
     f = lambda th: cost(th, X_train, y_train, C)
     df = lambda th: grad(th, X_train, y_train, C)
     
     # TODO: Initialize w and b to zeros. What is the dimensionality of w?
-    
+    w = np.zeros([np.size(X_train, axis=1),1])
+    b = 0
+    eta = 1
+    max_iter = 10
     theta_opt, E_list = gradient_descent(f, df, (w, b), eta, max_iter)
     w, b = theta_opt
     
@@ -57,6 +66,11 @@ def gradient_descent(f, df, theta0, learning_rate, max_iter):
     E_list = np.zeros(max_iter)
     w, b = theta0
 
+    for ii in range(max_iter):
+        cost = f((w,b))
+        grad_w, grad_b = df((w,b))
+        w = cost - learning_rate * grad_w
+        b = cost - learning_rate * grad_b
     # END TODO
     ###########
 
@@ -73,7 +87,12 @@ def cost(theta, x, y, C):
     :param C: penalty term
     :return: cost
     """
-    cost = 0 # TODO 
+    w = theta[0]
+    b = theta[1]
+    m = np.size(x, axis=0)
+
+    max_res = np.max(np.concatenate((np.zeros([m,1]), y*(x @ w + b)), axis=1), axis=1)
+    cost = 0.5 * np.linalg.norm(w)**2 + C/m * np.sum(max_res, axis=0)
 
     return cost
 
@@ -90,8 +109,15 @@ def grad(theta, x, y, C):
     :return: grad_w, grad_b
     """
     w, b = theta
+    m = np.size(x, axis=0)
     
-    grad_w = 0  # TODO 
-    grad_b = 0  # TODO 
+    I = np.ones([m,1])
+
+    I_decider = (1 - y*(x @ w + b)) < 0
+    I[I_decider] = 0
+
+    grad_w = w - C/m * np.sum(I*y*x, axis=0).reshape(w.shape)
+
+    grad_b = - C/m * np.sum(I*y,axis=0)  
     
     return grad_w, grad_b
