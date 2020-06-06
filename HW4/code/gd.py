@@ -29,6 +29,8 @@ def ex_4_a(x, y):
     max_iter = 10
     theta_opt, E_list = gradient_descent(f, df, (w, b), eta, max_iter)
     w, b = theta_opt
+    print(f'Parameters: w = {w.T}, b = {b}')
+    print(f'Cost: {E_list[max_iter-1]}')
     
     # TODO: Calculate the predictions using the test set
     y_test_pred = np.ones([len(y)-N_train,1])

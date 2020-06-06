@@ -236,7 +236,7 @@ def ex_3_b(x_train, y_train, x_test, y_test):
 
     cm = confusion_matrix(y_test, y_test_pred, labels)
     plot_confusion_matrix(cm, labels)
-    print(f'Confusion matrix: {cm}')
+    print(f'Confusion matrix:\n {cm}')
 
     i = np.argmin(np.diag(cm))
     sel_err = np.array([y_test != y_test_pred, y_test_pred == labels[i]]).all(axis=0)

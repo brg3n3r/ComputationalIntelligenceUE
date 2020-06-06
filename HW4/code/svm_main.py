@@ -83,7 +83,7 @@ def main():
     #ex_1()
     #ex_2()
     #ex_3()
-    #ex_4()
+    ex_4()
 
 if __name__ == '__main__':
     plt.close('all')
