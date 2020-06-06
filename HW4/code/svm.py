@@ -89,7 +89,7 @@ def ex_2_a(x_train, y_train, x_test, y_test):
     clf = svm.SVC(kernel='linear')
     clf.fit(x_train, y_train)
     plot_svm_decision_boundary(clf, x_train, y_train, x_test, y_test)
-    print(clf.score(x_test, y_test))
+    print(f'Linear kernel testing score: {clf.score(x_test, y_test)}')
 
 def ex_2_b(x_train, y_train, x_test, y_test):
     """
@@ -122,6 +122,7 @@ def ex_2_b(x_train, y_train, x_test, y_test):
     plot_score_vs_degree(train_scores, test_scores, degrees)
 
     test_best = degrees[np.argmax(test_scores)]
+    print(f'Polynomial kernel testing score: {np.max(test_scores)}')
 
     clf = svm.SVC(kernel='poly', degree=test_best, coef0=1)
     clf.fit(x_train,y_train)    
@@ -160,6 +161,7 @@ def ex_2_c(x_train, y_train, x_test, y_test):
     plot_score_vs_gamma(train_scores, test_scores, gammas)
 
     test_best = gammas[np.argmax(test_scores)]
+    print(f'RBF kernel testing score: {np.max(test_scores)}')
 
     clf = svm.SVC(kernel='rbf', gamma=test_best)
     clf.fit(x_train,y_train)    
@@ -192,9 +194,8 @@ def ex_3_a(x_train, y_train, x_test, y_test):
     test_score_lin = 0
 
     gammas = 10**np.arange(-5, 6, dtype=np.float)    
-    print(gammas)
 
-    clf = svm.SVC(kernel='linear', decision_function_shape='ovr', C=10)
+    clf = svm.SVC(kernel='linear', decision_function_shape='ovr', C=10, )
     clf.fit(x_train,y_train)
     train_score_lin = clf.score(x_train, y_train)        
     test_score_lin = clf.score(x_test, y_test)
@@ -205,7 +206,7 @@ def ex_3_a(x_train, y_train, x_test, y_test):
         train_scores.append(clf.score(x_train, y_train))        
         test_scores.append(clf.score(x_test, y_test))
 
-    plot_score_vs_gamma(train_scores, test_scores, gammas, train_score_lin, test_score_lin)
+    plot_score_vs_gamma(train_scores, test_scores, gammas, train_score_lin, test_score_lin, baseline=.2)
     
 
 
@@ -235,6 +236,7 @@ def ex_3_b(x_train, y_train, x_test, y_test):
 
     cm = confusion_matrix(y_test, y_test_pred, labels)
     plot_confusion_matrix(cm, labels)
+    print(f'Confusion matrix: {cm}')
 
     i = np.argmin(np.diag(cm))
     sel_err = np.array([y_test != y_test_pred, y_test_pred == labels[i]]).all(axis=0)

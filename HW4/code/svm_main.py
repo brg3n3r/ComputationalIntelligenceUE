@@ -5,6 +5,7 @@ import numpy as np
 from svm import ex_1_a, ex_1_b, ex_1_c, ex_2_a, ex_2_b, ex_2_c, ex_3_a, ex_3_b
 from gd import ex_4_a
 from svm_plot import plot_data_points, plot_mnist
+import matplotlib.pyplot as plt
 
 """
 Assignment 4: Support Vector Machine, Kernels & Multiclass classification
@@ -18,7 +19,7 @@ def load_data(filename):
     Loads the data from data.json
     :return: A dictionary containing keys x_train, x_test, y_train, y_test
     """
-    filename = 'C:/Users/mbuergener/Desktop/Temporary/CI/HW4/code/' + filename
+    # filename = 'C:/Users/mbuergener/Desktop/Temporary/CI/HW4/code/' + filename
 
     with open(filename, 'r') as f:
         raw_data = json.load(f)
@@ -79,24 +80,11 @@ def ex_4():
 
 def main():
 
-    # ex_1()
-    # ex_2()
-    # ex_3()
-    ex_4()
+    #ex_1()
+    #ex_2()
+    #ex_3()
+    #ex_4()
 
 if __name__ == '__main__':
+    plt.close('all')
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
