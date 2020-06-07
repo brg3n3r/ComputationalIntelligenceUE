@@ -51,7 +51,7 @@
 \centering
 \includegraphics[width=.6\textwidth]{./Figures/1_data}
 \caption{Dataset}
-\label{1_1_c_mse}
+\label{Dataset}
 \end{figure}
 
 \begin{figure}[!ht]
@@ -66,7 +66,7 @@
 	\end{subfigure}
 	}	
 	\caption{Classification of the dataset using SVM}
-	\label{perceptron1}
+	\label{SVM_classification}
 \end{figure}
 
 \begin{figure}[!ht]
@@ -93,14 +93,23 @@
     \end{subfigure}
     }
     \caption{SVM Classification using different C parameters}
-    \label{misclassified_items}
+    \label{SVM_Cs}
 \end{figure}
 
 \subsection{How and why changed the decision boundary when the new point was added?}
 
-The margin is defined as the perpendicular distance between the decision boundary and the closest data point. Since the new added data point is located in the margin. The algorithm adjusts its solution by choosing the option with the smallest generalization error. Apparently this includes penalized data points inside of the margin
+The margin is defined as the perpendicular distance between the decision boundary and the closest data point. Since the new added data point is located in the margin the algorithm adjusts its solution by choosing the option with the smallest generalization error. Apparently this solution includes more support vectors (datapoints within and on the margin boundary).
 
-\subsection{The inverse regularization parameter C}
+\subsection{The inverse regularization parameter $C$}
+
+\begin{itemize}
+
+	\item $C$ controls the penalization of data points within the margin. It is scaling data samples so that samples can be misclassified or lie within the margin boundary. This is helpful since not all problems can be clearly seperated.
+
+	\item Figure \ref{SVM_Cs} is showing the classification using different values for $C$. The margin boundary gets larger with decreasing values for $C$. As a result the classification is showing more support vectors and also misclassifies the additional data point since these points are less penalized.
+	    A very large value for C leads to the strict constraint that the margin borders are denoting the closest data point to the decision boundary. Therefore the margin boundary is very small.
+
+\end{itemize}
 
 
 \section{Nonlinear (kernel) SVM}
