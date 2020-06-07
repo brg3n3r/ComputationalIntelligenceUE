@@ -70,35 +70,35 @@
 \end{figure}
 
 \begin{figure}[!ht]
-        \centering
-        \makebox[\textwidth]{
-        \begin{subfigure}{0.6\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/1c_bound_C1.pdf}
-        \caption{Misclassified image 1}
-        \end{subfigure}
-        \begin{subfigure}{0.6\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/1c_bound_C01.pdf}
-        \caption{Misclassified image 2}
-        \end{subfigure}
-        }
-        
-        \makebox[\textwidth]{
-        \begin{subfigure}{0.6\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/1c_bound_C0001.pdf}
-        \caption{Misclassified image 3}
-        \end{subfigure}
-        \begin{subfigure}{0.6\textwidth}
-        \includegraphics[width=\textwidth]{./Figures/1c_bound_C1e6.pdf}
-        \caption{Misclassified image 4}
-        \end{subfigure}
-        }
-        \caption{Misclassified items from our test set}
-        \label{misclassified_items}
+    \centering
+    \makebox[\textwidth]{
+    \begin{subfigure}{0.6\textwidth}
+    \includegraphics[width=\textwidth]{./Figures/1c_bound_C1.pdf}
+    \caption{$C=1$}
+    \end{subfigure}
+    \begin{subfigure}{0.6\textwidth}
+    \includegraphics[width=\textwidth]{./Figures/1c_bound_C01.pdf}
+    \caption{$C=0,1$}
+    \end{subfigure}
+    }
+    
+    \makebox[\textwidth]{
+    \begin{subfigure}{0.6\textwidth}
+    \includegraphics[width=\textwidth]{./Figures/1c_bound_C0001.pdf}
+    \caption{$C=0,001$}
+    \end{subfigure}
+    \begin{subfigure}{0.6\textwidth}
+    \includegraphics[width=\textwidth]{./Figures/1c_bound_C1e6.pdf}
+    \caption{$C=1000000$}
+    \end{subfigure}
+    }
+    \caption{SVM Classification using different C parameters}
+    \label{misclassified_items}
 \end{figure}
 
 \subsection{How and why changed the decision boundary when the new point was added?}
 
-
+The margin is defined as the perpendicular distance between the decision boundary and the closest data point. Since the new added data point is located in the margin. The algorithm adjusts its solution by choosing the option with the smallest generalization error. Apparently this includes penalized data points inside of the margin
 
 \subsection{The inverse regularization parameter C}
 
