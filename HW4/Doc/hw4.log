@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.22)  7 JUN 2020 10:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.22)  8 JUN 2020 18:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -347,8 +347,7 @@ Package floatrow Info: Modified rotfloat package code loaded on input line 473.
 \LTleft=\skip71
 \LTright=\skip72
 \flrow@types=\toks29
-)
-No file hw4.aux.
+) (./hw4.aux)
 \openout1 = `hw4.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -363,6 +362,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -479,24 +479,173 @@ Package color Info: Driver file: pdftex.def on input line 147.
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd)
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd) [1
 
-{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [1] (./hw4.aux)
- ) 
+{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<./Figures/1_data.pdf, id=10, 722.7pt x 715.47299pt>
+File: ./Figures/1_data.pdf Graphic file (type pdf)
+<use ./Figures/1_data.pdf>
+Package pdftex.def Info: ./Figures/1_data.pdf  used on input line 52.
+(pdftex.def)             Requested size: 256.07741pt x 253.51979pt.
+<./Figures/1a_bound.pdf, id=11, 722.7pt x 715.47299pt>
+File: ./Figures/1a_bound.pdf Graphic file (type pdf)
+<use ./Figures/1a_bound.pdf>
+Package pdftex.def Info: ./Figures/1a_bound.pdf  used on input line 67.
+(pdftex.def)             Requested size: 256.07741pt x 253.51979pt.
+<./Figures/1b_bound.pdf, id=12, 722.7pt x 715.47299pt>
+File: ./Figures/1b_bound.pdf Graphic file (type pdf)
+<use ./Figures/1b_bound.pdf>
+Package pdftex.def Info: ./Figures/1b_bound.pdf  used on input line 67.
+(pdftex.def)             Requested size: 256.07741pt x 253.51979pt.
+<./Figures/1c_bound_C1.pdf, id=13, 722.7pt x 715.47299pt>
+File: ./Figures/1c_bound_C1.pdf Graphic file (type pdf)
+<use ./Figures/1c_bound_C1.pdf>
+Package pdftex.def Info: ./Figures/1c_bound_C1.pdf  used on input line 83.
+(pdftex.def)             Requested size: 256.07741pt x 253.51979pt.
+<./Figures/1c_bound_C01.pdf, id=14, 722.7pt x 715.47299pt>
+File: ./Figures/1c_bound_C01.pdf Graphic file (type pdf)
+<use ./Figures/1c_bound_C01.pdf>
+Package pdftex.def Info: ./Figures/1c_bound_C01.pdf  used on input line 83.
+(pdftex.def)             Requested size: 256.07741pt x 253.51979pt.
+<./Figures/1c_bound_C0001.pdf, id=15, 722.7pt x 715.47299pt>
+File: ./Figures/1c_bound_C0001.pdf Graphic file (type pdf)
+<use ./Figures/1c_bound_C0001.pdf>
+Package pdftex.def Info: ./Figures/1c_bound_C0001.pdf  used on input line 94.
+(pdftex.def)             Requested size: 256.07741pt x 253.51979pt.
+<./Figures/1c_bound_C1e6.pdf, id=16, 722.7pt x 715.47299pt>
+File: ./Figures/1c_bound_C1e6.pdf Graphic file (type pdf)
+<use ./Figures/1c_bound_C1e6.pdf>
+Package pdftex.def Info: ./Figures/1c_bound_C1e6.pdf  used on input line 94.
+(pdftex.def)             Requested size: 256.07741pt x 253.51979pt.
+ [1 <./Figures/1_data.pdf> <./Figures/1a_bound.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Figures/1a_bound.pdf): PDF inclusion: mult
+iple pdfs with page group included in a single page
+> <./Figures/1b_bound.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Figures/1b_bound.pdf): PDF inclusion: mult
+iple pdfs with page group included in a single page
+>]
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 107.
+
+ (c:/texlive/2018/texmf-dist/tex/latex/ae/omsaer.fd
+File: omsaer.fd 1999/12/27
+)
+LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 107.
+ [2 <./Figures/1c_bound_C1.pdf> <./Figures/1c_bound_C01.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Figures/1c_bound_C01.pdf): PDF inclusion: 
+multiple pdfs with page group included in a single page
+> <./Figures/1c_bound_C0001.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Figures/1c_bound_C0001.pdf): PDF inclusion
+: multiple pdfs with page group included in a single page
+> <./Figures/1c_bound_C1e6.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Figures/1c_bound_C1e6.pdf): PDF inclusion:
+ multiple pdfs with page group included in a single page
+>] [3]
+<./Figures/2_data.pdf, id=227, 722.7pt x 715.47299pt>
+File: ./Figures/2_data.pdf Graphic file (type pdf)
+<use ./Figures/2_data.pdf>
+Package pdftex.def Info: ./Figures/2_data.pdf  used on input line 119.
+(pdftex.def)             Requested size: 234.73654pt x 232.38405pt.
+<./Figures/2a_bound_lin.pdf, id=228, 722.7pt x 715.47299pt>
+File: ./Figures/2a_bound_lin.pdf Graphic file (type pdf)
+<use ./Figures/2a_bound_lin.pdf>
+Package pdftex.def Info: ./Figures/2a_bound_lin.pdf  used on input line 128.
+(pdftex.def)             Requested size: 277.41176pt x 274.6337pt.
+<./Figures/2b_score_poly.pdf, id=229, 722.7pt x 502.99919pt>
+File: ./Figures/2b_score_poly.pdf Graphic file (type pdf)
+<use ./Figures/2b_score_poly.pdf>
+Package pdftex.def Info: ./Figures/2b_score_poly.pdf  used on input line 149.
+(pdftex.def)             Requested size: 341.43437pt x 237.63766pt.
+<./Figures/2b_bound_poly.pdf, id=230, 722.7pt x 715.47299pt>
+File: ./Figures/2b_bound_poly.pdf Graphic file (type pdf)
+<use ./Figures/2b_bound_poly.pdf>
+Package pdftex.def Info: ./Figures/2b_bound_poly.pdf  used on input line 156.
+(pdftex.def)             Requested size: 341.43437pt x 338.0191pt.
+ [4
+
+ <./Figures/2_data.pdf> <./Figures/2a_bound_lin.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Figures/2a_bound_lin.pdf): PDF inclusion: 
+multiple pdfs with page group included in a single page
+>]
+<./Figures/2c_score_rbf.pdf, id=288, 722.7pt x 502.99919pt>
+File: ./Figures/2c_score_rbf.pdf Graphic file (type pdf)
+<use ./Figures/2c_score_rbf.pdf>
+Package pdftex.def Info: ./Figures/2c_score_rbf.pdf  used on input line 179.
+(pdftex.def)             Requested size: 341.43437pt x 237.63766pt.
+<./Figures/2c_bound_rbf.pdf, id=289, 722.7pt x 715.47299pt>
+File: ./Figures/2c_bound_rbf.pdf Graphic file (type pdf)
+<use ./Figures/2c_bound_rbf.pdf>
+Package pdftex.def Info: ./Figures/2c_bound_rbf.pdf  used on input line 186.
+(pdftex.def)             Requested size: 341.43437pt x 338.0191pt.
+ [5] [6 <./Figures/2b_score_poly.pdf> <./Figures/2b_bound_poly.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Figures/2b_bound_poly.pdf): PDF inclusion:
+ multiple pdfs with page group included in a single page
+>] [7 <./Figures/2c_score_rbf.pdf> <./Figures/2c_bound_rbf.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Figures/2c_bound_rbf.pdf): PDF inclusion: 
+multiple pdfs with page group included in a single page
+>] [8
+
+]
+<./Figures/4_error.pdf, id=450, 462.52798pt x 344.0052pt>
+File: ./Figures/4_error.pdf Graphic file (type pdf)
+<use ./Figures/4_error.pdf>
+Package pdftex.def Info: ./Figures/4_error.pdf  used on input line 245.
+(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
+
+Overfull \hbox (2.21996pt too wide) in paragraph at lines 245--245
+[]$[]$ $[]$ 
+ []
+
+File: ./Figures/1a_bound.pdf Graphic file (type pdf)
+<use ./Figures/1a_bound.pdf>
+Package pdftex.def Info: ./Figures/1a_bound.pdf  used on input line 258.
+(pdftex.def)             Requested size: 298.75264pt x 295.76945pt.
+<./Figures/4_bound.pdf, id=451, 722.7pt x 715.47299pt>
+File: ./Figures/4_bound.pdf Graphic file (type pdf)
+<use ./Figures/4_bound.pdf>
+Package pdftex.def Info: ./Figures/4_bound.pdf  used on input line 263.
+(pdftex.def)             Requested size: 298.75264pt x 295.76945pt.
+[9
+
+ <./Figures/4_error.pdf>]
+
+LaTeX Warning: Text page 10 contains only floats.
+
+
+Overfull \vbox (0.20859pt too high) has occurred while \output is active []
+
+
+[10 <./Figures/4_bound.pdf>] (./hw4.aux) ) 
 Here is how much of TeX's memory you used:
- 6069 strings out of 492616
- 88967 string characters out of 6132768
- 169857 words of memory out of 5000000
- 9839 multiletter control sequences out of 15000+600000
- 24067 words of font info for 55 fonts, out of 8000000 for 9000
+ 6254 strings out of 492616
+ 92642 string characters out of 6132768
+ 174025 words of memory out of 5000000
+ 9979 multiletter control sequences out of 15000+600000
+ 35681 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,8n,40p,288b,257s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
-live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on hw4.pdf (2 pages, 51146 bytes).
+ 42i,19n,44p,798b,575s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2018/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbx12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmex10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
+0.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:
+/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2
+018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2018/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols
+/msbm10.pfb>
+Output written on hw4.pdf (11 pages, 839332 bytes).
 PDF statistics:
- 27 PDF objects out of 1000 (max. 8388607)
- 18 compressed objects within 1 object stream
+ 550 PDF objects out of 1000 (max. 8388607)
+ 144 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
