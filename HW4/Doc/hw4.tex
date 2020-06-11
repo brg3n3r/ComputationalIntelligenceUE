@@ -78,14 +78,14 @@
     \end{subfigure}
     \begin{subfigure}{0.6\textwidth}
     \includegraphics[width=\textwidth]{./Figures/1c_bound_C01.pdf}
-    \caption{$C=0,1$}
+    \caption{$C=0.1$}
     \end{subfigure}
     }
     
     \makebox[\textwidth]{
     \begin{subfigure}{0.6\textwidth}
     \includegraphics[width=\textwidth]{./Figures/1c_bound_C0001.pdf}
-    \caption{$C=0,001$}
+    \caption{$C=0.001$}
     \end{subfigure}
     \begin{subfigure}{0.6\textwidth}
     \includegraphics[width=\textwidth]{./Figures/1c_bound_C1e6.pdf}
@@ -96,18 +96,18 @@
     \label{SVM_Cs}
 \end{figure}
 
-\subsection{How and why changed the decision boundary when the new point was added?}
+\subsection{How and why did the decision boundary change when the new point was added?}
 
-The margin is defined as the perpendicular distance between the decision boundary and the closest data point. Since the new added data point is located in the margin the algorithm adjusts its solution by choosing the option with the smallest generalization error. Apparently this solution includes more support vectors (data points within and on the margin boundary).
+The margin is defined as the perpendicular distance between the decision boundary and the closest data point. Since the newly added data point is located in the margin the algorithm adjusts its solution by choosing the option with the smallest generalization error. Apparently this solution includes more support vectors (data points within and on the margin boundary).
 
 \subsection{The inverse regularization parameter $C$}
 
 \begin{itemize}
 
-	\item $C$ controls the penalization of data points within the margin. It is scaling data samples so that samples can be misclassified or lie within the margin boundary. This is helpful since not all problems can be clearly separated.
+	\item $C$ controls the penalization of data points within the margin. It is scaling data samples so that samples can be misclassified or lie within the margin boundaries. This is helpful since not all problems can be clearly separated.
 
-	\item Figure \ref{SVM_Cs} is showing the classification using different values for $C$. The margin boundary gets larger with decreasing values for $C$. As a result the classification is showing more support vectors and also misclassifies the additional data point since these points are less penalized.
-	    A very large value for C leads to the strict constraint that the margin borders are denoting the closest data point to the decision boundary. Therefore the margin boundary is very small.
+	\item Figure \ref{SVM_Cs} shows the classification using different values for $C$. The margin increases with decreasing values for $C$. As a result the classification is showing more support vectors and also misclassifies the additional data point since these points are less penalized.
+	    A very large value for C leads to the strict constraint that the margin borders are denoting the closest data point to the decision boundary. Therefore the margin is very small.
 
 \end{itemize}
 
@@ -203,9 +203,9 @@ $1.85$ & $94.25\%$\\ \hline
 \subsection{Comparison of results obtained by each of the three kernels}
 
 \begin{itemize}
-\item While the linear kernel performs expectedly bad on nonlinearly separable data (s. figure \ref{2_bound_lin} and table \ref{2_score_lin}), testing scores obtained by polynomial kernels with degrees $3 \dots 13$ and RBF kernels with $\gamma \geq 1 $ are much higher (s. figures \ref{2_score_poly} and \ref{2_score_rbf}). A polynomial kernel with degree $8$ gives the best results (s. table \ref{2_best_poly}), in figure \ref{2_bound_poly} one can see that the support vectors that are used to produce the decision boundary exclusively lie on the margin boundaries (as opposed to the best RBF result in figure \ref{2_bound_rbf} and table \ref{2_best_rbf}).
+\item While the linear kernel performs expectedly badly on nonlinearly separable data (s. figure \ref{2_bound_lin} and table \ref{2_score_lin}), testing scores obtained by polynomial kernels with degrees $3 \dots 13$ and RBF kernels with $\gamma \geq 1 $ are much higher (s. figures \ref{2_score_poly} and \ref{2_score_rbf}). A polynomial kernel with degree $8$ gives the best results (s. table \ref{2_best_poly}), in figure \ref{2_bound_poly} one can see that the support vectors that are used to produce the decision boundary exclusively lie on the margin boundaries (as opposed to the best RBF result in figure \ref{2_bound_rbf} and table \ref{2_best_rbf}).
 
-\item Although the decision boundary obtained by the linear kernel is the most basic of the three, it takes the most support vectors, which are either misclassified or lie within the margin (s. figure \ref{2_bound_lin}). The polynomial kernel's decision boundary is more complex but at the same time relies on the least support vectors (exclusively on the margin borders, s. figure \ref{2_bound_poly}), because this approach fits the given data best. The most complex decision boundary (with insular patterns, s. figure \ref{2_bound_rbf}) is generated by the RBF kernel with a medium number of support vectors. Rather than only increasing with the complexity of the decision boundary, the number of needed support vectors also decreases the better the kernel fits the data.
+\item Although the decision boundary obtained by the linear kernel is the most basic of the three, it takes the most support vectors, which are either misclassified or lie within the margin (s. figure \ref{2_bound_lin}). The polynomial kernel's decision boundary is more complex but relies on the fewest support vectors (exclusively on the margin borders, s. figure \ref{2_bound_poly}), because this approach fits the given data best. The most complex decision boundary (with insular patterns, s. figure \ref{2_bound_rbf}) is generated by the RBF kernel with a medium number of support vectors. Rather than only increasing with the complexity of the decision boundary, the number of needed support vectors also decreases the better the kernel fits the data.
 
 \item The RBF kernel generalizes best, as both its training and testing scores continue to rise with increasing $\gamma$, without any overfitting (s. figure \ref{2_score_rbf}). Overfitting occurs when using the polynomial kernel with high degrees ($>>8$, s. figure \ref{2_score_poly})).
 
@@ -216,26 +216,26 @@ $1.85$ & $94.25\%$\\ \hline
 
 \subsection{'One vs. Rest' vs. 'One vs. All' algorithms}
 
-SVMs are fundamentally two-class classifier. We can use different approaches to solve problems with $K$ classes. \\
-The 'One vs. Rest' algorithm compares the to be determined class (positive) with the rest of the dataset (negative). During the scoring phase the algorithm determines the probability for each class of a sample using the binary classifiers.\\
-'One vs. All' creates $K(K-1)/2$ classifiers, which means that we use all possible pairs of classes. Each binary classifiers predicts one class. For classification the class with the highest number of predictions will be chosen. That algorithm requires in comparison to the 'One vs. Rest approach' much more time to get trained and to classify.
+SVMs are fundamentally binary classifiers. One can use different approaches to solve problems with $K$ classes. \\
+The 'One vs. Rest' algorithm compares the to be determined class (positive) with the rest of the dataset (negative). During the scoring phase the algorithm determines the probability for each class of a sample using $K$ binary classifiers.\\
+'One vs. All' creates $K(K-1)/2$ classifiers, which means that we use all possible pairs of classes. Each of the binary classifiers predicts one class. For classification the class with the highest number of predictions will be chosen. In comparison to the 'One vs. Rest approach' this algorithm requires much more time to get trained and to classify.
 
 \newpage
 
-\subsection{Classification using linear and RBF}
+\subsection{Classification using linear and RBF kernels}
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=.8\textwidth]{./Figures/3a_score.pdf}
-	\caption{Scores using linear and RBF kernel on MNIST Dataset}
+	\caption{Scores using linear and RBF kernels on MNIST Dataset}
 	\label{multiclass_classification}
 \end{figure}
 
 \begin{itemize}
 
-	\item Figure \ref{multiclass_classification} shows that the linear kernel performs very well on MNIST image classification. Using $\gamma = 0,1$ the RBF classification performs slightly better than the linear kernel. For higher $\gamma$ values the classification overfits and the testing scores are quickly descending.
+	\item Figure \ref{multiclass_classification} shows that the linear kernel performs very well on MNIST image classification. Using $\gamma = 0.1$ the RBF classification performs slightly better than the linear kernel. For higher $\gamma$ values the classification overfits and the testing scores descend quickly.
 	
-	\item The linear kernel performs good, because the sample features which are generated from the MNIST pictures must be very good linear separable in higher dimensions. 
+	\item The linear kernel performs well, because the sample features which are generated from the MNIST pictures must be very well separable with linear kernels in higher dimensions. 
 
 \end{itemize}
 
@@ -250,9 +250,9 @@ The 'One vs. Rest' algorithm compares the to be determined class (positive) with
     \label{confusion_matrix}
 	}
 	\capbtabbox{%
-	\begin{tabular}{|l|l|l|l|l|l|}
+	\begin{tabular}{|l||l|l|l|l|l|}
 	\hline
-	  & 1   & 2   & 3   & 4   & 5   \\ \hline
+	Labels  & 1   & 2   & 3   & 4   & 5   \\ \hline \hline
 	1 & 147 & 1   & 2   & 0   & 0   \\ \hline
 	2 & 3   & 142 & 0   & 4   & 1   \\ \hline
 	3 & 4   & 2   & 126 & 0   & 18  \\ \hline
@@ -263,9 +263,9 @@ The 'One vs. Rest' algorithm compares the to be determined class (positive) with
 	\caption{Confusion matrix}%
 	}
 	\end{floatrow}
-	\end{figure}\\
+	\end{figure}
 	
-The rows of our confusion matrix correspond to the true classes and the columns to the predicted classes. Class three is the most misclassified class with score of 84\%. 
+The rows of the confusion matrix correspond to the true classes and the columns to the predicted classes. Class three is the most misclassified class with a score of 84\%. 
 
 \newpage
 
@@ -273,12 +273,12 @@ The rows of our confusion matrix correspond to the true classes and the columns 
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=\textwidth]{./Figures/3b_misclassifieditems.pdf}
+	\includegraphics[trim=0cm 4cm 0cm 4cm, clip=true, width=\textwidth]{./Figures/3b_misclassifieditems.pdf}
 	\caption{Misclassified images}
 	\label{mnist_misclassified}
 \end{figure}
 
-Figure \ref{mnist_misclassified} shows the column of class three. The images are showing the real numbers, which were classified as class three. Apparently the algorithms has problems to distinguish threes and fives. Probably because the lower part of these numbers are very similar. The reason for both falsely determined ones could be that they are untypical ones. The first one is very bold and the other is a bit rotated.
+Figure \ref{mnist_misclassified} shows the column of predicted class three. The images are showing the real numbers, which have been misclassified as class three. Apparently the algorithms has problems to distinguish threes and fives. Probably because the lower part of these numbers are very similar. The reason for both falsely determined ones could be that they are untypical ones. The first one is very bold and the other is a bit rotated.
 
 \clearpage
 \section{SVM with Gradient Descent}

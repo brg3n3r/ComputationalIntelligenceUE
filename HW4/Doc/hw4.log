@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.22)  8 JUN 2020 18:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.22)  9 JUN 2020 11:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -592,44 +592,82 @@ multiple pdfs with page group included in a single page
 >] [8
 
 ]
-<./Figures/4_error.pdf, id=450, 462.52798pt x 344.0052pt>
+<./Figures/3a_score.pdf, id=450, 722.7pt x 502.99919pt>
+File: ./Figures/3a_score.pdf Graphic file (type pdf)
+<use ./Figures/3a_score.pdf>
+Package pdftex.def Info: ./Figures/3a_score.pdf  used on input line 229.
+(pdftex.def)             Requested size: 341.43437pt x 237.63766pt.
+<./Figures/3b_confusionmatrix.pdf, id=451, 447.35129pt x 299.92049pt>
+File: ./Figures/3b_confusionmatrix.pdf Graphic file (type pdf)
+<use ./Figures/3b_confusionmatrix.pdf>
+Package pdftex.def Info: ./Figures/3b_confusionmatrix.pdf  used on input line 2
+51.
+(pdftex.def)             Requested size: 213.39568pt x 143.06778pt.
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 251--251
+ [][] 
+ []
+
+File: ./Figures/3b_confusionmatrix.pdf Graphic file (type pdf)
+<use ./Figures/3b_confusionmatrix.pdf>
+Package pdftex.def Info: ./Figures/3b_confusionmatrix.pdf  used on input line 2
+51.
+(pdftex.def)             Requested size: 213.39568pt x 143.06778pt.
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 251--251
+ [][] 
+ []
+
+[9 <./Figures/3a_score.pdf> <./Figures/3b_confusionmatrix.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Figures/3b_confusionmatrix.pdf): PDF inclu
+sion: multiple pdfs with page group included in a single page
+>]
+<./Figures/3b_misclassifieditems.pdf, id=537, 462.52798pt x 344.0052pt>
+File: ./Figures/3b_misclassifieditems.pdf Graphic file (type pdf)
+<use ./Figures/3b_misclassifieditems.pdf>
+Package pdftex.def Info: ./Figures/3b_misclassifieditems.pdf  used on input lin
+e 276.
+(pdftex.def)             Requested size: 426.79135pt x 107.39702pt.
+ [10 <./Figures/3b_misclassifieditems.pdf>]
+<./Figures/4_error.pdf, id=581, 462.52798pt x 344.0052pt>
 File: ./Figures/4_error.pdf Graphic file (type pdf)
 <use ./Figures/4_error.pdf>
-Package pdftex.def Info: ./Figures/4_error.pdf  used on input line 245.
+Package pdftex.def Info: ./Figures/4_error.pdf  used on input line 303.
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
 
-Overfull \hbox (2.21996pt too wide) in paragraph at lines 245--245
+Overfull \hbox (2.21996pt too wide) in paragraph at lines 303--303
 []$[]$ $[]$ 
  []
 
 File: ./Figures/1a_bound.pdf Graphic file (type pdf)
 <use ./Figures/1a_bound.pdf>
-Package pdftex.def Info: ./Figures/1a_bound.pdf  used on input line 258.
+Package pdftex.def Info: ./Figures/1a_bound.pdf  used on input line 316.
 (pdftex.def)             Requested size: 298.75264pt x 295.76945pt.
-<./Figures/4_bound.pdf, id=451, 722.7pt x 715.47299pt>
+<./Figures/4_bound.pdf, id=582, 722.7pt x 715.47299pt>
 File: ./Figures/4_bound.pdf Graphic file (type pdf)
 <use ./Figures/4_bound.pdf>
-Package pdftex.def Info: ./Figures/4_bound.pdf  used on input line 263.
+Package pdftex.def Info: ./Figures/4_bound.pdf  used on input line 321.
 (pdftex.def)             Requested size: 298.75264pt x 295.76945pt.
-[9
+[11
 
  <./Figures/4_error.pdf>]
 
-LaTeX Warning: Text page 10 contains only floats.
+LaTeX Warning: Text page 12 contains only floats.
 
 
 Overfull \vbox (0.20859pt too high) has occurred while \output is active []
 
 
-[10 <./Figures/4_bound.pdf>] (./hw4.aux) ) 
+[12 <./Figures/4_bound.pdf>] (./hw4.aux) ) 
 Here is how much of TeX's memory you used:
- 6254 strings out of 492616
- 92642 string characters out of 6132768
- 174025 words of memory out of 5000000
- 9979 multiletter control sequences out of 15000+600000
+ 6274 strings out of 492616
+ 93293 string characters out of 6132768
+ 174055 words of memory out of 5000000
+ 9996 multiletter control sequences out of 15000+600000
  35681 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,19n,44p,798b,575s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,19n,51p,782b,575s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2018/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmbx12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
@@ -642,10 +680,10 @@ dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts
 lic/amsfonts/cm/cmr9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols
 /msbm10.pfb>
-Output written on hw4.pdf (11 pages, 839332 bytes).
+Output written on hw4.pdf (13 pages, 882287 bytes).
 PDF statistics:
- 550 PDF objects out of 1000 (max. 8388607)
- 144 compressed objects within 2 object streams
+ 681 PDF objects out of 1000 (max. 8388607)
+ 179 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 97 words of extra memory for PDF output out of 10000 (max. 10000000)
 
