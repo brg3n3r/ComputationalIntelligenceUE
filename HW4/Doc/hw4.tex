@@ -220,8 +220,6 @@ SVMs are fundamentally two-class classifier. We can use different approaches to 
 The 'One vs. Rest' algorithm compares the to be determined class (positive) with the rest of the dataset (negative). During the scoring phase the algorithm determines the probability for each class of a sample using the binary classifiers.\\
 'One vs. All' creates $K(K-1)/2$ classifiers, which means that we use all possible pairs of classes. Each binary classifiers predicts one class. For classification the class with the highest number of predictions will be chosen. That algorithm requires in comparison to the 'One vs. Rest approach' much more time to get trained and to classify.
 
-\newpage
-
 \subsection{Classification using linear and RBF}
 
 \begin{figure}[!ht]
