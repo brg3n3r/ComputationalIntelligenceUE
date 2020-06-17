@@ -33,13 +33,13 @@ def main():
     nr_components = 3
 
     #TODO set parameters
-    #tol = ...  # tolerance
-    #max_iter = ...  # maximum iterations for GN
+    tol = 1  # tolerance
+    max_iter = 1  # maximum iterations for GN
     #nr_components = ... #n number of components
 
     #TODO: implement
-    #(alpha_0, mean_0, cov_0) = init_EM(dimension = dim, nr_components= nr_components, scenario=scenario)
-    #... = EM(x_2dim,nr_components, alpha_0, mean_0, cov_0, max_iter, tol)
+    (alpha_0, mean_0, cov_0) = init_EM(dimension = dim, nr_components= nr_components, scenario=scenario)
+    EM(x_2dim, nr_components, alpha_0, mean_0, cov_0, max_iter, tol)
     #initial_centers = init_k_means(dimension = dim, nr_cluster=nr_components, scenario=scenario)
     #... = k_means(x_2dim, nr_components, initial_centers, max_iter, tol)
 
@@ -75,7 +75,7 @@ def main():
 
     #TODO set parameters
     #tol = ...  # tolerance
-    #max_iter = ...  # maximum iterations for GN
+    #max_iter =   # maximum iterations for GN
     #nr_components = ... #n number of components
 
     #TODO: implement
@@ -102,8 +102,15 @@ def init_EM(dimension=2,nr_components=3, scenario=None, X=None):
         alpha_0... initial weight of each component, 1 x nr_components
         mean_0 ... initial mean values, D x nr_components
         cov_0 ...  initial covariance for each component, D x D x nr_components"""
-    # TODO choose suitable initial values for each scenario
-    pass
+
+    alpha_0 = np.random.rand(1, nr_components)
+    mean_0 = np.random.rand(dimension, nr_components)
+    cov_0 = np.empty((nr_components, dimension, dimension))
+    for component in range(nr_components):
+        cov_0[component,:,:] = np.identity(dimension)
+    print(cov_0)    
+    return alpha_0, mean_0, cov_0
+
 #--------------------------------------------------------------------------------
 def EM(X,K,alpha_0,mean_0,cov_0, max_iter, tol):
     """ perform the EM-algorithm in order to optimize the parameters of a GMM
@@ -124,8 +131,22 @@ def EM(X,K,alpha_0,mean_0,cov_0, max_iter, tol):
     D = X.shape[1]
     assert D == mean_0.shape[0]
     #TODO: iteratively compute the posterior and update the parameters
+    
+    nr_samples = np.size(X, axis=0)
 
+    for iteration in range(max_iter):
+        
+        r = np.empty((0, nr_samples))
+
+        for component in range(K):
+
+            r = np.concatenate((r, (alpha_0[:,component] * likelihood_multivariate_normal(
+                X, mean_0[:,component], cov_0[component,:,:])).reshape(1, nr_samples)), axis=0)
+
+        r = r / np.sum(r, axis=0)
+            
     #TODO: classify all samples after convergence
+    print("O")
     pass
 #--------------------------------------------------------------------------------
 def init_k_means(dimension=None, nr_clusters=None, scenario=None, X=None):
