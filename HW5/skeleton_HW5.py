@@ -33,18 +33,22 @@ def main():
     nr_components = 3
 
     #TODO set parameters
-    tol = 1  # tolerance
-    max_iter = 1  # maximum iterations for GN
+    tol = 1E-6  # tolerance
+    max_iter = 100  # maximum iterations for GN
     #nr_components = ... #n number of components
 
     #TODO: implement
     (alpha_0, mean_0, cov_0) = init_EM(dimension = dim, nr_components= nr_components, scenario=scenario)
-    EM(x_2dim, nr_components, alpha_0, mean_0, cov_0, max_iter, tol)
+    alpha, mean, cov, log_likelihood, labels = EM(x_2dim, nr_components, alpha_0, mean_0, cov_0, max_iter, tol)
     #initial_centers = init_k_means(dimension = dim, nr_cluster=nr_components, scenario=scenario)
     #... = k_means(x_2dim, nr_components, initial_centers, max_iter, tol)
 
     #TODO visualize your results
-
+    plt.figure()
+    plot_iris_data(x_2dim,labels, feature_names[0], feature_names[2], "Iris Dataset")
+    for component in range(nr_components):
+        plot_gauss_contour(mean[component,:],cov[component,:,:],4, 8.5 , 0, 8, np.size(data, axis=0), '2Dim GMM')
+    plt.show()
 
     #------------------------
     # 2) Consider 4-dimensional data and evaluate the EM- and the KMeans- Algorithm
@@ -105,10 +109,10 @@ def init_EM(dimension=2,nr_components=3, scenario=None, X=None):
 
     alpha_0 = np.random.rand(1, nr_components)
     mean_0 = np.random.rand(dimension, nr_components)
-    cov_0 = np.empty((nr_components, dimension, dimension))
+    cov_0 = np.empty((dimension, dimension, nr_components))
     for component in range(nr_components):
-        cov_0[component,:,:] = np.identity(dimension)
-    print(cov_0)    
+        cov_0[:,:,component] = np.identity(dimension)
+        
     return alpha_0, mean_0, cov_0
 
 #--------------------------------------------------------------------------------
@@ -133,21 +137,40 @@ def EM(X,K,alpha_0,mean_0,cov_0, max_iter, tol):
     #TODO: iteratively compute the posterior and update the parameters
     
     nr_samples = np.size(X, axis=0)
+    
+    mean = mean_0
+    cov = cov_0
+    alpha = alpha_0
+    log_likelihood = np.zeros((max_iter+1,1))
 
     for iteration in range(max_iter):
-        
         r = np.empty((0, nr_samples))
-
         for component in range(K):
-
-            r = np.concatenate((r, (alpha_0[:,component] * likelihood_multivariate_normal(
-                X, mean_0[:,component], cov_0[component,:,:])).reshape(1, nr_samples)), axis=0)
-
+            r = np.concatenate((r, (alpha[:,component] * likelihood_multivariate_normal(
+                X, mean[:,component], cov[:,:,component])).reshape(1, nr_samples)), axis=0)
         r = r / np.sum(r, axis=0)
-            
+        
+        mean = (1/np.sum(r, axis=1).reshape(K,1) * r@X).T
+        
+        for component in range(K):
+            cov[:,:,component] = 1/np.sum(r[component,:]) * (r[component,:].reshape(nr_samples,1)*(X-mean[:,component])).T @ (X-mean[:,component])
+        
+        alpha = (np.sum(r, axis=1) / nr_samples).reshape(1,K)
+        
+        likelihood_current = np.empty((0, nr_samples))
+        for component in range(K):
+            likelihood_current = np.concatenate((likelihood_current, (alpha[:,component] * likelihood_multivariate_normal(
+                X, mean[:,component], cov[:,:,component])).reshape(1, nr_samples)), axis=0)
+        log_likelihood[iteration+1] = np.sum(np.log(np.sum(likelihood_current, axis=0)), axis=0)
+        
+        log_likelihood_diff = np.diff(log_likelihood, axis=0)
+        if abs(log_likelihood_diff[iteration]) <= tol:
+            break
+        
     #TODO: classify all samples after convergence
-    print("O")
-    pass
+    labels = np.argmax(r, axis=0).reshape(nr_samples,1)
+    
+    return alpha, mean, cov, log_likelihood[1:], labels
 #--------------------------------------------------------------------------------
 def init_k_means(dimension=None, nr_clusters=None, scenario=None, X=None):
     """ initializes the k_means algorithm
@@ -276,7 +299,7 @@ def plot_gauss_contour(mu,cov,xmin,xmax,ymin,ymax,nr_points,title="Title"):
     plt.plot([mu[0]],[mu[1]],'r+') # plot the mean as a single point
     CS = plt.contour(X, Y, Z)
     plt.clabel(CS, inline=1, fontsize=10)
-    plt.show()
+    #plt.show()
     return
 #--------------------------------------------------------------------------------
 def sample_discrete_pmf(X, PM, N):
