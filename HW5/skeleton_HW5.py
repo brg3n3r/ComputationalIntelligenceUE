@@ -17,7 +17,7 @@ def main():
     data, labels, feature_names = load_iris_data()
 
     ## (b) construct the datasets
-    x_2dim = data[:, [0,2]]
+    x_2dim = data[:,[0,2]]
     x_4dim = data
 
     #TODO: implement PCA
@@ -28,83 +28,146 @@ def main():
     plot_iris_data(x_2dim,labels, feature_names[0], feature_names[2], "Iris Dataset")
     plt.show()
 
-    algorithm = 1 #0: EM, 1: K-means
-
-    #------------------------
-    # 1) Consider a 2-dim slice of the data and evaluate the EM- and the KMeans- Algorithm
-    scenario = 1
-    dim = 2
-
-    #TODO set parameters
-    tol = 0.1  # tolerance
-    max_iter = 50  # maximum iterations for GN    
-    nr_components_list = range(2,5)
-
-    for nr_components in nr_components_list:
-        
-        if algorithm == 0:
-            alpha_0, mean_0, cov_0 = init_EM(dimension = dim, nr_components= nr_components, scenario=scenario, X=x_2dim)
-            alpha, mean, cov, log_likelihood, labels = EM(x_2dim, nr_components, alpha_0, mean_0, cov_0, max_iter, tol, feature_names)
-        
-            plt.figure()
-            plt.scatter(x_2dim[:,0],x_2dim[:,1])
-            for component in range(nr_components):
-                plot_gauss_contour(mean[:,component], cov[:,:,component], 4.1, 8.1, 0.7, 7.2, np.size(data, axis=0))
-            # plt.scatter(mean_0[0,:],mean_0[1,:], marker='x')
-            plt.xlabel(feature_names[0])
-            plt.ylabel(feature_names[2])
-            plt.title(f'EM with K={nr_components}')
-            plt.show()
-            
-            plt.figure()
-            plt.plot(log_likelihood)
-            plt.xlabel('iterations')
-            plt.ylabel('log-likelihood')
-            plt.title(f'EM with K={nr_components}')
-            #print(log_likelihood[-1])
+    algorithm = 1 #1: EM, 2: K-means
+    scenario = 1 #1: 2 features, 2: 4 features
+    diagonal = False
     
-        elif algorithm == 1:
-            initial_centers = init_k_means(dimension = dim, nr_clusters=nr_components, scenario=scenario, X=x_2dim)
-            centers, cumulative_distance, labels = k_means(x_2dim, nr_components, initial_centers, max_iter, tol)
+    legend_cluster = ["Cluster 1", "Cluster 1 - mean", "Cluster 2", "Cluster 2 - mean", "Cluster 3", "Cluster 3 - mean", "Cluster 4", "Cluster 4 - mean"]
+    legend_labels = ["Iris-Setosa","Iris-Setosa - mean","Iris-Versicolor","Iris-Versicolor - mean","Iris-Virginica","Iris-Virginica - mean"]
+
+    if scenario == 1:
+        #------------------------
+        # 1) Consider a 2-dim slice of the data and evaluate the EM- and the KMeans- Algorithm
+        dim = 2
+    
+        # set parameters
+        tol = 0.1  # tolerance
+        max_iter = 50  # maximum iterations for GN    
+        nr_components_list = range(2,5)
+    
+        for nr_components in nr_components_list:
             
-            plt.figure()
-            for cluster in range(nr_components):
-                plt.scatter(x_2dim[cluster==labels,0], x_2dim[cluster==labels,1], facecolors='none', edgecolors='C'+str(cluster), marker='o')
-                plt.scatter(centers[0,cluster], centers[1,cluster], c='C'+str(cluster), marker='o', s=50)
-            plt.xlabel(feature_names[0])
-            plt.ylabel(feature_names[2])
-            plt.title(f'K-means with K={nr_components}')
+            if algorithm == 1:
+                alpha_0, mean_0, cov_0 = init_EM(dimension = dim, nr_components= nr_components, scenario=scenario, X=x_2dim)
+                alpha, mean, cov, log_likelihood, labels_pred = EM(x_2dim, nr_components, alpha_0, mean_0, cov_0, max_iter, tol, feature_names)
+            
+                plt.figure()
+                for component in range(nr_components):
+                    plt.scatter(x_2dim[component==labels_pred,0],x_2dim[component==labels_pred,1],color='C'+str(component))
+                    plot_gauss_contour(mean[:,component], cov[:,:,component], 4.1, 8.1, 0.7, 7.2, np.size(data,axis=0), cluster=component)
+                if nr_components == 3:
+                    plt.legend((legend_labels[::2]))
+                else:
+                    plt.legend((legend_cluster[:2*nr_components:2]))
+                plt.xlabel(feature_names[0])
+                plt.ylabel(feature_names[2])
+                plt.title(f'EM with K={nr_components}')
+                plt.show()
+                
+                plt.figure()
+                plt.plot(log_likelihood)
+                plt.xlabel('iterations')
+                plt.ylabel('log-likelihood')
+                plt.title(f'EM with K={nr_components}')
+                plt.show()
+                #print(log_likelihood[-1])
+        
+            elif algorithm == 2:
+                initial_centers = init_k_means(dimension = dim, nr_clusters=nr_components, scenario=scenario, X=x_2dim)
+                centers, cumulative_distance, labels_pred = k_means(x_2dim, nr_components, initial_centers, max_iter, tol, feature_names)
+                
+                plt.figure()
+                for cluster in range(nr_components):
+                    plt.scatter(x_2dim[cluster==labels_pred,0], x_2dim[cluster==labels_pred,1], facecolors='none', edgecolors='C'+str(cluster), marker='o')
+                    plt.scatter(centers[0,cluster], centers[1,cluster], c='C'+str(cluster), marker='o', s=50)
+                if nr_components == 3:
+                    plt.legend((legend_labels))
+                else:
+                    plt.legend((legend_cluster[:2*nr_components]))
+                plt.xlabel(feature_names[0])
+                plt.ylabel(feature_names[2])
+                plt.title(f'K-means with K={nr_components}')
+                plt.show()
+                
+                plt.figure()
+                plt.plot(cumulative_distance)
+                plt.xlabel('iterations')
+                plt.ylabel('cumulative distance')
+                plt.title(f'K-means with K={nr_components}')
+                plt.show()
+                #print(cumulative_distance[-1])
+            
             if nr_components == 3:
-                label_order = reassign_class_labels(labels)
-                label_names = ["Iris-Setosa", "Iris-Versicolor", "Iris-Virginica"]
-                plt.legend((label_names[label_order[0]],label_names[label_order[0]]+" mean",label_names[label_order[1]],label_names[label_order[1]]+" mean",label_names[label_order[2]],label_names[label_order[2]]+" mean"))
-            plt.show()
+                accuracy = score(labels, labels_pred)
+                print(f'Accuracy (K=3): {accuracy*100}%')
+                
+        
+                
+    
+    elif scenario == 2: 
+        #------------------------
+        # 2) Consider 4-dimensional data and evaluate the EM- and the KMeans- Algorithm
+        dim = 4
+        
+        tol = 0.1  # tolerance
+        max_iter = 50  # maximum iterations for GN    
+        nr_components_list = range(2,5)
+    
+        for nr_components in nr_components_list:
             
-            plt.figure()
-            plt.plot(cumulative_distance)
-            plt.xlabel('iterations')
-            plt.ylabel('cumulative distance')
-            plt.title(f'K-means with K={nr_components}')
-            #print(cumulative_distance[-1])
-
-    #------------------------
-    # 2) Consider 4-dimensional data and evaluate the EM- and the KMeans- Algorithm
-    scenario = 2
-    dim = 4
-    nr_components = 3
-
-    #TODO set parameters
-    #tol = ...  # tolerance
-    #max_iter = ...  # maximum iterations for GN
-    #nr_components = ... #n number of components
-
-    #TODO: implement
-    #(alpha_0, mean_0, cov_0) = init_EM(dimension = dim, nr_components= nr_components, scenario=scenario)
-    #... = EM(x_2dim, nr_components, alpha_0, mean_0, cov_0, max_iter, tol)
-    #initial_centers = init_k_means(dimension = dim, nr_cluster=nr_components, scenario=scenario)
-    #... = k_means(x_2dim,nr_components, initial_centers, max_iter, tol)
-
-    #TODO: visualize your results by looking at the same slice as in 1)
+            if algorithm == 1:
+                alpha_0, mean_0, cov_0 = init_EM(dimension = dim, nr_components= nr_components, scenario=scenario, X=x_4dim)
+                alpha, mean, cov, log_likelihood, labels_pred = EM(x_4dim, nr_components, alpha_0, mean_0, cov_0, max_iter, tol, feature_names, diagonal)
+                    
+                plt.figure()
+                for component in range(nr_components):
+                    plt.scatter(x_4dim[component==labels_pred,0],x_4dim[component==labels_pred,2],color='C'+str(component))
+                    plot_gauss_contour(mean[[0,2],component], cov[[0,2],[0,2],component], 4.1, 8.1, 0.7, 7.2, np.size(data, axis=0),cluster=component)
+                if nr_components == 3:
+                    plt.legend((legend_labels[::2]))
+                else:
+                    plt.legend((legend_cluster[:2*nr_components:2]))
+                plt.xlabel(feature_names[0])
+                plt.ylabel(feature_names[2])
+                plt.title(f'EM with K={nr_components}')
+                plt.show()
+                
+                plt.figure()
+                plt.plot(log_likelihood)
+                plt.xlabel('iterations')
+                plt.ylabel('log-likelihood')
+                plt.title(f'EM with K={nr_components}')
+                plt.show()
+                #print(log_likelihood[-1])
+        
+            elif algorithm == 2:
+                initial_centers = init_k_means(dimension = dim, nr_clusters=nr_components, scenario=scenario, X=x_4dim)
+                centers, cumulative_distance, labels_pred = k_means(x_4dim, nr_components, initial_centers, max_iter, tol, feature_names)
+                                
+                plt.figure()
+                for cluster in range(nr_components):
+                    plt.scatter(x_4dim[cluster==labels_pred,0], x_4dim[cluster==labels_pred,2], facecolors='none', edgecolors='C'+str(cluster), marker='o')
+                    plt.scatter(centers[0,cluster], centers[2,cluster], c='C'+str(cluster), marker='o', s=50)
+                if nr_components == 3:
+                    plt.legend((legend_labels))
+                else:
+                    plt.legend((legend_cluster[:2*nr_components]))
+                plt.xlabel(feature_names[0])
+                plt.ylabel(feature_names[2])
+                plt.title(f'K-means with K={nr_components}')
+                plt.show()
+                
+                plt.figure()
+                plt.plot(cumulative_distance)
+                plt.xlabel('iterations')
+                plt.ylabel('cumulative distance')
+                plt.title(f'K-means with K={nr_components}')
+                plt.show()
+                #print(cumulative_distance[-1])
+                
+            if nr_components == 3:
+                accuracy = score(labels, labels_pred)
+                print(f'Accuracy (K=3): {accuracy*100}%')
 
 
     #------------------------
@@ -132,6 +195,37 @@ def main():
 
 #--------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------
+    
+def score(y, y_pred):
+    """ computes accuracy achieved on classification
+    Input:
+        y... true labels, nr_samples x 1
+        y_pred... predicted labels, nr_samples x 1
+    Returns:
+        score... accuracy"""
+        
+    score = np.sum(y == y_pred) / y.shape[0]
+    
+    return score
+
+def rearrange_labels(y_pred, order):
+    """ assigns correct labels to classification results
+    Input:
+        y_pred... predicted labels, nr_samples x 1
+        order... label translation table, 3 x 1
+    Output:
+        y_pred_new... translated predicted labels, nr_samples x 1
+        new_order... order in which the labels were rearranged, 3 x 1"""
+        
+    y_pred_new = np.zeros((y_pred.shape))
+    new_order = np.empty((1,0))
+    for class_name in range(3):
+        y_pred_new[y_pred == class_name] = order[class_name]
+        new_order = np.concatenate((new_order,np.array(np.where(order==class_name))),axis=1)
+    new_order = new_order.astype(int).reshape(3)
+    
+    return y_pred_new, new_order
+
 def init_EM(dimension=2,nr_components=3, scenario=None, X=None):
     """ initializes the EM algorithm
     Input:
@@ -151,9 +245,17 @@ def init_EM(dimension=2,nr_components=3, scenario=None, X=None):
     nr_samples = np.size(X, axis=0)
     rand_samples = np.random.randint(0, nr_samples, size=nr_components)
     if nr_components == 3:
-        print(f'Start-Mean Samples: {rand_samples}')
+        #good starting samples:
+        #2Dim:
         #rand_samples = [8, 69, 136]
-        #rand_samples = [67, 73, 123] # needs more iterations
+        #rand_samples = [67, 73, 123]
+        
+        #4Dim:
+        #rand_samples = [115  60  34]
+        #rand_samples = [81 58 67]
+        #rand_samples = [ 91 132 136]
+        
+        print(f'Samples used for initial mean (K=3): {rand_samples}')
     mean_0 = X[rand_samples,:].T
     
     cov_0 = np.empty((dimension, dimension, nr_components))
@@ -163,7 +265,7 @@ def init_EM(dimension=2,nr_components=3, scenario=None, X=None):
     return alpha_0, mean_0, cov_0
 
 #--------------------------------------------------------------------------------
-def EM(X,K,alpha_0,mean_0,cov_0, max_iter, tol, feature_names):
+def EM(X,K,alpha_0,mean_0,cov_0, max_iter, tol, feature_names, diagonal=False):
     """ perform the EM-algorithm in order to optimize the parameters of a GMM
     with K components
     Input:
@@ -181,12 +283,19 @@ def EM(X,K,alpha_0,mean_0,cov_0, max_iter, tol, feature_names):
     # compute the dimension
     D = X.shape[1]
     assert D == mean_0.shape[0]
-    #TODO: iteratively compute the posterior and update the parameters
+    
+    if D == 2:
+        plot_dim = [0,1]
+    elif D == 4:
+        plot_dim = [0,2]
     
     nr_samples = np.size(X, axis=0)
     
     mean = mean_0
     cov = cov_0
+    if diagonal == True:
+        for component in range(K): 
+            cov[:,:,component] = np.diag(np.diag(cov[:,:,component]))
     alpha = alpha_0
     log_likelihood = np.zeros((1))
 
@@ -198,20 +307,23 @@ def EM(X,K,alpha_0,mean_0,cov_0, max_iter, tol, feature_names):
         r = r / np.sum(r, axis=0)
         
         labels = np.argmax(r, axis=0)
-        label_order = reassign_class_labels(labels)
         
-        if K == 3 and iteration%5 == 0:
+        if K == 3 and iteration%2 == 0:
+            label_order = reassign_class_labels(labels)
+            labels_sorted, new_order = rearrange_labels(labels, label_order)
+            
             plt.figure()
-            plot_iris_data(X, labels, feature_names[0], feature_names[2], f'EM with K={K} at iteration {iteration}', label_order)
+            plot_iris_data(X[:,plot_dim], labels_sorted, feature_names[0], feature_names[2], f'EM with K={K} at iteration {iteration}')
             plt.show()
         
         mean = (1/np.sum(r, axis=1).reshape(K,1) * r@X).T
         
         for component in range(K):
             cov[:,:,component] = 1/np.sum(r[component,:]) * (r[component,:].reshape(nr_samples,1)*(X-mean[:,component])).T @ (X-mean[:,component])
+            if diagonal == True:
+                cov[:,:,component] = np.diag(np.diag(cov[:,:,component]))
         
         alpha = (np.sum(r, axis=1) / nr_samples).reshape(1,K)
-        #print(alpha)
         
         likelihood_current = np.empty((0, nr_samples))
         for component in range(K):
@@ -221,14 +333,18 @@ def EM(X,K,alpha_0,mean_0,cov_0, max_iter, tol, feature_names):
         
         log_likelihood_diff = np.diff(log_likelihood, axis=0)
         if abs(log_likelihood_diff[iteration]) <= tol:
-            if K == 3:
-                plt.figure()
-                plot_iris_data(X, labels, feature_names[0], feature_names[2], f'EM with K={K} at iteration {iteration}', label_order)
-                # plt.scatter(X[[8, 69, 136],0], X[[8, 69, 136],1])
-                plt.show()
-            print(iteration)
+            
             break
+
+    if K == 3:
+        label_order = reassign_class_labels(labels)
+        labels, new_order = rearrange_labels(labels, label_order)
+        mean = mean[:,new_order]
+        cov = cov[:,:,new_order]
         
+        plt.figure()
+        plot_iris_data(X[:,plot_dim], labels, feature_names[0], feature_names[2], f'EM with K={K} after convergence')
+        plt.show()        
     
     return alpha, mean, cov, log_likelihood[1:], labels
 #--------------------------------------------------------------------------------
@@ -245,13 +361,13 @@ def init_k_means(dimension=None, nr_clusters=None, scenario=None, X=None):
     nr_samples = np.size(X, axis=0)
     rand_samples = np.random.randint(0, nr_samples, size=nr_clusters)
     if nr_clusters == 3:
-        print(f'Start-Mean Samples: {rand_samples}')
         #rand_samples = [8, 69, 136]
+        print(f'Samples used for initial centers (K=3): {rand_samples}')
     initial_centers = X[rand_samples,:].T
     
     return initial_centers
 #--------------------------------------------------------------------------------
-def k_means(X,K, centers_0, max_iter, tol):
+def k_means(X,K, centers_0, max_iter, tol, feature_names):
     """ perform the KMeans-algorithm in order to cluster the data into K clusters
     Input:
         X... samples, nr_samples x dimension (D)
@@ -263,6 +379,12 @@ def k_means(X,K, centers_0, max_iter, tol):
         labels... class labels after performing hard classification, nr_samples x 1"""
     D = X.shape[1]
     assert D == centers_0.shape[0]
+    
+    if D == 2:
+        plot_dim = [0,1]
+    elif D == 4:
+        plot_dim = [0,2]
+    
     nr_samples = np.size(X,axis=0)
     centers = centers_0
     cumulative_distance = np.zeros((1))
@@ -274,10 +396,17 @@ def k_means(X,K, centers_0, max_iter, tol):
             distance = np.concatenate((distance, np.sum((X-centers[:,cluster].T)**2, axis=1).reshape(nr_samples,1)), axis=1)
         labels = np.argmin(distance, axis=1)
         
+        if K == 3:
+            label_order = reassign_class_labels(labels)
+            labels_sorted, new_order = rearrange_labels(labels, label_order)
+            
+            plt.figure()
+            plot_iris_data(X[:,plot_dim], labels_sorted, feature_names[0], feature_names[2], f'K-means with K={K} at iteration {iteration}')
+            plt.show()
+        
         cluster_distance = np.empty((1,0))
         for cluster in range(K):
             centers[:,cluster] = np.mean(X[labels == cluster, :], axis=0)#.reshape(D,1)
-            
             cluster_distance = np.concatenate((cluster_distance, np.sum(np.sum((X[labels==cluster,:]-centers[:,cluster].T)**2, axis=1), axis=0).reshape(1,1)), axis=1)
 
         cumulative_distance = np.concatenate((cumulative_distance, np.sum(cluster_distance).reshape(1)), axis=0)
@@ -288,9 +417,16 @@ def k_means(X,K, centers_0, max_iter, tol):
             for cluster in range(K):
                 distance = np.concatenate((distance, np.sum((X-centers[:,cluster].T)**2, axis=1).reshape(nr_samples,1)), axis=1)
             labels = np.argmin(distance, axis=1)
-            
-            print(iteration)
             break
+        
+    if K == 3:
+        label_order = reassign_class_labels(labels)
+        labels, new_order = rearrange_labels(labels, label_order)
+        centers = centers[:,new_order]
+        
+        plt.figure()
+        plot_iris_data(X[:,plot_dim], labels, feature_names[0], feature_names[2], f'K-means with K={K} after convergence')
+        plt.show()
     
     return centers, cumulative_distance[1:], labels
 #--------------------------------------------------------------------------------
@@ -331,7 +467,7 @@ def load_iris_data():
     Y = iris.target
     return X,Y, iris.feature_names
 #--------------------------------------------------------------------------------
-def plot_iris_data(data, labels, x_axis, y_axis, title, label_order=[0,1,2]):
+def plot_iris_data(data, labels, x_axis, y_axis, title):
     """ plots a 2-dim slice according to the specified labels
     Input:
         data...  samples, 150x2
@@ -340,9 +476,9 @@ def plot_iris_data(data, labels, x_axis, y_axis, title, label_order=[0,1,2]):
         y_axis... label for the y_axis
         title...  title of the plot"""
 
-    plt.scatter(data[labels==label_order[0],0], data[labels==label_order[0],1], label='Iris-Setosa')
-    plt.scatter(data[labels==label_order[1],0], data[labels==label_order[1],1], label='Iris-Versicolor')
-    plt.scatter(data[labels==label_order[2],0], data[labels==label_order[2],1], label='Iris-Virginica')
+    plt.scatter(data[labels==0,0], data[labels==0,1], label='Iris-Setosa')
+    plt.scatter(data[labels==1,0], data[labels==1,1], label='Iris-Versicolor')
+    plt.scatter(data[labels==2,0], data[labels==2,1], label='Iris-Virginica')
     plt.xlabel(x_axis)
     plt.ylabel(y_axis)
     plt.title(title)
@@ -367,7 +503,7 @@ def likelihood_multivariate_normal(X, mean, cov, log=False):
    return P
 
 #--------------------------------------------------------------------------------
-def plot_gauss_contour(mu,cov,xmin,xmax,ymin,ymax,nr_points,title="Title"):
+def plot_gauss_contour(mu,cov,xmin,xmax,ymin,ymax,nr_points,title="Title",cluster=0):
     """ creates a contour plot for a bivariate gaussian distribution with specified parameters
 
     Input:
@@ -389,8 +525,8 @@ def plot_gauss_contour(mu,cov,xmin,xmax,ymin,ymax,nr_points,title="Title"):
     pos = np.dstack((X, Y))
 
     Z = multivariate_normal(mu, cov).pdf(pos)
-    plt.plot([mu[0]],[mu[1]],'r+') # plot the mean as a single point
-    CS = plt.contour(X, Y, Z)
+    plt.plot([mu[0]],[mu[1]],marker='+',color='C'+str(cluster)) # plot the mean as a single point
+    CS = plt.contour(X, Y, Z, colors='C'+str(cluster))
     plt.clabel(CS, inline=1, fontsize=10)
     #plt.show()
     return
@@ -433,6 +569,7 @@ def reassign_class_labels(labels):
     new_labels = np.array([np.argmax(class_assignments[:,0]),
                            np.argmax(class_assignments[:,1]),
                            np.argmax(class_assignments[:,2])])
+
     return new_labels
 #--------------------------------------------------------------------------------
 def sanity_checks():
@@ -474,5 +611,6 @@ def sanity_checks():
 #--------------------------------------------------------------------------------
 if __name__ == '__main__':
     sanity_checks()
+    plt.rcParams['figure.max_open_warning'] = 0
     plt.close('all')
     main()
