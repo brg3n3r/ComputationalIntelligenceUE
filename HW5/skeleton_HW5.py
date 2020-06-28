@@ -29,7 +29,7 @@ def main():
     plt.show()
 
     algorithm = 1 #1: EM, 2: K-means
-    scenario = 1 #1: 2 features, 2: 4 features
+    scenario = 2 #1: 2 features, 2: 4 features
     diagonal = False
     
     legend_cluster = ["Cluster 1", "Cluster 1 - mean", "Cluster 2", "Cluster 2 - mean", "Cluster 3", "Cluster 3 - mean", "Cluster 4", "Cluster 4 - mean"]
@@ -248,12 +248,11 @@ def init_EM(dimension=2,nr_components=3, scenario=None, X=None):
         #good starting samples:
         #2Dim:
         #rand_samples = [8, 69, 136]
-        #rand_samples = [67, 73, 123]
         
         #4Dim:
-        #rand_samples = [115  60  34]
-        #rand_samples = [81 58 67]
-        #rand_samples = [ 91 132 136]
+        #rand_samples = [115, 60, 34]
+        #rand_samples = [81, 58, 67]
+        #rand_samples = [91, 132, 136]
         
         print(f'Samples used for initial mean (K=3): {rand_samples}')
     mean_0 = X[rand_samples,:].T
