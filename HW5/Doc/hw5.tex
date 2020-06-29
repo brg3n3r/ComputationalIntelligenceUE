@@ -71,6 +71,37 @@
 	\label{2_1_EM_cont}
 \end{figure}
 
+Figure \ref{2_1_EM_cont} shows the dataset and classification results with contours of the used Gaussian kernels for $K=2,3$ and $4$ components. The \textit{Setosa}-Cluster is fully identified with all numbers of components. Using only two components \textit{Versicolor} and \textit{Virginica} are combined into a second cluster. With $K=3$ both remaining classes are classified quite well with only \textit{Versicolor}-samples being misclassified as \textit{Virginica} within the class overlap-region. Using four components a third cluster is formed in this region, leading to incorrect classification. The best results are achieved when using the same number of clusters as the number of classes.
+
+\begin{figure}[!ht]
+	\makebox[\textwidth]{
+	\begin{subfigure}{0.6\textwidth}
+	\includegraphics[width=\textwidth]{./Figures/2_1_EM_cont_K3}
+	%\caption{Dataset}
+	\end{subfigure}
+	\begin{subfigure}{0.6\textwidth}
+	\includegraphics[width=\textwidth]{./Figures/2_1_EM_randinit1}
+	%\caption{$K=2$}
+	\end{subfigure}
+	}
+	\makebox[\textwidth]{
+	\begin{subfigure}{0.6\textwidth}
+	\includegraphics[width=\textwidth]{./Figures/2_1_EM_randinit2}
+	%\caption{$K=3$}
+	\end{subfigure}
+	\begin{subfigure}{0.6\textwidth}
+	\includegraphics[width=\textwidth]{./Figures/2_1_EM_randinit3}
+	%\caption{$K=4$}
+	\end{subfigure}
+	}	
+	\caption{Results of EM classification for several random \texttt{mean0} starting samples.}
+	\label{2_1_EM_randinit}
+\end{figure}
+
+\newpage
+
+The parameters $\mathbf{\Theta}_0$ are initialised as specified in the lecture notes for all $K$ clusters: \texttt{alpha0} as $1/K$, \texttt{mean0} as random sample of the dataset (different for each cluster), and \texttt{cov0} as the multivariate covariance of the dataset. Because of the non-convex form of the likelihood as a function of $\mathbf{\Theta}_0$, finding the global maximum depends on the starting point of the optimisation process. With some initialisation values one might only find local maxima instead, even though the log-likelihood function increases monotonically over the iterations (s. figure \ref{2_1_EM_likelihood}). Thus the quality of the classification varies greatly for different \texttt{mean0} starting samples (s. figure \ref{2_1_EM_randinit} for some examples). In some instances one of the cluster weights \texttt{alpha} is even set to zero during the optimisation, resulting in only two classes being recognised.\\
+
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.6\textwidth]{./Figures/2_1_EM_likelihood_K3}
@@ -103,31 +134,8 @@
 	\label{2_1_EM_iter}
 \end{figure}
 
+Figure \ref{2_1_EM_iter} shows the results of the soft-classification done in the E-step during the optimisation process. In the beginning the cluster borders (especially between \textit{Setosa} and \textit{Versicolor}) are random, mostly depending on the samples used to initialise \texttt{mean0}. At iteration 8 the \textit{Setosa}-class is correctly classified. In between iteration 8 and the eventual convergence at iteration 23 only the border between \textit{Versicolor}- and \textit{Virginica}-clusters changes slightly. This is, because the log-likelihood (s. figure \ref{2_1_EM_likelihood}) increases only little after the big jump at iterations 3-5.
 
-\begin{figure}[!ht]
-	\makebox[\textwidth]{
-	\begin{subfigure}{0.6\textwidth}
-	\includegraphics[width=\textwidth]{./Figures/2_1_EM_cont_K3}
-	%\caption{Dataset}
-	\end{subfigure}
-	\begin{subfigure}{0.6\textwidth}
-	\includegraphics[width=\textwidth]{./Figures/2_1_EM_randinit1}
-	%\caption{$K=2$}
-	\end{subfigure}
-	}
-	\makebox[\textwidth]{
-	\begin{subfigure}{0.6\textwidth}
-	\includegraphics[width=\textwidth]{./Figures/2_1_EM_randinit2}
-	%\caption{$K=3$}
-	\end{subfigure}
-	\begin{subfigure}{0.6\textwidth}
-	\includegraphics[width=\textwidth]{./Figures/2_1_EM_randinit3}
-	%\caption{$K=4$}
-	\end{subfigure}
-	}	
-	\caption{Results of EM classification for several random \texttt{mean0} starting samples.}
-	\label{2_1_EM_randinit}
-\end{figure}
 
 \clearpage
 
