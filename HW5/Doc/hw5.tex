@@ -165,6 +165,9 @@
 \label{2_1_Kmeans_distance}
 \end{figure}
 
+The classification using K-means algorithm is also good. But in comparison to the EM-algorithm outliers are more often misclassified. The additional 4th cluster adds another classification area which can be clearly distinguished from all others, since all datapoints are spherically gathered around the mean value.
+The cumulative distance quickly converges after one iteration. 
+ 
 \begin{figure}[!ht]
 	\makebox[\textwidth]{
 	\begin{subfigure}{0.6\textwidth}
@@ -190,7 +193,8 @@
 	\label{2_1_Kmeans_iter}
 \end{figure}
 
-
+The classification results are getting better with more iterations. This makes sense, since the start mean values are randomly initialized and new calculated for each iteration.
+\newpage
 \begin{figure}[!ht]
 	\makebox[\textwidth]{
 	\begin{subfigure}{0.6\textwidth}
@@ -215,6 +219,8 @@
 	\caption{Results of K-means classification for several random \texttt{center0} starting samples.}
 	\label{2_1_Kmeans_randinit}
 \end{figure}
+
+Figure \ref{2_1_Kmeans_randinit} supports our assumption that the algorithm is prone to misclassify outliers. The algorithm also seems to have problems with not clearly separated clusters because a lot data samples were misclassified at the border of "Iris-Versicolor" and "Iris-Virginica".
 
 \clearpage
 
@@ -350,7 +356,9 @@
 	}	
 	\caption{Results of K-means classification with $K=2\dots4$ components.}
 	\label{2_2_Kmeans_scatter}
-\end{figure}
+\end{figure}\\
+
+Using four features the K-mean algorithms becomes less prone to outliers. 
 
 \begin{figure}[!ht]
 \centering
