@@ -254,38 +254,7 @@ Figure \ref{2_1_EM_iter} shows the results of the soft-classification done in th
 	\label{2_2_EM_cont}
 \end{figure}
 
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.6\textwidth]{./Figures/2_2_EM_likelihood_K3}
-\caption{Log-likelihood function over iterations for $K=3$ components.}
-\label{2_2_EM_likelihood}
-\end{figure}
-
-\begin{figure}[!ht]
-	\makebox[\textwidth]{
-	\begin{subfigure}{0.6\textwidth}
-	\includegraphics[width=\textwidth]{./Figures/2_2_EM_iter0}
-	%\caption{Dataset}
-	\end{subfigure}
-	\begin{subfigure}{0.6\textwidth}
-	\includegraphics[width=\textwidth]{./Figures/2_2_EM_iter10}
-	%\caption{$K=2$}
-	\end{subfigure}
-	}
-	\makebox[\textwidth]{
-	\begin{subfigure}{0.6\textwidth}
-	\includegraphics[width=\textwidth]{./Figures/2_2_EM_iter24}
-	%\caption{$K=3$}
-	\end{subfigure}
-	\begin{subfigure}{0.6\textwidth}
-	\includegraphics[width=\textwidth]{./Figures/2_2_EM_converged}
-	%\caption{$K=4$}
-	\end{subfigure}
-	}	
-	\caption{Results of soft-classification done in E-step.}
-	\label{2_2_EM_iter}
-\end{figure}
-
+Applying the EM algorithm to the full dataset with $K=3$ components the accuracy after classification stays roughly the same as in scenario 1 (s. figure \ref{2_2_EM_cont}). Using two components the clusters overlap, making it impossible to distinguish any classes. With four components the \textit{Setosa}-class corresponds to Cluster 4, but the remaining clusters overlap as well. The overlap might also occur, because not the whole feature space is plotted. Classes may appear to be better separable when displaying other features.
 
 \begin{figure}[!ht]
 	\makebox[\textwidth]{
@@ -312,6 +281,42 @@ Figure \ref{2_1_EM_iter} shows the results of the soft-classification done in th
 	\label{2_2_EM_rand_init}
 \end{figure}
 
+Unfortunately the quality of the classification is still strongly dependent on the data samples chosen for \texttt{mean0} (s. figure \ref{2_2_EM_rand_init}).
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.6\textwidth]{./Figures/2_2_EM_likelihood_K3}
+\caption{Log-likelihood function over iterations for $K=3$ components.}
+\label{2_2_EM_likelihood}
+\end{figure}
+
+The optimisation process takes longer to converge as with only two features (s. figure \ref{2_2_EM_likelihood}). Because only two features are plotted one cannot comprehend the cluster-formation due to the soft-classification updates in the E-step (s. figure \ref{2_2_EM_iter}) as easily as in scenario 1.
+
+\begin{figure}[!ht]
+	\makebox[\textwidth]{
+	\begin{subfigure}{0.6\textwidth}
+	\includegraphics[width=\textwidth]{./Figures/2_2_EM_iter0}
+	%\caption{Dataset}
+	\end{subfigure}
+	\begin{subfigure}{0.6\textwidth}
+	\includegraphics[width=\textwidth]{./Figures/2_2_EM_iter10}
+	%\caption{$K=2$}
+	\end{subfigure}
+	}
+	\makebox[\textwidth]{
+	\begin{subfigure}{0.6\textwidth}
+	\includegraphics[width=\textwidth]{./Figures/2_2_EM_iter24}
+	%\caption{$K=3$}
+	\end{subfigure}
+	\begin{subfigure}{0.6\textwidth}
+	\includegraphics[width=\textwidth]{./Figures/2_2_EM_converged}
+	%\caption{$K=4$}
+	\end{subfigure}
+	}	
+	\caption{Results of soft-classification done in E-step.}
+	\label{2_2_EM_iter}
+\end{figure}
+
 \clearpage
 
 \subsection{EM algorithm with diagonal covariance matrices}
@@ -321,15 +326,19 @@ Figure \ref{2_1_EM_iter} shows the results of the soft-classification done in th
 	\begin{subfigure}{0.6\textwidth}
 	\includegraphics[width=\textwidth]{./Figures/2_2_diagonal_contour_K3}
 	\caption{Results of classification}
+		\label{2_2_diagonal_cont}
 	\end{subfigure}
 	\begin{subfigure}{0.6\textwidth}
 	\includegraphics[width=\textwidth]{./Figures/2_2_diagonal_likelihood_K3}
 	\caption{Log-likelihood}
+		\label{2_2_diagonal_likelihood}
 	\end{subfigure}
 	}
 	\caption{Results of EM classification with diagonal covariance matrices.}
 	\label{2_2_diagonal}
 \end{figure}
+
+Confining the structure of the covariance matrices to diagonal matrices sets the covariance between the features to zero. This prevents the Gaussian kernels displayed in figure \ref{2_2_diagonal_cont} from being tilted, which corresponds well with the dataset. While the resulting classification is not quite as accurate as with the very best results using non-diagonal covariance matrices (visible in the overlap region of \textit{Versicolor} and \textit{Virginica}), the quality of the results is not dependent on the initialisation of \texttt{mean0} anymore. Because there are fewer degrees of freedom with only diagonal covariance matrices the algorithm also converges much faster (s. figure \ref{2_2_diagonal_likelihood}).
 
 \clearpage
 
@@ -360,38 +369,7 @@ Figure \ref{2_1_EM_iter} shows the results of the soft-classification done in th
 	\label{2_2_Kmeans_scatter}
 \end{figure}
 
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.6\textwidth]{./Figures/2_2_Kmeans_distance_K3}
-\caption{Cumulative distance function over iterations for $K=3$ components.}
-\label{2_2_Kmeans_distance}
-\end{figure}
-
-\begin{figure}[!ht]
-	\makebox[\textwidth]{
-	\begin{subfigure}{0.6\textwidth}
-	\includegraphics[width=\textwidth]{./Figures/2_2_Kmeans_iter0}
-	%\caption{Dataset}
-	\end{subfigure}
-	\begin{subfigure}{0.6\textwidth}
-	\includegraphics[width=\textwidth]{./Figures/2_2_Kmeans_iter1}
-	%\caption{$K=2$}
-	\end{subfigure}
-	}
-	\makebox[\textwidth]{
-	\begin{subfigure}{0.6\textwidth}
-	\includegraphics[width=\textwidth]{./Figures/2_2_Kmeans_iter2}
-	%\caption{$K=3$}
-	\end{subfigure}
-	\begin{subfigure}{0.6\textwidth}
-	\includegraphics[width=\textwidth]{./Figures/2_2_Kmeans_converged}
-	%\caption{$K=4$}
-	\end{subfigure}
-	}	
-	\caption{Results of hard-classification during optimisation.}
-	\label{2_2_Kmeans_iter}
-\end{figure}
-
+While the classification result with two components using the whole feature set is the same as in scenario 1, the classification using three clusters improves (s. figure \ref{2_2_Kmeans_scatter}). Now \textit{Setosa} is classified correctly and there are fewer misclassified samples on the border between \textit{Versicolor} and \textit{Virginica}. Clustering with four components leads to similar results as in scenario 1 with only a slight shift of the borders between Clusters 2 and 3 (1 and 4 in scenario 1, respectively).
 
 \begin{figure}[!ht]
 	\makebox[\textwidth]{
@@ -416,6 +394,42 @@ Figure \ref{2_1_EM_iter} shows the results of the soft-classification done in th
 	}	
 	\caption{Results of K-means classification for several random \texttt{center0} starting samples.}
 	\label{2_2_Kmeans_randinit}
+\end{figure}
+
+Except for some instances where there were only two clusters found, the quality of the achieved classification results varies only slightly depending on the initialisation of \texttt{center0} - about the same as in scenario 1 (s. figure \ref{2_2_Kmeans_randinit}).
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.6\textwidth]{./Figures/2_2_Kmeans_distance_K3}
+\caption{Cumulative distance function over iterations for $K=3$ components.}
+\label{2_2_Kmeans_distance}
+\end{figure}
+
+The optimisation process converges in the same number of iterations as in scenario 1 (s. \ref{2_2_Kmeans_distance} and \ref{2_1_Kmeans_distance}), much faster than the EM algorithm. One can comprehend the cluster-updates during the optimisation process visualised in figure \ref{2_2_Kmeans_iter}.
+
+\begin{figure}[!ht]
+	\makebox[\textwidth]{
+	\begin{subfigure}{0.6\textwidth}
+	\includegraphics[width=\textwidth]{./Figures/2_2_Kmeans_iter0}
+	%\caption{Dataset}
+	\end{subfigure}
+	\begin{subfigure}{0.6\textwidth}
+	\includegraphics[width=\textwidth]{./Figures/2_2_Kmeans_iter1}
+	%\caption{$K=2$}
+	\end{subfigure}
+	}
+	\makebox[\textwidth]{
+	\begin{subfigure}{0.6\textwidth}
+	\includegraphics[width=\textwidth]{./Figures/2_2_Kmeans_iter2}
+	%\caption{$K=3$}
+	\end{subfigure}
+	\begin{subfigure}{0.6\textwidth}
+	\includegraphics[width=\textwidth]{./Figures/2_2_Kmeans_converged}
+	%\caption{$K=4$}
+	\end{subfigure}
+	}	
+	\caption{Results of hard-classification during optimisation.}
+	\label{2_2_Kmeans_iter}
 \end{figure}
 
 \end{document}}

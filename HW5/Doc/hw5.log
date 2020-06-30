@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.22)  29 JUN 2020 18:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.1.22)  30 JUN 2020 12:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -725,53 +725,53 @@ File: ./Figures/2_2_EM_cont_K4.pdf Graphic file (type pdf)
 <use ./Figures/2_2_EM_cont_K4.pdf>
 Package pdftex.def Info: ./Figures/2_2_EM_cont_K4.pdf  used on input line 252.
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_EM_likelihood_K3.pdf, id=1025, 462.52798pt x 344.0052pt>
+File: ./Figures/2_2_EM_cont_K3.pdf Graphic file (type pdf)
+<use ./Figures/2_2_EM_cont_K3.pdf>
+Package pdftex.def Info: ./Figures/2_2_EM_cont_K3.pdf  used on input line 269.
+(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
+<./Figures/2_2_EM_randinit1.pdf, id=1025, 462.52798pt x 344.0052pt>
+File: ./Figures/2_2_EM_randinit1.pdf Graphic file (type pdf)
+<use ./Figures/2_2_EM_randinit1.pdf>
+Package pdftex.def Info: ./Figures/2_2_EM_randinit1.pdf  used on input line 269
+.
+(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
+<./Figures/2_2_EM_randinit2.pdf, id=1026, 462.52798pt x 344.0052pt>
+File: ./Figures/2_2_EM_randinit2.pdf Graphic file (type pdf)
+<use ./Figures/2_2_EM_randinit2.pdf>
+Package pdftex.def Info: ./Figures/2_2_EM_randinit2.pdf  used on input line 279
+.
+(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
+<./Figures/2_2_EM_randinit3.pdf, id=1027, 462.52798pt x 344.0052pt>
+File: ./Figures/2_2_EM_randinit3.pdf Graphic file (type pdf)
+<use ./Figures/2_2_EM_randinit3.pdf>
+Package pdftex.def Info: ./Figures/2_2_EM_randinit3.pdf  used on input line 279
+.
+(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
+<./Figures/2_2_EM_likelihood_K3.pdf, id=1028, 462.52798pt x 344.0052pt>
 File: ./Figures/2_2_EM_likelihood_K3.pdf Graphic file (type pdf)
 <use ./Figures/2_2_EM_likelihood_K3.pdf>
 Package pdftex.def Info: ./Figures/2_2_EM_likelihood_K3.pdf  used on input line
- 259.
+ 288.
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_EM_iter0.pdf, id=1026, 462.52798pt x 344.0052pt>
+<./Figures/2_2_EM_iter0.pdf, id=1029, 462.52798pt x 344.0052pt>
 File: ./Figures/2_2_EM_iter0.pdf Graphic file (type pdf)
 <use ./Figures/2_2_EM_iter0.pdf>
-Package pdftex.def Info: ./Figures/2_2_EM_iter0.pdf  used on input line 274.
+Package pdftex.def Info: ./Figures/2_2_EM_iter0.pdf  used on input line 305.
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_EM_iter10.pdf, id=1027, 462.52798pt x 344.0052pt>
+<./Figures/2_2_EM_iter10.pdf, id=1030, 462.52798pt x 344.0052pt>
 File: ./Figures/2_2_EM_iter10.pdf Graphic file (type pdf)
 <use ./Figures/2_2_EM_iter10.pdf>
-Package pdftex.def Info: ./Figures/2_2_EM_iter10.pdf  used on input line 274.
+Package pdftex.def Info: ./Figures/2_2_EM_iter10.pdf  used on input line 305.
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_EM_iter24.pdf, id=1028, 462.52798pt x 344.0052pt>
+<./Figures/2_2_EM_iter24.pdf, id=1031, 462.52798pt x 344.0052pt>
 File: ./Figures/2_2_EM_iter24.pdf Graphic file (type pdf)
 <use ./Figures/2_2_EM_iter24.pdf>
-Package pdftex.def Info: ./Figures/2_2_EM_iter24.pdf  used on input line 284.
+Package pdftex.def Info: ./Figures/2_2_EM_iter24.pdf  used on input line 315.
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_EM_converged.pdf, id=1029, 462.52798pt x 344.0052pt>
+<./Figures/2_2_EM_converged.pdf, id=1032, 462.52798pt x 344.0052pt>
 File: ./Figures/2_2_EM_converged.pdf Graphic file (type pdf)
 <use ./Figures/2_2_EM_converged.pdf>
-Package pdftex.def Info: ./Figures/2_2_EM_converged.pdf  used on input line 284
-.
-(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-File: ./Figures/2_2_EM_cont_K3.pdf Graphic file (type pdf)
-<use ./Figures/2_2_EM_cont_K3.pdf>
-Package pdftex.def Info: ./Figures/2_2_EM_cont_K3.pdf  used on input line 300.
-(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_EM_randinit1.pdf, id=1030, 462.52798pt x 344.0052pt>
-File: ./Figures/2_2_EM_randinit1.pdf Graphic file (type pdf)
-<use ./Figures/2_2_EM_randinit1.pdf>
-Package pdftex.def Info: ./Figures/2_2_EM_randinit1.pdf  used on input line 300
-.
-(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_EM_randinit2.pdf, id=1031, 462.52798pt x 344.0052pt>
-File: ./Figures/2_2_EM_randinit2.pdf Graphic file (type pdf)
-<use ./Figures/2_2_EM_randinit2.pdf>
-Package pdftex.def Info: ./Figures/2_2_EM_randinit2.pdf  used on input line 310
-.
-(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_EM_randinit3.pdf, id=1032, 462.52798pt x 344.0052pt>
-File: ./Figures/2_2_EM_randinit3.pdf Graphic file (type pdf)
-<use ./Figures/2_2_EM_randinit3.pdf>
-Package pdftex.def Info: ./Figures/2_2_EM_randinit3.pdf  used on input line 310
+Package pdftex.def Info: ./Figures/2_2_EM_converged.pdf  used on input line 315
 .
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
  [7
@@ -784,11 +784,19 @@ pdfTeX warning: pdflatex.exe (file ./Figures/2_2_EM_cont_K3.pdf): PDF inclusion
 
 pdfTeX warning: pdflatex.exe (file ./Figures/2_2_EM_cont_K4.pdf): PDF inclusion
 : multiple pdfs with page group included in a single page
->] [8 <./Figures/2_2_EM_likelihood_K3.pdf> <./Figures/2_2_EM_iter0.pdf
+>] [8 <./Figures/2_2_EM_randinit1.pdf> <./Figures/2_2_EM_randinit2.pdf
 
-pdfTeX warning: pdflatex.exe (file ./Figures/2_2_EM_iter0.pdf): PDF inclusion: 
-multiple pdfs with page group included in a single page
-> <./Figures/2_2_EM_iter10.pdf
+pdfTeX warning: pdflatex.exe (file ./Figures/2_2_EM_randinit2.pdf): PDF inclusi
+on: multiple pdfs with page group included in a single page
+> <./Figures/2_2_EM_randinit3.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Figures/2_2_EM_randinit3.pdf): PDF inclusi
+on: multiple pdfs with page group included in a single page
+> <./Figures/2_2_EM_likelihood_K3.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Figures/2_2_EM_likelihood_K3.pdf): PDF inc
+lusion: multiple pdfs with page group included in a single page
+>] [9 <./Figures/2_2_EM_iter0.pdf> <./Figures/2_2_EM_iter10.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Figures/2_2_EM_iter10.pdf): PDF inclusion:
  multiple pdfs with page group included in a single page
@@ -800,26 +808,18 @@ pdfTeX warning: pdflatex.exe (file ./Figures/2_2_EM_iter24.pdf): PDF inclusion:
 
 pdfTeX warning: pdflatex.exe (file ./Figures/2_2_EM_converged.pdf): PDF inclusi
 on: multiple pdfs with page group included in a single page
->] [9 <./Figures/2_2_EM_randinit1.pdf> <./Figures/2_2_EM_randinit2.pdf
-
-pdfTeX warning: pdflatex.exe (file ./Figures/2_2_EM_randinit2.pdf): PDF inclusi
-on: multiple pdfs with page group included in a single page
-> <./Figures/2_2_EM_randinit3.pdf
-
-pdfTeX warning: pdflatex.exe (file ./Figures/2_2_EM_randinit3.pdf): PDF inclusi
-on: multiple pdfs with page group included in a single page
 >]
 <./Figures/2_2_diagonal_contour_K3.pdf, id=1516, 462.52798pt x 344.0052pt>
 File: ./Figures/2_2_diagonal_contour_K3.pdf Graphic file (type pdf)
 <use ./Figures/2_2_diagonal_contour_K3.pdf>
 Package pdftex.def Info: ./Figures/2_2_diagonal_contour_K3.pdf  used on input l
-ine 329.
+ine 336.
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
 <./Figures/2_2_diagonal_likelihood_K3.pdf, id=1517, 462.52798pt x 344.0052pt>
 File: ./Figures/2_2_diagonal_likelihood_K3.pdf Graphic file (type pdf)
 <use ./Figures/2_2_diagonal_likelihood_K3.pdf>
 Package pdftex.def Info: ./Figures/2_2_diagonal_likelihood_K3.pdf  used on inpu
-t line 329.
+t line 336.
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
  [10
 
@@ -831,55 +831,78 @@ DF inclusion: multiple pdfs with page group included in a single page
 >]
 File: ./Figures/data.pdf Graphic file (type pdf)
 <use ./Figures/data.pdf>
-Package pdftex.def Info: ./Figures/data.pdf  used on input line 348.
+Package pdftex.def Info: ./Figures/data.pdf  used on input line 357.
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
 <./Figures/2_2_Kmeans_scatter_K2.pdf, id=1603, 462.52798pt x 344.0052pt>
 File: ./Figures/2_2_Kmeans_scatter_K2.pdf Graphic file (type pdf)
 <use ./Figures/2_2_Kmeans_scatter_K2.pdf>
 Package pdftex.def Info: ./Figures/2_2_Kmeans_scatter_K2.pdf  used on input lin
-e 348.
+e 357.
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
 <./Figures/2_2_Kmeans_scatter_K3.pdf, id=1604, 462.52798pt x 344.0052pt>
 File: ./Figures/2_2_Kmeans_scatter_K3.pdf Graphic file (type pdf)
 <use ./Figures/2_2_Kmeans_scatter_K3.pdf>
 Package pdftex.def Info: ./Figures/2_2_Kmeans_scatter_K3.pdf  used on input lin
-e 358.
+e 367.
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
 <./Figures/2_2_Kmeans_scatter_K4.pdf, id=1605, 462.52798pt x 344.0052pt>
 File: ./Figures/2_2_Kmeans_scatter_K4.pdf Graphic file (type pdf)
 <use ./Figures/2_2_Kmeans_scatter_K4.pdf>
 Package pdftex.def Info: ./Figures/2_2_Kmeans_scatter_K4.pdf  used on input lin
-e 358.
+e 367.
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_Kmeans_distance_K3.pdf, id=1606, 462.52798pt x 344.0052pt>
+File: ./Figures/2_2_Kmeans_scatter_K3.pdf Graphic file (type pdf)
+<use ./Figures/2_2_Kmeans_scatter_K3.pdf>
+Package pdftex.def Info: ./Figures/2_2_Kmeans_scatter_K3.pdf  used on input lin
+e 384.
+(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
+<./Figures/2_2_Kmeans_randinit1.pdf, id=1606, 462.52798pt x 344.0052pt>
+File: ./Figures/2_2_Kmeans_randinit1.pdf Graphic file (type pdf)
+<use ./Figures/2_2_Kmeans_randinit1.pdf>
+Package pdftex.def Info: ./Figures/2_2_Kmeans_randinit1.pdf  used on input line
+ 384.
+(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
+<./Figures/2_2_Kmeans_randinit2.pdf, id=1607, 462.52798pt x 344.0052pt>
+File: ./Figures/2_2_Kmeans_randinit2.pdf Graphic file (type pdf)
+<use ./Figures/2_2_Kmeans_randinit2.pdf>
+Package pdftex.def Info: ./Figures/2_2_Kmeans_randinit2.pdf  used on input line
+ 394.
+(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
+<./Figures/2_2_Kmeans_randinit3.pdf, id=1608, 462.52798pt x 344.0052pt>
+File: ./Figures/2_2_Kmeans_randinit3.pdf Graphic file (type pdf)
+<use ./Figures/2_2_Kmeans_randinit3.pdf>
+Package pdftex.def Info: ./Figures/2_2_Kmeans_randinit3.pdf  used on input line
+ 394.
+(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
+<./Figures/2_2_Kmeans_distance_K3.pdf, id=1609, 462.52798pt x 344.0052pt>
 File: ./Figures/2_2_Kmeans_distance_K3.pdf Graphic file (type pdf)
 <use ./Figures/2_2_Kmeans_distance_K3.pdf>
 Package pdftex.def Info: ./Figures/2_2_Kmeans_distance_K3.pdf  used on input li
-ne 365.
+ne 403.
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_Kmeans_iter0.pdf, id=1607, 462.52798pt x 344.0052pt>
+<./Figures/2_2_Kmeans_iter0.pdf, id=1610, 462.52798pt x 344.0052pt>
 File: ./Figures/2_2_Kmeans_iter0.pdf Graphic file (type pdf)
 <use ./Figures/2_2_Kmeans_iter0.pdf>
-Package pdftex.def Info: ./Figures/2_2_Kmeans_iter0.pdf  used on input line 380
+Package pdftex.def Info: ./Figures/2_2_Kmeans_iter0.pdf  used on input line 420
 .
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_Kmeans_iter1.pdf, id=1608, 462.52798pt x 344.0052pt>
+<./Figures/2_2_Kmeans_iter1.pdf, id=1611, 462.52798pt x 344.0052pt>
 File: ./Figures/2_2_Kmeans_iter1.pdf Graphic file (type pdf)
 <use ./Figures/2_2_Kmeans_iter1.pdf>
-Package pdftex.def Info: ./Figures/2_2_Kmeans_iter1.pdf  used on input line 380
+Package pdftex.def Info: ./Figures/2_2_Kmeans_iter1.pdf  used on input line 420
 .
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_Kmeans_iter2.pdf, id=1609, 462.52798pt x 344.0052pt>
+<./Figures/2_2_Kmeans_iter2.pdf, id=1612, 462.52798pt x 344.0052pt>
 File: ./Figures/2_2_Kmeans_iter2.pdf Graphic file (type pdf)
 <use ./Figures/2_2_Kmeans_iter2.pdf>
-Package pdftex.def Info: ./Figures/2_2_Kmeans_iter2.pdf  used on input line 390
+Package pdftex.def Info: ./Figures/2_2_Kmeans_iter2.pdf  used on input line 430
 .
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_Kmeans_converged.pdf, id=1610, 462.52798pt x 344.0052pt>
+<./Figures/2_2_Kmeans_converged.pdf, id=1613, 462.52798pt x 344.0052pt>
 File: ./Figures/2_2_Kmeans_converged.pdf Graphic file (type pdf)
 <use ./Figures/2_2_Kmeans_converged.pdf>
 Package pdftex.def Info: ./Figures/2_2_Kmeans_converged.pdf  used on input line
- 390.
+ 430.
 (pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
  [11
 
@@ -891,35 +914,20 @@ clusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex.exe (file ./Figures/2_2_Kmeans_scatter_K4.pdf): PDF in
 clusion: multiple pdfs with page group included in a single page
+>] [12 <./Figures/2_2_Kmeans_randinit1.pdf> <./Figures/2_2_Kmeans_randinit2.pdf
+
+
+pdfTeX warning: pdflatex.exe (file ./Figures/2_2_Kmeans_randinit2.pdf): PDF inc
+lusion: multiple pdfs with page group included in a single page
+> <./Figures/2_2_Kmeans_randinit3.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Figures/2_2_Kmeans_randinit3.pdf): PDF inc
+lusion: multiple pdfs with page group included in a single page
 > <./Figures/2_2_Kmeans_distance_K3.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Figures/2_2_Kmeans_distance_K3.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
->]
-File: ./Figures/2_2_Kmeans_scatter_K3.pdf Graphic file (type pdf)
-<use ./Figures/2_2_Kmeans_scatter_K3.pdf>
-Package pdftex.def Info: ./Figures/2_2_Kmeans_scatter_K3.pdf  used on input lin
-e 406.
-(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_Kmeans_randinit1.pdf, id=1769, 462.52798pt x 344.0052pt>
-File: ./Figures/2_2_Kmeans_randinit1.pdf Graphic file (type pdf)
-<use ./Figures/2_2_Kmeans_randinit1.pdf>
-Package pdftex.def Info: ./Figures/2_2_Kmeans_randinit1.pdf  used on input line
- 406.
-(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_Kmeans_randinit2.pdf, id=1770, 462.52798pt x 344.0052pt>
-File: ./Figures/2_2_Kmeans_randinit2.pdf Graphic file (type pdf)
-<use ./Figures/2_2_Kmeans_randinit2.pdf>
-Package pdftex.def Info: ./Figures/2_2_Kmeans_randinit2.pdf  used on input line
- 416.
-(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
-<./Figures/2_2_Kmeans_randinit3.pdf, id=1771, 462.52798pt x 344.0052pt>
-File: ./Figures/2_2_Kmeans_randinit3.pdf Graphic file (type pdf)
-<use ./Figures/2_2_Kmeans_randinit3.pdf>
-Package pdftex.def Info: ./Figures/2_2_Kmeans_randinit3.pdf  used on input line
- 416.
-(pdftex.def)             Requested size: 256.07741pt x 190.46846pt.
- [12 <./Figures/2_2_Kmeans_iter0.pdf> <./Figures/2_2_Kmeans_iter1.pdf
+>] [13 <./Figures/2_2_Kmeans_iter0.pdf> <./Figures/2_2_Kmeans_iter1.pdf
 
 pdfTeX warning: pdflatex.exe (file ./Figures/2_2_Kmeans_iter1.pdf): PDF inclusi
 on: multiple pdfs with page group included in a single page
@@ -931,34 +939,28 @@ on: multiple pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex.exe (file ./Figures/2_2_Kmeans_converged.pdf): PDF inc
 lusion: multiple pdfs with page group included in a single page
->] [13 <./Figures/2_2_Kmeans_randinit1.pdf> <./Figures/2_2_Kmeans_randinit2.pdf
+>] (./hw5.aux)
 
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-pdfTeX warning: pdflatex.exe (file ./Figures/2_2_Kmeans_randinit2.pdf): PDF inc
-lusion: multiple pdfs with page group included in a single page
-> <./Figures/2_2_Kmeans_randinit3.pdf
-
-pdfTeX warning: pdflatex.exe (file ./Figures/2_2_Kmeans_randinit3.pdf): PDF inc
-lusion: multiple pdfs with page group included in a single page
->] (./hw5.aux) ) 
+ ) 
 Here is how much of TeX's memory you used:
- 6382 strings out of 492616
- 98952 string characters out of 6132768
- 172006 words of memory out of 5000000
- 10081 multiletter control sequences out of 15000+600000
+ 6386 strings out of 492616
+ 99048 string characters out of 6132768
+ 173046 words of memory out of 5000000
+ 10085 multiletter control sequences out of 15000+600000
  33865 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,9n,44p,980b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
-10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c
-:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive
-/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmti10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
-t10.pfb>
-Output written on hw5.pdf (14 pages, 883699 bytes).
+<c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2018/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2018/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2018/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr7.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.p
+fb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on hw5.pdf (14 pages, 886589 bytes).
 PDF statistics:
  2107 PDF objects out of 2487 (max. 8388607)
  308 compressed objects within 4 object streams
